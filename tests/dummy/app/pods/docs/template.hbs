@@ -1,7 +1,13 @@
 {{#docs-viewer as |viewer|}}
 
   {{#viewer.nav as |nav|}}
-    {{nav.item 'Introduction' 'docs.index'}}
+    {{nav.section 'Context'}}
+
+    {{nav.item 'What is ember-intl-tel-input?' 'docs.index'}}
+    {{nav.item 'Installation' 'docs.installation'}}
+
+    {{nav.section 'Usage'}}
+
     {{nav.item 'Usage' 'docs.usage'}}
   {{/viewer.nav}}
 
@@ -14,42 +20,3 @@
   {{/viewer.main}}
 
 {{/docs-viewer}}
-
-
-{{!-- <main> --}}
-
-{{!--   {{intl-tel-input autoPlaceholder=false}} --}}
-
-{{!--   {{intl-tel-input value="555-5555"}} --}}
-
-{{!--   {{intl-tel-input autoPlaceholder=false value="555-5555"}} --}}
-
-{{!--   {{intl-tel-input --}}
-{{!--   value=value --}}
-{{!--   selectedCountryData=selectedCountryData --}}
-{{!--   number=number --}}
-{{!--   extension=extension --}}
-{{!--   numberType=numberType --}}
-{{!--   isValidNumber=isValidNumber --}}
-{{!--   validationError=validationError}} --}}
-
-{{!--   <dl> --}}
-{{!--     <dt>\{{value}}:</dt> --}}
-{{!--     <dd>{{{if value value '<br>'}}}</dd> --}}
-{{!--     <dt>\{{selectedCountryData.name}}:</dt> --}}
-{{!--     <dd>{{{if selectedCountryData selectedCountryData.name '<br>'}}}</dd> --}}
-{{!--     <dt>\{{selectedCountryData.iso2}}:</dt> --}}
-{{!--     <dd>{{{if selectedCountryData selectedCountryData.iso2 '<br>'}}}</dd> --}}
-{{!--     <dt>\{{selectedCountryData.dialCode}}:</dt> --}}
-{{!--     <dd>{{{if selectedCountryData selectedCountryData.dialCode '<br>'}}}</dd> --}}
-{{!--     <dt>\{{number}}:</dt> --}}
-{{!--     <dd>{{{if number number '<br>'}}}</dd> --}}
-{{!--     <dt>\{{extension}}:</dt> --}}
-{{!--     <dd>{{{if extension extension '<br>'}}}</dd> --}}
-{{!--     <dt>\{{isValidNumber}}:</dt> --}}
-{{!--     <dd>{{{if isValidNumber 'true' 'false'}}}</dd> --}}
-{{!--     <dt>\{{validationError}}:</dt> --}}
-{{!--     <dd>{{{if validationError validationError '<br>'}}}</dd> --}}
-{{!--   </dl> --}}
-
-{{!-- </main> --}}

@@ -1,12 +1,11 @@
 module.exports = {
   root: true,
+  parser: './node_modules/babel-eslint',
   parserOptions: {
     ecmaVersion: 2017,
     sourceType: 'module'
   },
-  plugins: [
-    'ember'
-  ],
+  plugins: ['ember', 'prettier'],
   extends: [
     'eslint:recommended',
     'plugin:ember/recommended'
@@ -15,6 +14,7 @@ module.exports = {
     browser: true
   },
   rules: {
+    'prettier/prettier': 2,
   },
   overrides: [
     // node files

@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 module.exports = function(environment) {
   let ENV = {
@@ -22,7 +22,7 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     }
-  };
+  }
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
@@ -34,21 +34,21 @@ module.exports = function(environment) {
 
   if (environment === 'test') {
     // Testem prefers this...
-    ENV.locationType = 'none';
+    ENV.locationType = 'none'
 
     // keep test console output quieter
-    ENV.APP.LOG_ACTIVE_GENERATION = false;
-    ENV.APP.LOG_VIEW_LOOKUPS = false;
+    ENV.APP.LOG_ACTIVE_GENERATION = false
+    ENV.APP.LOG_VIEW_LOOKUPS = false
 
-    ENV.APP.rootElement = '#ember-testing';
-    ENV.APP.autoboot = false;
+    ENV.APP.rootElement = '#ember-testing'
+    ENV.APP.autoboot = false
   }
 
   if (environment === 'production') {
     // Allow ember-cli-addon-docs to update the rootURL in compiled assets
-    ENV.rootURL = 'ADDON_DOCS_ROOT_URL';
+    ENV.rootURL = 'ADDON_DOCS_ROOT_URL'
     // here you can enable a production-specific feature
   }
 
-  return ENV;
-};
+  return ENV
+}
