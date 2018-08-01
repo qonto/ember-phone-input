@@ -6,21 +6,11 @@ import hbs from 'htmlbars-inline-precompile'
 module('Integration | Component | intl-tel-input', function(hooks) {
   setupRenderingTest(hooks)
 
-  test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+  test('it renders an input of type tel', async function(assert) {
+    assert.expect(1)
 
     await render(hbs`{{intl-tel-input}}`)
 
-    assert.equal(this.element.textContent.trim(), '')
-
-    // Template block usage:
-    await render(hbs`
-      {{#intl-tel-input}}
-        template block text
-      {{/intl-tel-input}}
-    `)
-
-    assert.equal(this.element.textContent.trim(), 'template block text')
+    assert.dom('input').hasAttribute('type', 'tel')
   })
 })

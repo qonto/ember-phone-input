@@ -12,7 +12,6 @@ export default class IntlTelInput extends Component {
 
   /**
    * internationalPhoneNumber
-   * @property {number}
    * @type {string}
    * @default null
    */
