@@ -1,3 +1,1 @@
-export {
-  default
-} from 'ember-intl-tel-input/components/intl-tel-input'
+export { default } from 'ember-intl-tel-input/components/intl-tel-input'

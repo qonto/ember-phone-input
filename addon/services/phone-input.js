@@ -9,7 +9,7 @@ export default class PhoneInputService extends Service {
 
   didLoad = this.didLoad || false
 
-  @reads("config['ember-phone-input'].lazyLoad") lazyLoad: false
+  @reads("config['ember-phone-input'].lazyLoad") lazyLoad
 
   init() {
     super.init(...arguments)
