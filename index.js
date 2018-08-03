@@ -1,19 +1,12 @@
 'use strict'
 
+const Funnel = require('broccoli-funnel')
+
 module.exports = {
   name: 'ember-intl-tel-input',
 
   included(app) {
     this._super.included.apply(this, app)
-
-    // main script
-    app.import('node_modules/intl-tel-input/build/js/intlTelInput.min.js', {
-      destDir: 'assets/ember-phone-input/scripts'
-    })
-    // intlTelInputUtils global
-    app.import('node_modules/intl-tel-input/build/js/utils.js', {
-      destDir: 'assets/ember-phone-input/scripts'
-    })
 
     // images
     app.import('node_modules/intl-tel-input/build/img/flags.png', {
@@ -26,5 +19,13 @@ module.exports = {
     // intlTelInputUtils style
     app.import('node_modules/intl-tel-input/build/css/intlTelInput.min.css')
     app.import('vendor/ember-phone-input.css')
+  },
+
+  treeForPublic() {
+    return new Funnel('node_modules/intl-tel-input', {
+      srcDir: '/build/js',
+      include: ['intlTelInput.min.js', 'utils.js'],
+      destDir: '/assets/ember-phone-input/scripts'
+    })
   }
 }

@@ -43,6 +43,7 @@
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.7.0",
+    "broccoli-funnel": "^2.0.1",
     "ember-cli": "~3.0.0",
     "ember-cli-addon-docs": "git@github.com:ember-learn/ember-cli-addon-docs.git",
     "ember-cli-addon-docs-yuidoc": "^0.2.1",
