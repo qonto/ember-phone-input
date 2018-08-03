@@ -16,10 +16,10 @@ module.exports = {
 
     // images
     app.import('node_modules/intl-tel-input/build/img/flags.png', {
-      destDir: 'assets/images'
+      destDir: 'assets/ember-phone-input/images'
     })
     app.import('node_modules/intl-tel-input/build/img/flags@2x.png', {
-      destDir: 'assets/images'
+      destDir: 'assets/ember-phone-input/images'
     })
 
     // intlTelInputUtils style
