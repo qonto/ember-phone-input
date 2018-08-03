@@ -17,7 +17,7 @@ module.exports = {
     })
 
     // intlTelInputUtils style
-    app.import('node_modules/intl-tel-input/build/css/intlTelInput.min.css')
+    app.import('node_modules/intl-tel-input/build/css/intlTelInput.css')
     app.import('vendor/ember-phone-input.css')
   },
 

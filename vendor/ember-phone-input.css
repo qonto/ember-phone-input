@@ -1,5 +1,5 @@
 .iti-flag {
-  background-image: url('images/ember-phone-input/flags.png');
+  background-image: url('ember-phone-input/images/flags.png');
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2),
@@ -9,6 +9,6 @@
   only screen and (min-resolution: 192dpi),
   only screen and (min-resolution: 2dppx) {
   .iti-flag {
-    background-image: url('images/ember-phone-input/flags@2x.png');
+    background-image: url('ember-phone-input/images/flags@2x.png');
   }
 }
