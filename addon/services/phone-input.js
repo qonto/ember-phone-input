@@ -1,6 +1,5 @@
 import Service from '@ember/service'
 import loadScript from 'ember-intl-tel-input/utils/load-script'
-import RSVP from 'rsvp'
 import { reads } from '@ember-decorators/object/computed'
 import { service } from '@ember-decorators/service'
 
@@ -20,18 +19,16 @@ export default class PhoneInputService extends Service {
   }
 
   load() {
-    const { lazyLoad: shouldLoad } = this
+    const doLoadScript1 = this.didLoad
+      ? Promise.resolve()
+      : loadScript('/assets/ember-phone-input/scripts/intlTelInput.min.js')
 
-    const doLoadScript1 = shouldLoad
-      ? loadScript('/assets/ember-phone-input/scripts/intlTelInput.min.js')
-      : RSVP.resolve()
+    const doLoadScript2 = this.didLoad
+      ? Promise.resolve()
+      : loadScript('/assets/ember-phone-input/scripts/utils.js')
 
-    const doLoadScript2 = shouldLoad
-      ? loadScript('/assets/ember-phone-input/scripts/utils.js')
-      : RSVP.resolve()
-
-    return RSVP.all([doLoadScript1, doLoadScript2]).then(() => {
+    return Promise.all([doLoadScript1, doLoadScript2]).then(() =>
       this.set('didLoad', true)
-    })
+    )
   }
 }
