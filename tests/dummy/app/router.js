@@ -10,6 +10,11 @@ Router.map(function() {
   docsRoute(this, function() {
     this.route('installation')
     this.route('usage')
+    this.route('action-handling')
+
+    this.route('components', function() {
+      this.route('intl-tel-input')
+    })
   })
 
   this.route('not-found', { path: '/*path' })

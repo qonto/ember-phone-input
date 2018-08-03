@@ -1,16 +1,11 @@
-<main>
+<main class='usage'>
   {{intl-tel-input
   initialCountry='fr'
   number=number
   update=(action 'handleUpdate')}}
 
-  <ul>
-    <li>\{{number}}: {{{if number number}}}</li>
-    <li>\{{extension}}: {{{if extension extension}}}</li>
-    <li>\{{selectedCountryData.name}}: {{{if selectedCountryData selectedCountryData.name}}}</li>
-    <li>\{{selectedCountryData.iso2}}: {{{if selectedCountryData selectedCountryData.iso2}}}</li>
-    <li>\{{selectedCountryData.dialCode}}: {{{if selectedCountryData selectedCountryData.dialCode}}}</li>
-    <li>\{{isValidNumber}}: {{{if isValidNumber 'true' 'false'}}}</li>
-    <li>\{{validationError}}: {{{if validationError validationError}}}</li>
-  </ul>
+  <p>The internal phone number you'll want to persist on your backend is <span>\{{number}}: {{number}}</span>.</p>
+
+  <p>In some cases, you may want to persist some additional metadata. The phone extension is available <span>\{{extension}} {{extension}}</span>. Are also available: the selected country name <span>\{{selectedCountryData.name}}: {{selectedCountryData.name}}</span>, the selected country ios2 code <span>\{{selectedCountryData.iso2}}: {{selectedCountryData.iso2}}</span>, the selected country dial code <span>\{{selectedCountryData.dialCode}}: {{selectedCountryData.dialCode}}</span>.</p>
+  <p>You can also get validations infos from the component. Through <span>\{{isValidNumber}}: {{isValidNumber}}</span> you can provide your user with feedback on wether the number if valid or not. And with <span>\{{validationError}}: {{validationError}}</span> you'll get some more info on the kind of error. </p>
 </main>

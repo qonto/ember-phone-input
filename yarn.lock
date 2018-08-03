@@ -1478,7 +1478,7 @@ broccoli-filter@^1.2.2, broccoli-filter@^1.2.3, broccoli-filter@^1.2.4:
     symlink-or-copy "^1.0.1"
     walk-sync "^0.3.1"
 
-broccoli-flatiron@^0.1.3:
+broccoli-flatiron@^0.1.2:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/broccoli-flatiron/-/broccoli-flatiron-0.1.3.tgz#fc7bd8faf7db429ed7199933aa2ec7ef84a8d943"
   dependencies:
@@ -2763,9 +2763,9 @@ ember-cli-addon-docs-yuidoc@^0.2.1:
     lodash "^4.17.5"
     yuidocjs "^0.10.2"
 
-"ember-cli-addon-docs@git+https://github.com/dcyriller/ember-cli-addon-docs.git#ember-code-snippet-upgrade":
+"ember-cli-addon-docs@git@github.com:ember-learn/ember-cli-addon-docs.git":
   version "0.5.0"
-  resolved "git+https://github.com/dcyriller/ember-cli-addon-docs.git#0fcbc1da48e9bec5b29ba85e32dd6d4d503621c0"
+  resolved "https://registry.yarnpkg.com/ember-cli-addon-docs/-/ember-cli-addon-docs-0.5.0.tgz#eff66293a59b6a105387dc13d09c102c988e3f62"
   dependencies:
     "@glimmer/syntax" "^0.30.5"
     broccoli-caching-writer "^3.0.3"
@@ -2784,7 +2784,7 @@ ember-cli-addon-docs-yuidoc@^0.2.1:
     ember-cli-sass "7.1.3"
     ember-cli-string-helpers "^1.7.0"
     ember-cli-tailwind "^0.4.1"
-    ember-code-snippet "git+https://github.com/dcyriller/ember-code-snippet.git#broccoli-flatiron-upgrade"
+    ember-code-snippet "^2.1.0"
     ember-component-css "^0.3.5"
     ember-concurrency "^0.8.16"
     ember-data "^2.18.0"
@@ -3191,11 +3191,11 @@ ember-cli@~3.0.0:
     watch-detector "^0.1.0"
     yam "0.0.22"
 
-"ember-code-snippet@git+https://github.com/dcyriller/ember-code-snippet.git#broccoli-flatiron-upgrade":
+ember-code-snippet@^2.1.0:
   version "2.2.1"
-  resolved "git+https://github.com/dcyriller/ember-code-snippet.git#30d38c79ededb7f7159742e9a9fa2db0b6b630b0"
+  resolved "https://registry.yarnpkg.com/ember-code-snippet/-/ember-code-snippet-2.2.1.tgz#f4ea7091a424de137833b418473b6f3e0a6a1cd7"
   dependencies:
-    broccoli-flatiron "^0.1.3"
+    broccoli-flatiron "^0.1.2"
     broccoli-merge-trees "^1.0.0"
     broccoli-static-compiler "^0.1.4"
     broccoli-writer "^0.1.1"
