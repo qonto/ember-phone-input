@@ -13,12 +13,18 @@ export default class PhoneInputService extends Service {
   init() {
     super.init(...arguments)
 
-    if (!this.lazyLoad) {
+    if (!this.lazyLoad && this.get('config.environment') !== 'test') {
+      // if lazyLoad is disabled, load them now
+      // that is to say at the app boot
       this.load()
     }
   }
 
   load() {
+    const doLoadJquery = window.jQuery
+      ? Promise.resolve()
+      : loadScript('/assets/ember-phone-input/scripts/jquery.min.js')
+
     const doLoadScript1 = this.didLoad
       ? Promise.resolve()
       : loadScript('/assets/ember-phone-input/scripts/intlTelInput.min.js')
@@ -27,8 +33,8 @@ export default class PhoneInputService extends Service {
       ? Promise.resolve()
       : loadScript('/assets/ember-phone-input/scripts/utils.js')
 
-    return Promise.all([doLoadScript1, doLoadScript2]).then(() =>
-      this.set('didLoad', true)
-    )
+    return doLoadJquery
+      .then(Promise.all([doLoadScript1, doLoadScript2]))
+      .then(() => this.set('didLoad', true))
   }
 }
