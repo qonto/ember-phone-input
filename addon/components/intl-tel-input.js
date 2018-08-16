@@ -1,4 +1,9 @@
 /* global intlTelInputUtils */
+
+/**
+ * @module ember-phone-input
+ */
+
 import Component from '@ember/component'
 import { assert } from '@ember/debug'
 import { attribute, tagName } from '@ember-decorators/component'
@@ -6,13 +11,17 @@ import $ from 'jquery'
 
 const PHONE_NUMBER_FORMAT = 'E164' // https://en.wikipedia.org/wiki/E.164
 
+/**
+ * @class PhoneInput
+ */
 @tagName('input')
 export default class IntlTelInput extends Component {
   @attribute type = 'tel'
 
   /**
    * internationalPhoneNumber
-   * @type {string}
+   * @property number
+   * @return {String}
    * @default null
    */
   number = this.number || null
@@ -22,7 +31,9 @@ export default class IntlTelInput extends Component {
    * country. Possible values are "polite", "aggresive" and "off". Defaults to
    * "polite".
    *
-   * @type {string}
+   * @property autoPlaceholder
+   * @return {String}
+   * @default 'polite'
    */
   autoPlaceholder = this.autoPlaceholder || 'polite'
 
@@ -30,7 +41,9 @@ export default class IntlTelInput extends Component {
    * It will just be the first country in the list. Set the initial country by
    * it's country code. Defaults to "".
    *
-   * @type {string}
+   * @property initialCountry
+   * @return {String}
+   * @default ''
    */
   initialCountry = this.initialCountry || ''
 
@@ -38,21 +51,25 @@ export default class IntlTelInput extends Component {
    * Display only the countries you specify -
    * [see example](http://jackocnr.com/lib/intl-tel-input/examples/gen/only-countries-europe.html).
    *
-   * @type Array
+   * @property onlyCountries
+   * @return {Array}
+   * @default undefined
    */
   onlyCountries = this.onlyCountries || undefined
 
   /**
    * Specify the countries to appear at the top of the list.
    *
-   * @type Array
+   * @property preferredCountries
+   * @return {Array}
+   * @default ['us', 'gb']
    */
   preferredCountries = this.preferredCountries || ['us', 'gb']
 
   /**
    * Implement this function to update the value.
    *
-   * @type function
+   * @method update
    */
   update = this.update || function() {}
 
@@ -79,14 +96,16 @@ export default class IntlTelInput extends Component {
      * Get the extension part of the current number, so if the number was
      * "+1 (702) 123-1234 ext. 12345" this would return "12345".
      *
-     * @type String
+     * @property extension
+     * @return {String}
      */
     const extension = $(this.element).intlTelInput('getExtension')
 
     /**
      * Get the country data for the currently selected flag.
      *
-     * @type Object
+     * @property selectedCountryData
+     * @return {Object}
      */
     const selectedCountryData = $(this.element).intlTelInput(
       'getSelectedCountryData'
@@ -95,14 +114,16 @@ export default class IntlTelInput extends Component {
     /**
      * Get the validity of the current `phoneNumber`.
      *
-     * @type Boolean
+     * @property isValidNumber
+     * @return {Boolean}
      */
     const isValidNumber = $(this.element).intlTelInput('isValidNumber')
 
     /**
      * Get the validation errors.
      *
-     * @type String
+     * @property validationError
+     * @return {String}
      */
     const validationError = this._validationError()
 
