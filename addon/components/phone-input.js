@@ -1,8 +1,10 @@
-/* global $, intlTelInputUtils */
+/* global intlTelInputUtils */
 
 import Component from '@ember/component'
 import { assert } from '@ember/debug'
 import { attribute, tagName } from '@ember-decorators/component'
+
+const { $ } = window
 
 const PHONE_NUMBER_FORMAT = 'E164' // https://en.wikipedia.org/wiki/E.164
 

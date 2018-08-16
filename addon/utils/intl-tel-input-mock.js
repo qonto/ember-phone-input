@@ -1,9 +1,9 @@
-let IntlTelInputMock = function() {}
-
-let IntlTelInputUtilsMock = function(publishableKey) {
-  this.publishableKey = publishableKey
+let jQueryMock = function() {
+  return {
+    intlTelInput() {}
+  }
 }
 
-IntlTelInputUtilsMock.prototype.elements = function() {}
+let IntlTelInputUtilsMock = function() {}
 
-export { IntlTelInputMock, IntlTelInputUtilsMock }
+export { jQueryMock, IntlTelInputUtilsMock }
