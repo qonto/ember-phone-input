@@ -80,7 +80,6 @@ export default class PhoneInput extends Component {
     @param {string} metadata.extension The extension part of the current number, so if the number was '+1 (702) 123-1234 ext. 12345' this would return '12345'.
     @param {Object} metadata.selectedCountryData The country data for the currently selected flag.
     @param {boolean} metadata.isValidNumber The validity of the current `phoneNumber`.
-    @param {string} metadata.validationError The validation errors
   */
   update = this.update || function() {}
 
@@ -111,13 +110,10 @@ export default class PhoneInput extends Component {
 
     const isValidNumber = $(this.element).intlTelInput('isValidNumber')
 
-    const validationError = this._validationError()
-
     this.get('update')(internationalPhoneNumber, {
       extension,
       selectedCountryData,
-      isValidNumber,
-      validationError
+      isValidNumber
     })
 
     return true
@@ -149,7 +145,7 @@ export default class PhoneInput extends Component {
 
     const number = this.get('number')
     if (number) {
-      this.$().intlTelInput('setNumber', number)
+      $(this.element).intlTelInput('setNumber', number)
     }
   }
 
@@ -157,16 +153,5 @@ export default class PhoneInput extends Component {
     $(this.element).intlTelInput('destroy')
 
     super.willDestroyElement(...arguments)
-  }
-
-  _validationError() {
-    let errorNumber = $(this.element).intlTelInput('getValidationError')
-    for (let key in intlTelInputUtils.validationError) {
-      if (intlTelInputUtils.validationError[key] === errorNumber) {
-        return key
-      }
-    }
-
-    return null
   }
 }
