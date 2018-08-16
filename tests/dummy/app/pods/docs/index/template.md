@@ -1,1 +1,1 @@
-# What is ember-intl-tel-input?
+# What is ember-phone-input?

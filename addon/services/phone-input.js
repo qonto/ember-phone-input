@@ -1,5 +1,5 @@
 import Service from '@ember/service'
-import loadScript from 'ember-intl-tel-input/utils/load-script'
+import loadScript from 'ember-phone-input/utils/load-script'
 import { reads } from '@ember-decorators/object/computed'
 import { service } from '@ember-decorators/service'
 

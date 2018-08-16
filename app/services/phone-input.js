@@ -1,1 +1,1 @@
-export { default } from 'ember-intl-tel-input/services/phone-input'
+export { default } from 'ember-phone-input/services/phone-input'

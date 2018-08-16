@@ -3,7 +3,7 @@
 const Funnel = require('broccoli-funnel')
 
 module.exports = {
-  name: 'ember-intl-tel-input',
+  name: 'ember-phone-input',
 
   included(app) {
     this._super.included.apply(this, app)

@@ -6,4 +6,4 @@ Data changes that occur in the component are not propagated to the outside using
 
 ## `update` action
 
-{{docs/components/intl-tel-input/action-handling}}
+{{docs/components/phone-input/action-handling}}

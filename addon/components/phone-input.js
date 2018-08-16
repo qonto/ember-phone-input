@@ -23,7 +23,7 @@ const PHONE_NUMBER_FORMAT = 'E164' // https://en.wikipedia.org/wiki/E.164
   @public
 */
 @tagName('input')
-export default class IntlTelInput extends Component {
+export default class PhoneInput extends Component {
   @attribute type = 'tel'
 
   /**

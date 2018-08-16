@@ -1,7 +1,7 @@
 {
-  "name": "ember-intl-tel-input",
+  "name": "ember-phone-input",
   "version": "2.0.0",
-  "description": "An updated fork of ember-intl-tel-input.",
+  "description": "A component to input / validate / submit phone numbers",
   "keywords": [
     "ember-addon",
     "intl-tel-input",
@@ -17,7 +17,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/qonto/ember-intl-tel-input"
+    "url": "https://github.com/qonto/ember-phone-input"
   },
   "license": "MIT",
   "author": "",
@@ -81,10 +81,10 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
-    "demoURL": "http://qonto.github.io/ember-intl-tel-input/",
+    "demoURL": "http://qonto.github.io/ember-phone-input/",
     "versionCompatibility": {
       "ember": ">2.11.0"
     }
   },
-  "homepage": "https://qonto.github.io/ember-intl-tel-input"
+  "homepage": "https://qonto.github.io/ember-phone-input"
 }

@@ -1,4 +1,4 @@
-ember-intl-tel-input
+ember-phone-input
 ==============================================================================
 
 [Short description of the addon.]
@@ -7,7 +7,7 @@ Installation
 ------------------------------------------------------------------------------
 
 ```
-ember install ember-intl-tel-input
+ember install ember-phone-input
 ```
 
 
@@ -23,7 +23,7 @@ Contributing
 ### Installation
 
 * `git clone <repository-url>`
-* `cd ember-intl-tel-input`
+* `cd ember-phone-input`
 * `yarn install`
 
 ### Linting

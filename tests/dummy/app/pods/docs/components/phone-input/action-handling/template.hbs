@@ -1,0 +1,8 @@
+{{#docs-demo as |demo|}}
+  {{#demo.example name='phone-input-action-handling.hbs'}}
+    {{phone-input number=number update=(action 'handleUpdate')}}
+  {{/demo.example}}
+
+  {{demo.snippet 'phone-input-action-handling.hbs'}}
+  {{demo.snippet 'phone-input-action-handling.js' label='component.js'}}
+{{/docs-demo}}

@@ -13,7 +13,7 @@ Router.map(function() {
     this.route('action-handling')
 
     this.route('components', function() {
-      this.route('intl-tel-input')
+      this.route('phone-input')
     })
   })
 

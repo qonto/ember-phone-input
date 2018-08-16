@@ -1,5 +1,5 @@
 # Installation
 
 ```sh
-ember install ember-intl-tel-input
+ember install ember-phone-input
 ```
