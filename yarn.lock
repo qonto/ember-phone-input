@@ -3469,9 +3469,9 @@ ember-source-channel-url@^1.0.1:
   dependencies:
     got "^8.0.1"
 
-ember-source@~3.2.0:
-  version "3.2.2"
-  resolved "https://registry.yarnpkg.com/ember-source/-/ember-source-3.2.2.tgz#f1b899beeb838b0866a66cd327d22e567abd8a79"
+ember-source@~3.4.0-beta.2:
+  version "3.4.0-beta.2"
+  resolved "https://registry.yarnpkg.com/ember-source/-/ember-source-3.4.0-beta.2.tgz#e8961857bf7a334d7def701e617cd7e0d150755e"
   dependencies:
     broccoli-funnel "^2.0.1"
     broccoli-merge-trees "^2.0.0"
@@ -8693,8 +8693,8 @@ terser@^3.7.5:
     source-map-support "~0.5.6"
 
 testem@^2.0.0:
-  version "2.8.2"
-  resolved "https://registry.yarnpkg.com/testem/-/testem-2.8.2.tgz#0d51801cbcdfe411e2e24ae7e63e2eca779dfe89"
+  version "2.9.3"
+  resolved "https://registry.yarnpkg.com/testem/-/testem-2.9.3.tgz#df754edd22a8e30ef8cd110d5a234a28060e143b"
   dependencies:
     backbone "^1.1.2"
     bluebird "^3.4.6"
