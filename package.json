@@ -17,7 +17,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/qonto/ember-phone-input"
+    "url": "https://github.com/dcyriller/ember-phone-input"
   },
   "license": "MIT",
   "author": "",
@@ -47,7 +47,7 @@
     "broccoli-funnel": "^2.0.1",
     "broccoli-merge-trees": "^3.0.1",
     "ember-cli": "~3.0.0",
-    "ember-cli-addon-docs": "github:dcyriller/ember-cli-addon-docs#ember-code-snippet-upgrade",
+    "ember-cli-addon-docs": "github:ember-learn/ember-cli-addon-docs",
     "ember-cli-addon-docs-yuidoc": "^0.2.1",
     "ember-cli-dependency-checker": "^2.0.0",
     "ember-cli-deploy": "^1.0.2",
@@ -69,7 +69,6 @@
     "ember-resolver": "^4.0.0",
     "ember-source": "~3.4.0-beta.2",
     "ember-source-channel-url": "^1.0.1",
-    "ember-test-selectors": "^1.0.0",
     "ember-try": "^0.2.23",
     "eslint": "^5.1.0",
     "eslint-plugin-ember": "^5.0.0",
@@ -84,10 +83,10 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
-    "demoURL": "http://qonto.github.io/ember-phone-input/",
+    "demoURL": "http://dcyriller.github.io/ember-phone-input/",
     "versionCompatibility": {
-      "ember": ">2.11.0"
+      "ember": ">3.3.0"
     }
   },
-  "homepage": "https://qonto.github.io/ember-phone-input"
+  "homepage": "https://dcyriller.github.io/ember-phone-input"
 }
