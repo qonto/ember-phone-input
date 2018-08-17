@@ -1,18 +1,17 @@
 import Service from '@ember/service'
+import { getOwner } from '@ember/application'
 import loadScript from 'ember-phone-input/utils/load-script'
-import { reads } from '@ember-decorators/object/computed'
 
 export default class PhoneInputService extends Service {
-  config = null
   didLoad = this.didLoad || false
-
-  @reads("config['ember-phone-input'].lazyLoad") lazyLoad
-  @reads("config['environment']") environment
 
   init() {
     super.init(...arguments)
 
-    if (!this.lazyLoad && this.environment !== 'test') {
+    const config = getOwner(this).resolveRegistration('config:environment')
+    const { lazyLoad } = config.phoneInput
+
+    if (!lazyLoad && config.environment !== 'test') {
       // if lazyLoad is disabled, load them now
       // that is to say at the app boot
       this.load()
