@@ -103,19 +103,7 @@ export default class PhoneInput extends Component {
       format
     )
 
-    const extension = $(this.element).intlTelInput('getExtension')
-
-    const selectedCountryData = $(this.element).intlTelInput(
-      'getSelectedCountryData'
-    )
-
-    const isValidNumber = $(this.element).intlTelInput('isValidNumber')
-
-    this.get('update')(internationalPhoneNumber, {
-      extension,
-      selectedCountryData,
-      isValidNumber
-    })
+    this.update(internationalPhoneNumber, this._metaData())
 
     return true
   }
@@ -138,13 +126,20 @@ export default class PhoneInput extends Component {
       onlyCountries,
       preferredCountries
     })
+
+    const number = this.number
+    if (number) {
+      $(this.element).intlTelInput('setNumber', number)
+    }
+
+    this.update(number, this._metaData())
   }
 
   // this is a trick to format the number on user input
   didRender() {
     this._super(...arguments)
 
-    const number = this.get('number')
+    const number = this.number
     if (number) {
       $(this.element).intlTelInput('setNumber', number)
     }
@@ -154,5 +149,21 @@ export default class PhoneInput extends Component {
     $(this.element).intlTelInput('destroy')
 
     super.willDestroyElement(...arguments)
+  }
+
+  _metaData() {
+    const extension = $(this.element).intlTelInput('getExtension')
+
+    const selectedCountryData = $(this.element).intlTelInput(
+      'getSelectedCountryData'
+    )
+
+    const isValidNumber = $(this.element).intlTelInput('isValidNumber')
+
+    return {
+      extension,
+      selectedCountryData,
+      isValidNumber
+    }
   }
 }
