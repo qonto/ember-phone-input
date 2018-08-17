@@ -75,7 +75,7 @@ export default class PhoneInput extends Component {
   /**
     You have to implement this function to update the `number`.
 
-    @method update
+    @argument update
     @param {string} number The international phoneNumber
     @param {Object} metadata The phoneNumber metadata
     @param {string} metadata.extension The extension part of the current number, so if the number was '+1 (702) 123-1234 ext. 12345' this would return '12345'.
