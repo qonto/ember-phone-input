@@ -1,7 +1,11 @@
 'use strict'
 
 const Funnel = require('broccoli-funnel')
-const MergeTrees = require('broccoli-merge-trees');
+const MergeTrees = require('broccoli-merge-trees')
+
+const scriptsDestDir = '/assets/ember-phone-input/scripts'
+const intlTelInputScriptName = 'intlTelInput.min.js'
+const utilsScriptName = 'utils.js'
 
 module.exports = {
   name: 'ember-phone-input',
@@ -30,15 +34,27 @@ module.exports = {
     const jQueryFiles = new Funnel('node_modules/jquery', {
       srcDir: '/dist',
       include: ['jquery.slim.js'],
-      destDir: '/assets/ember-phone-input/scripts'
+      destDir: scriptsDestDir
     })
 
     const intlTelInputFiles = new Funnel('node_modules/intl-tel-input', {
       srcDir: '/build/js',
-      include: ['intlTelInput.min.js', 'utils.js'],
-      destDir: '/assets/ember-phone-input/scripts'
+      include: [intlTelInputScriptName, utilsScriptName],
+      destDir: scriptsDestDir
     })
 
     return new MergeTrees([jQueryFiles, intlTelInputFiles])
+  },
+
+  contentFor(type, config) {
+    const phoneInputConfig = config.phoneInput || {}
+    const { lazyLoad } = phoneInputConfig
+
+    if (type === 'body-footer' && config.environment !== 'test' && !lazyLoad) {
+      return `
+        <script type="text/javascript" src="${scriptsDestDir}/${intlTelInputScriptName}"></script>
+        <script type="text/javascript" src="${scriptsDestDir}/${utilsScriptName}"></script>
+      `
+    }
   }
 }
