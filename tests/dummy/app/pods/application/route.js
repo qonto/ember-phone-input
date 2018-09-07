@@ -5,6 +5,6 @@ export default class ApplicationRoute extends Route {
   @service phoneInput
 
   async model() {
-    await this.phoneInput.load()
+    await this.get('phoneInput').load()
   }
 }
