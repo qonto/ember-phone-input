@@ -25,7 +25,8 @@ const PHONE_NUMBER_FORMAT = 'E164' // https://en.wikipedia.org/wiki/E.164
 */
 @tagName('input')
 export default class PhoneInput extends Component {
-  @attribute type = 'tel'
+  @attribute
+  type = 'tel'
 
   /**
     The international phone number. This is the main data supposed

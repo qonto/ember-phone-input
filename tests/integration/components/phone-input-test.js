@@ -1,6 +1,6 @@
 import { module, test } from 'qunit'
 import { setupRenderingTest } from 'ember-qunit'
-import { fillIn, render } from '@ember/test-helpers'
+import { render } from '@ember/test-helpers'
 import hbs from 'htmlbars-inline-precompile'
 import {
   jQueryMock,
@@ -23,26 +23,26 @@ module('Integration | Component | phone-input', function(hooks) {
     assert.dom('input').hasAttribute('type', 'tel')
   })
 
-//   test('it renders the value', async function(assert) {
-//     assert.expect(2)
+  //   test('it renders the value', async function(assert) {
+  //     assert.expect(2)
 
-//     const oldValue = '1111'
-//     const newValue = '2222'
-//     this.set('number', oldValue)
-//     this.set('update', value => {
-//       assert.ok(true, 'update get called')
-//       assert.equal(value, newValue)
-//       this.set('number', newValue)
-//     })
+  //     const oldValue = '1111'
+  //     const newValue = '2222'
+  //     this.set('number', oldValue)
+  //     this.set('update', value => {
+  //       assert.ok(true, 'update get called')
+  //       assert.equal(value, newValue)
+  //       this.set('number', newValue)
+  //     })
 
-//     await render(
-//       hbs`{{phone-input number=number update=(action update) data-test-input=true}}`
-//     )
+  //     await render(
+  //       hbs`{{phone-input number=number update=(action update) data-test-input=true}}`
+  //     )
 
-//     assert.dom('input').hasValue(oldValue)
+  //     assert.dom('input').hasValue(oldValue)
 
-//     await fillIn('[data-test-input]', newValue)
+  //     await fillIn('[data-test-input]', newValue)
 
-//     assert.dom('input').hasValue(newValue)
-//   })
+  //     assert.dom('input').hasValue(newValue)
+  //   })
 })
