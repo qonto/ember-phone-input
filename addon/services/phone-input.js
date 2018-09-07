@@ -11,7 +11,7 @@ export default class PhoneInputService extends Service {
     const config = getOwner(this).resolveRegistration('config:environment')
     const { lazyLoad } = config.phoneInput
 
-    if (!lazyLoad && config.environment !== 'test') {
+    if (!lazyLoad || config.environment === 'test') {
       // if lazyLoad is disabled, load them now
       // that is to say at the app boot
       this.load()
@@ -33,6 +33,12 @@ export default class PhoneInputService extends Service {
 
     return doLoadJquery
       .then(() => Promise.all([doLoadScript1, doLoadScript2]))
-      .then(() => this.set('didLoad', true))
+      .then(() => {
+        if (this.isDestroyed) {
+          return
+        }
+
+        this.set('didLoad', true)
+      })
   }
 }
