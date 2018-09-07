@@ -1,6 +1,6 @@
 {
   "name": "ember-phone-input",
-  "version": "1.0.0",
+  "version": "1.0.0-beta.1",
   "description": "A component to input / validate / submit phone numbers",
   "keywords": [
     "ember-addon",
@@ -10,10 +10,10 @@
     "country",
     "dial",
     "code",
+    "phone",
     "telephone",
     "mobile",
-    "input",
-    "flag"
+    "input"
   ],
   "repository": {
     "type": "git",
