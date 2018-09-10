@@ -1,0 +1,21 @@
+{{#docs-demo as |demo|}}
+  {{#demo.example name='phone-input-all-options.hbs'}}
+
+    <p>{{phone-input initialCountry='us' number=number update=(action 'handleUpdate')}}</p>
+
+    <p>The internal phone number you'll want to persist on your backend is
+    <em>\{{number}}: </em><strong>{{number}}</strong>.</p>
+
+    <p>In some cases, you may want to persist some additional metadata. Are
+    available:</p>
+    <ul>
+      <li>the selected country name <em>\{{selectedCountryData.name}}: </em><strong> {{selectedCountryData.name}}</strong></li>
+      <li>the selected country ios2 code <em>\{{selectedCountryData.iso2}}: </em><strong>{{selectedCountryData.iso2}}</strong></li>
+      <li>the selected country ios2 code <em>\{{selectedCountryData.dialCode}}: </em><strong>{{selectedCountryData.dialCode}}</strong></li>
+      <li>the phone number validity <em>\{{isValidNumber}}: </em><strong>{{isValidNumber}}</strong></li>
+      <li>the phone number extension <em>\{{extension}}</em>: <strong>{{extension}}</strong></li>
+    </ul>
+  {{/demo.example}}
+
+  {{demo.snippet 'phone-input-all-options.hbs'}}
+{{/docs-demo}}
