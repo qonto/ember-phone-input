@@ -11,6 +11,7 @@ Router.map(function() {
     this.route('installation')
     this.route('usage')
     this.route('action-handling')
+    this.route('lazy-loading')
 
     this.route('components', function() {
       this.route('phone-input')
