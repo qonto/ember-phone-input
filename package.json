@@ -82,7 +82,7 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
-    "demoURL": "http://dcyriller.github.io/ember-phone-input/",
+    "demoURL": "http://qonto.github.io/ember-phone-input/",
     "versionCompatibility": {
       "ember": ">3.3.0"
     }

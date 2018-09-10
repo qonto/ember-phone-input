@@ -1,11 +1,11 @@
 ember-phone-input
 ==============================================================================
 
-[![Build Status](https://img.shields.io/travis/dcyriller/ember-phone-input.svg?style=flat-square)](https://travis-ci.org/dcyriller/ember-phone-input)
+[![Build Status](https://img.shields.io/travis/qonto/ember-phone-input.svg?style=flat-square)](https://travis-ci.org/qonto/ember-phone-input)
 
 Easily create phone input. With internationalization and validation in mind.
 
-[View the docs here](https://dcyriller.github.io/ember-phone-input/).
+[View the docs here](https://qonto.github.io/ember-phone-input/).
 
 License
 ------------------------------------------------------------------------------
