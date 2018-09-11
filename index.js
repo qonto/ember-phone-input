@@ -50,7 +50,7 @@ module.exports = {
     const phoneInputConfig = config.phoneInput || {}
     const { lazyLoad } = phoneInputConfig
 
-    if (type === 'body-footer' && config.environment !== 'test' && !lazyLoad) {
+    if (type === 'body-footer' && !lazyLoad) {
       return `
         <script type="text/javascript" src="${scriptsDestDir}/${intlTelInputScriptName}"></script>
         <script type="text/javascript" src="${scriptsDestDir}/${utilsScriptName}"></script>
