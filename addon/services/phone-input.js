@@ -11,7 +11,7 @@ export default class PhoneInputService extends Service {
     const config = getOwner(this).resolveRegistration('config:environment')
     const { lazyLoad } = config.phoneInput
 
-    if (!lazyLoad || config.environment === 'test') {
+    if (!lazyLoad) {
       // if lazyLoad is disabled, load them now
       // that is to say at the app boot
       this.load()
