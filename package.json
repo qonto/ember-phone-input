@@ -37,7 +37,7 @@
     "babel-eslint": "^8.0.0",
     "ember-cli-babel": "^6.6.0",
     "ember-cli-htmlbars": "^2.0.1",
-    "ember-decorators": "^2.2.0",
+    "ember-decorators": "^2.4.1",
     "intl-tel-input": "9.2.0",
     "jquery": ">=1.7.0"
   },
