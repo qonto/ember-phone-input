@@ -19,17 +19,21 @@ export default class PhoneInputService extends Service {
   }
 
   load() {
+    const { rootURL } = getOwner(this).resolveRegistration('config:environment')
+
     const doLoadJquery = window.jQuery
       ? Promise.resolve()
-      : loadScript('/assets/ember-phone-input/scripts/jquery.min.js')
+      : loadScript(`${rootURL}assets/ember-phone-input/scripts/jquery.min.js`)
 
     const doLoadScript1 = this.didLoad
       ? Promise.resolve()
-      : loadScript('/assets/ember-phone-input/scripts/intlTelInput.min.js')
+      : loadScript(
+          `${rootURL}assets/ember-phone-input/scripts/intlTelInput.min.js`
+        )
 
     const doLoadScript2 = this.didLoad
       ? Promise.resolve()
-      : loadScript('/assets/ember-phone-input/scripts/utils.js')
+      : loadScript(`${rootURL}assets/ember-phone-input/scripts/utils.js`)
 
     return doLoadJquery
       .then(() => Promise.all([doLoadScript1, doLoadScript2]))
