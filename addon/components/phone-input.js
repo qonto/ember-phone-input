@@ -4,7 +4,7 @@ import Component from '@ember/component'
 import { assert } from '@ember/debug'
 import { attribute, tagName } from '@ember-decorators/component'
 
-const { $ } = window
+const { intlTelInput } = window
 
 const PHONE_NUMBER_FORMAT = 'E164' // https://en.wikipedia.org/wiki/E.164
 
@@ -27,6 +27,8 @@ const PHONE_NUMBER_FORMAT = 'E164' // https://en.wikipedia.org/wiki/E.164
 export default class PhoneInput extends Component {
   @attribute
   type = 'tel'
+
+  _iti = this._iti || null
 
   /**
     The international phone number. This is the main data supposed
@@ -63,7 +65,7 @@ export default class PhoneInput extends Component {
     @argument onlyCountries
     @type {Array}
   */
-  onlyCountries = this.onlyCountries || undefined
+  onlyCountries = this.onlyCountries || []
 
   /**
     Specify the countries to appear at the top of the list.
@@ -99,12 +101,10 @@ export default class PhoneInput extends Component {
 
   input() {
     const format = intlTelInputUtils.numberFormat[PHONE_NUMBER_FORMAT]
-    const internationalPhoneNumber = $(this.element).intlTelInput(
-      'getNumber',
-      format
-    )
+    const internationalPhoneNumber = this._iti.getNumber(format)
 
-    this.update(internationalPhoneNumber, this._metaData())
+    var meta = this._metaData(this._iti)
+    this.update(internationalPhoneNumber, meta)
 
     return true
   }
@@ -119,7 +119,8 @@ export default class PhoneInput extends Component {
       preferredCountries
     } = this
 
-    $(this.element).intlTelInput({
+    var input = document.getElementById(this.elementId)
+    var _iti = intlTelInput(input, {
       autoHideDialCode: true,
       nationalMode: true,
       autoPlaceholder,
@@ -130,36 +131,32 @@ export default class PhoneInput extends Component {
 
     const number = this.number
     if (number) {
-      $(this.element).intlTelInput('setNumber', number)
+      _iti.setNumber(number)
     }
+    this._iti = _iti
 
-    this.update(number, this._metaData())
+    this.update(number, this._metaData(_iti))
   }
 
   // this is a trick to format the number on user input
   didRender() {
     this._super(...arguments)
 
-    const number = this.number
-    if (number) {
-      $(this.element).intlTelInput('setNumber', number)
+    if (this.number && this._iti) {
+      this._iti.setNumber(this.number)
     }
   }
 
   willDestroyElement() {
-    $(this.element).intlTelInput('destroy')
+    this._iti.destroy()
 
     super.willDestroyElement(...arguments)
   }
 
-  _metaData() {
-    const extension = $(this.element).intlTelInput('getExtension')
-
-    const selectedCountryData = $(this.element).intlTelInput(
-      'getSelectedCountryData'
-    )
-
-    const isValidNumber = $(this.element).intlTelInput('isValidNumber')
+  _metaData(iti) {
+    const extension = iti.getExtension()
+    const selectedCountryData = iti.getSelectedCountryData()
+    const isValidNumber = iti.isValidNumber()
 
     return {
       extension,

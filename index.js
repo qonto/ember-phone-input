@@ -31,19 +31,13 @@ module.exports = {
   treeForPublic() {
     // copy these files to destDir
     // to be able to lazyLoad them || not to bundle them into vendor.js
-    const jQueryFiles = new Funnel('node_modules/jquery', {
-      srcDir: '/dist',
-      include: ['jquery.slim.js'],
-      destDir: `/${scriptsDestDir}`
-    })
-
     const intlTelInputFiles = new Funnel('node_modules/intl-tel-input', {
       srcDir: '/build/js',
       include: [intlTelInputScriptName, utilsScriptName],
       destDir: `/${scriptsDestDir}`
     })
 
-    return new MergeTrees([jQueryFiles, intlTelInputFiles])
+    return new MergeTrees([intlTelInputFiles])
   },
 
   contentFor(type, config) {

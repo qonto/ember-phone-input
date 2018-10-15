@@ -38,11 +38,9 @@
     "ember-cli-babel": "^6.6.0",
     "ember-cli-htmlbars": "^2.0.1",
     "ember-decorators": "^2.4.1",
-    "intl-tel-input": "9.2.0",
-    "jquery": ">=1.7.0"
+    "intl-tel-input": "^14.0.0"
   },
   "devDependencies": {
-    "@ember/optional-features": "^0.6.4",
     "broccoli-asset-rev": "^2.7.0",
     "broccoli-funnel": "^2.0.1",
     "broccoli-merge-trees": "^3.0.1",
