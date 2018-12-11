@@ -28,74 +28,75 @@ export default class PhoneInput extends Component {
   @attribute
   type = 'tel'
 
-  _iti = this._iti || null
-
-  /**
-    The international phone number. This is the main data supposed
-    to be persisted / handled.
-
-    @argument number
-    @type {string}
-  */
-  number = this.number || null
-
-  /**
-    Add or remove input placeholder with an example number for the selected
-    country. Possible values are 'polite', 'aggresive' and 'off'. Defaults to
-    'polite'.
-
-    @argument autoPlaceholder
-    @type {string}
-  */
-  autoPlaceholder = this.autoPlaceholder || 'polite'
-
-  /**
-    It will just be the first country in the list. Set the initial country by
-    it's country code. Defaults to ''.
-
-    @argument initialCountry
-    @type {string}
-  */
-  initialCountry = this.initialCountry || ''
-
-  /**
-    Display only the countries you specify -
-    [see example](http://jackocnr.com/lib/intl-tel-input/examples/gen/only-countries-europe.html).
-
-    @argument onlyCountries
-    @type {Array}
-  */
-  onlyCountries = this.onlyCountries || []
-
-  /**
-    Specify the countries to appear at the top of the list.
-
-    @argument preferredCountries
-    @type {Array}
-  */
-  preferredCountries = this.preferredCountries || ['us', 'gb']
-
-  /**
-    You have to implement this function to update the `number`.
-
-    @argument update
-    @param {string} number The international phoneNumber
-    @param {Object} metadata The phoneNumber metadata
-    @param {string} metadata.extension The extension part of the current number, so if the number was '+1 (702) 123-1234 ext. 12345' this would return '12345'.
-    @param {Object} metadata.selectedCountryData The country data for the currently selected flag.
-    @param {boolean} metadata.isValidNumber The validity of the current `phoneNumber`.
-  */
-  update = this.update || function() {}
-
   init() {
     super.init(...arguments)
+
+    this._iti = this._iti || null
+
+    /**
+      The international phone number. This is the main data supposed
+      to be persisted / handled.
+
+      @argument number
+      @type {string}
+    */
+    this.number = this.number || null
+
+    /**
+      Add or remove input placeholder with an example number for the selected
+      country. Possible values are 'polite', 'aggresive' and 'off'. Defaults to
+      'polite'.
+
+      @argument autoPlaceholder
+      @type {string}
+    */
+    this.autoPlaceholder = this.autoPlaceholder || 'polite'
+
+    /**
+      It will just be the first country in the list. Set the initial country by
+      it's country code. Defaults to ''.
+
+      @argument initialCountry
+      @type {string}
+    */
+    this.initialCountry = this.initialCountry || ''
+
+    /**
+      Display only the countries you specify -
+      [see example](http://jackocnr.com/lib/intl-tel-input/examples/gen/only-countries-europe.html).
+
+      @argument onlyCountries
+      @type {Array}
+    */
+    this.onlyCountries = this.onlyCountries || []
+
+    /**
+      Specify the countries to appear at the top of the list.
+
+      @argument preferredCountries
+      @type {Array}
+    */
+    this.preferredCountries = this.preferredCountries || ['us', 'gb']
+
+    /**
+      You have to implement this function to update the `number`.
+
+      @argument update
+      @param {string} number The international phoneNumber
+      @param {Object} metadata The phoneNumber metadata
+      @param {string} metadata.extension The extension part of the current number, so if the number was '+1 (702) 123-1234 ext. 12345' this would return '12345'.
+      @param {Object} metadata.selectedCountryData The country data for the currently selected flag.
+      @param {boolean} metadata.isValidNumber The validity of the current `phoneNumber`.
+    */
+    this.update = this.update || function() {}
 
     const validAutoPlaceholer = ['polite', 'aggresive', 'off'].includes(
       this.autoPlaceholder
     )
+
     assert(
       "`autoPlaceholder` possible values are 'polite', 'aggresive' and 'off'",
-      !validAutoPlaceholer
+      validAutoPlaceholer
     )
   }
 
