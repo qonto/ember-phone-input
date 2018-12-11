@@ -5,7 +5,7 @@ ember-phone-input
 
 Easily create phone input. With internationalization and validation in mind.
 
-[View the docs here](https://qonto.github.io/ember-phone-input/).
+[View the docs here](https://qonto.github.io/ember-phone-input/versions/master).
 
 License
 ------------------------------------------------------------------------------
