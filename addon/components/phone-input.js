@@ -143,8 +143,16 @@ export default class PhoneInput extends Component {
   didRender() {
     this._super(...arguments)
 
-    if (this.number && this._iti) {
+    if (!this._iti) {
+      return
+    }
+
+    if (this.number) {
       this._iti.setNumber(this.number)
+    }
+
+    if (this.initialCountry) {
+      this._iti.setCountry(this.initialCountry)
     }
   }
 
