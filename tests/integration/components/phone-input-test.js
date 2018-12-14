@@ -38,4 +38,25 @@ module('Integration | Component | phone-input', function(hooks) {
 
     assert.dom('input').hasValue(newValue)
   })
+
+  test('it can update the country', async function(assert) {
+    assert.expect(2)
+
+    await this.owner.lookup('service:phone-input').load()
+
+    const country = 'us'
+    this.set('number', null)
+    this.set('update', () => {})
+    this.set('country', country)
+
+    await render(
+      hbs`{{phone-input initialCountry=country number=number update=(action update)}}`
+    )
+
+    assert.dom('.iti-flag').hasClass('us')
+
+    await this.set('country', 'nz')
+
+    assert.dom('.iti-flag').hasClass('nz')
+  })
 })
