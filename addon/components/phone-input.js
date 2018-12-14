@@ -12,7 +12,7 @@ const PHONE_NUMBER_FORMAT = 'E164' // https://en.wikipedia.org/wiki/E.164
   A phone-input component. Usage:
   ```hbs
     {{phone-input
-    autoPlaceholder='aggressive'
+    autoPlaceholder='aggresive'
     initialCountry='fr'
     number='123'
     onlyCountries=europeanCountries
