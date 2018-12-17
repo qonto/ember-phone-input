@@ -44,7 +44,7 @@ export default class PhoneInput extends Component {
 
     /**
       Add or remove input placeholder with an example number for the selected
-      country. Possible values are 'polite', 'aggresive' and 'off'. Defaults to
+      country. Possible values are 'polite', 'aggressive' and 'off'. Defaults to
       'polite'.
 
       @argument autoPlaceholder
@@ -90,12 +90,12 @@ export default class PhoneInput extends Component {
     */
     this.update = this.update || function() {}
 
-    const validAutoPlaceholer = ['polite', 'aggresive', 'off'].includes(
+    const validAutoPlaceholer = ['polite', 'aggressive', 'off'].includes(
       this.autoPlaceholder
     )
 
     assert(
-      "`autoPlaceholder` possible values are 'polite', 'aggresive' and 'off'",
+      "`autoPlaceholder` possible values are 'polite', 'aggressive' and 'off'",
       validAutoPlaceholer
     )
   }
