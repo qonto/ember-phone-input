@@ -3,6 +3,7 @@ module.exports = {
   parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 2017,
+    ecmaFeatures: { legacyDecorators: true },
     sourceType: 'module'
   },
   plugins: ['ember', 'prettier'],
