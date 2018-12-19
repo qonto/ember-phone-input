@@ -5,12 +5,6 @@
     "sha": "bf672cd5bceaf46813659f0eab9db666e83e2908",
     "tag": null
   },
-  "v1.0.0": {
-    "path": "versions/v1.0.0",
-    "name": "v1.0.0",
-    "sha": "4eabc2d6b50bc375649d4683d131161e71482902",
-    "tag": "v1.0.0"
-  },
   "-latest": {
     "path": "",
     "name": "Latest",
@@ -22,12 +16,6 @@
     "name": "v1.0.1",
     "sha": "2fde61e8ff579dcd11792d32c3c8fde66c78e7f4",
     "tag": "v1.0.1"
-  },
-  "v1.1.0": {
-    "path": "versions/v1.1.0",
-    "name": "v1.1.0",
-    "sha": "2e4b8bc67736d0d6057f51cdd73e29b3f9ebc770",
-    "tag": "v1.1.0"
   },
   "v1.1.1": {
     "path": "versions/v1.1.1",
