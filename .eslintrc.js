@@ -1,17 +1,15 @@
 module.exports = {
   root: true,
-  parser: './node_modules/babel-eslint',
+  parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 2017,
     sourceType: 'module'
   },
   plugins: ['ember', 'prettier'],
-  extends: [
-    'eslint:recommended',
-    'plugin:ember/recommended'
-  ],
+  extends: ['eslint:recommended', 'plugin:ember/recommended'],
   env: {
-    browser: true
+    browser: true,
+    es6: true
   },
   rules: {
     'prettier/prettier': 2,
@@ -43,10 +41,14 @@ module.exports = {
         node: true
       },
       plugins: ['node'],
-      rules: Object.assign({}, require('eslint-plugin-node').configs.recommended.rules, {
-        // add your custom rules and overrides for node files here
-        'node/no-unpublished-require': 0
-      })
+      rules: Object.assign(
+        {},
+        require('eslint-plugin-node').configs.recommended.rules,
+        {
+          // add your custom rules and overrides for node files here
+          'node/no-unpublished-require': 0
+        }
+      )
     }
   ]
-};
+}
