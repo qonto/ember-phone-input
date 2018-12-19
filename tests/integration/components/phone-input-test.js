@@ -50,12 +50,12 @@ module('Integration | Component | phone-input', function(hooks) {
     this.set('country', country)
 
     await render(
-      hbs`{{phone-input initialCountry=country number=number update=(action update)}}`
+      hbs`{{phone-input country=country number=number update=(action update)}}`
     )
 
     assert.dom('.iti-flag').hasClass('us')
 
-    await this.set('country', 'nz')
+    this.set('country', 'nz')
 
     assert.dom('.iti-flag').hasClass('nz')
   })
