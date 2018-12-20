@@ -62,6 +62,17 @@ export default class PhoneInput extends Component {
     this.initialCountry = this.initialCountry || ''
 
     /**
+      It will force the selected country. Set the country by it's country code.
+      Usefull if you want to provide the component with a country, instead of
+      using the built-in country dropdown.
+      Defaults to ''.
+
+      @argument country
+      @type {string}
+    */
+    this.country = this.country || ''
+
+    /**
       Display only the countries you specify -
       [see example](http://jackocnr.com/lib/intl-tel-input/examples/gen/only-countries-europe.html).
 
@@ -136,6 +147,10 @@ export default class PhoneInput extends Component {
     }
     this._iti = _iti
 
+    if (this.initialCountry) {
+      this._iti.setCountry(this.initialCountry)
+    }
+
     this.update(number, this._metaData(_iti))
   }
 
@@ -147,12 +162,12 @@ export default class PhoneInput extends Component {
       return
     }
 
-    if (this.number) {
-      this._iti.setNumber(this.number)
+    if (this.country) {
+      this._iti.setCountry(this.country)
     }
 
-    if (this.initialCountry) {
-      this._iti.setCountry(this.initialCountry)
+    if (this.number) {
+      this._iti.setNumber(this.number)
     }
   }
 
