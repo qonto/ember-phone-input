@@ -1,0 +1,12 @@
+# Change Log
+
+## v2.0.1 (2018-12-20)
+
+#### :bug: Bug Fix
+* [#12](https://github.com/qonto/ember-phone-input/pull/12) Create a country attribute ([@dcyriller](https://github.com/dcyriller))
+
+#### :house: Internal
+* [#11](https://github.com/qonto/ember-phone-input/pull/11) Update .eslintrc.js ([@dcyriller](https://github.com/dcyriller))
+
+#### Committers: 1
+- Cyrille David ([@dcyriller](https://github.com/dcyriller))
