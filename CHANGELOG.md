@@ -1,5 +1,13 @@
 # Change Log
 
+## v2.0.2 (2018-12-20)
+
+#### :house: Internal
+* [#15](https://github.com/qonto/ember-phone-input/pull/15) Upgrade intl-tel-input from v14.0.3 to v14.0.6 ([@dcyriller](https://github.com/dcyriller))
+
+#### Committers: 1
+- Cyrille David ([@dcyriller](https://github.com/dcyriller))
+
 ## v2.0.1 (2018-12-20)
 
 #### :bug: Bug Fix
