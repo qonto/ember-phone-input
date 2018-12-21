@@ -9,9 +9,9 @@ export default class PhoneInputService extends Service {
     super.init(...arguments)
 
     const config = getOwner(this).resolveRegistration('config:environment')
-    const { lazyLoad, prepend } = config.phoneInput
+    const { lazyLoad, hasPrepend } = config.phoneInput
 
-    this.prepend = prepend
+    this.hasPrepend = hasPrepend
 
     if (!lazyLoad) {
       // if lazyLoad is disabled, load them now
@@ -42,7 +42,7 @@ export default class PhoneInputService extends Service {
 
   _loadUrl(url) {
     const { rootURL } = getOwner(this).resolveRegistration('config:environment')
-    const prependUrl = this.prepend ? '' : rootURL
+    const prependUrl = this.hasPrepend ? '' : rootURL
 
     return `${prependUrl}${url}`
   }
