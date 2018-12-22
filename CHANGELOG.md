@@ -1,5 +1,13 @@
 # Change Log
 
+## v2.0.3 (2018-12-22)
+
+#### :bug: Bug Fix
+* [#9](https://github.com/qonto/ember-phone-input/pull/9) Allow for prepended production assets ([@kiwiupover](https://github.com/kiwiupover))
+
+#### Committers: 1
+- David Laird ([@kiwiupover](https://github.com/kiwiupover))
+
 ## v2.0.2 (2018-12-20)
 
 #### :house: Internal
