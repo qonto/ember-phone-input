@@ -11,7 +11,7 @@ module('Unit | Service | phone-input', function(hooks) {
 
   test('handles prepended script urls', function(assert) {
     const config = this.owner.resolveRegistration('config:environment')
-    config.phoneInput.prepend = true
+    config.phoneInput.hasPrepend = true
 
     const service = this.owner.lookup('service:phone-input')
 
