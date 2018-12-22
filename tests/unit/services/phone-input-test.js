@@ -4,11 +4,6 @@ import { setupTest } from 'ember-qunit'
 module('Unit | Service | phone-input', function(hooks) {
   setupTest(hooks)
 
-  test('it exists', function(assert) {
-    const service = this.owner.lookup('service:phone-input')
-    assert.ok(service)
-  })
-
   test('handles prepended script urls', function(assert) {
     const config = this.owner.resolveRegistration('config:environment')
     config.phoneInput.hasPrepend = true
@@ -22,6 +17,9 @@ module('Unit | Service | phone-input', function(hooks) {
   })
 
   test('handles rootURL script urls', function(assert) {
+    const config = this.owner.resolveRegistration('config:environment')
+    config.phoneInput.hasPrepend = false
+
     const service = this.owner.lookup('service:phone-input')
 
     const url = `assets/ember-phone-input/scripts/intlTelInput.min.js`
