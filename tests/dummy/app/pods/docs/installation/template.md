@@ -25,7 +25,7 @@ module.exports = function(environment) {
   }
 
   if (deployTarget === 'production') {
-    ENV.phoneInput.prepend = true;
+    ENV.phoneInput.hasPrepend = true;
   }
 
   return ENV
