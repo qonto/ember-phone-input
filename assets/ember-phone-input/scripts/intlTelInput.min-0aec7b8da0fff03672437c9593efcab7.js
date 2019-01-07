@@ -107,6 +107,6 @@ t.intlTelInputGlobals.getCountryData=function(){return n}
 var v=function(t,e,a){var n=i.createElement("script")
 n.onload=function(){d("handleUtils"),e&&e()},n.onerror=function(){d("rejectUtilsScriptPromise"),a&&a()},n.className="iti-load-utils",n.async=!0,n.src=t,i.body.appendChild(n)}
 return t.intlTelInputGlobals.loadUtils=function(i){if(!t.intlTelInputUtils&&!t.intlTelInputGlobals.startedLoadingUtilsScript){if(t.intlTelInputGlobals.startedLoadingUtilsScript=!0,"undefined"!=typeof Promise)return new Promise(function(t,e){return v(i,t,e)})
-v(i)}return null},t.intlTelInputGlobals.defaults=l,t.intlTelInputGlobals.version="14.0.6",function(i,e){var a=new c(i,e)
+v(i)}return null},t.intlTelInputGlobals.defaults=l,t.intlTelInputGlobals.version="14.0.7",function(i,e){var a=new c(i,e)
 return a._init(),t.intlTelInputGlobals.instances[a.id]=a,a}}()}(window,document)
 "object"==typeof module&&module.exports?module.exports=i:window.intlTelInput=i}()
