@@ -24,12 +24,12 @@ export default class PhoneInputService extends Service {
     const doLoadScript1 = this.didLoad
       ? Promise.resolve()
       : loadScript(
-          this._loadUrl(`assets/ember-phone-input/scripts/intlTelInput.min.js`)
+          this._loadUrl('assets/ember-phone-input/scripts/intlTelInput.min.js')
         )
 
     const doLoadScript2 = this.didLoad
       ? Promise.resolve()
-      : loadScript(this._loadUrl(`assets/ember-phone-input/scripts/utils.js`))
+      : loadScript(this._loadUrl('assets/ember-phone-input/scripts/utils.js'))
 
     return Promise.all([doLoadScript1, doLoadScript2]).then(() => {
       if (this.isDestroyed) {
