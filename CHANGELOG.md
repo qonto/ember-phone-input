@@ -1,5 +1,27 @@
 # Change Log
 
+## v2.0.5 (2019-02-04)
+
+#### :bug: Bug Fix
+* [#19](https://github.com/qonto/ember-phone-input/pull/19) Switch quote mark ([@jacojoubert](https://github.com/jacojoubert))
+
+#### :house: Internal
+* [#18](https://github.com/qonto/ember-phone-input/pull/18) Fix CI failing build ([@dcyriller](https://github.com/dcyriller))
+
+#### Committers: 2
+- Cyrille David ([@dcyriller](https://github.com/dcyriller))
+- Jaco Joubert ([@jacojoubert](https://github.com/jacojoubert))
+
+## v2.0.4 (2019-01-07)
+
+#### :bug: Bug Fix
+* [#16](https://github.com/qonto/ember-phone-input/pull/16) Fix a bug regarding vietnamese phone numbers ([@dcyriller](https://github.com/dcyriller))
+* [#9](https://github.com/qonto/ember-phone-input/pull/9) Allow for prepended production assets ([@kiwiupover](https://github.com/kiwiupover))
+
+#### Committers: 2
+- Cyrille David ([@dcyriller](https://github.com/dcyriller))
+- David Laird ([@kiwiupover](https://github.com/kiwiupover))
+
 ## v2.0.3 (2018-12-22)
 
 #### :bug: Bug Fix
