@@ -2,7 +2,6 @@
 
 import Component from '@ember/component'
 import { assert } from '@ember/debug'
-import { attribute, tagName } from '@ember-decorators/component'
 
 const { intlTelInput } = window
 
@@ -23,13 +22,15 @@ const PHONE_NUMBER_FORMAT = 'E164' // https://en.wikipedia.org/wiki/E.164
   @class PhoneInput
   @public
 */
-@tagName('input')
-export default class PhoneInput extends Component {
-  @attribute
-  type = 'tel'
+
+export default Component.extend({
+  tagName: 'input',
+
+  attributeBindings: ['type'],
+  type: 'tel',
 
   init() {
-    super.init(...arguments)
+    this._super(...arguments)
 
     this._iti = this._iti || null
 
@@ -109,7 +110,7 @@ export default class PhoneInput extends Component {
       "`autoPlaceholder` possible values are 'polite', 'aggressive' and 'off'",
       validAutoPlaceholer
     )
-  }
+  },
 
   input() {
     const format = intlTelInputUtils.numberFormat[PHONE_NUMBER_FORMAT]
@@ -119,10 +120,10 @@ export default class PhoneInput extends Component {
     this.update(internationalPhoneNumber, meta)
 
     return true
-  }
+  },
 
   didInsertElement() {
-    super.didInsertElement(...arguments)
+    this._super(...arguments)
 
     const {
       autoPlaceholder,
@@ -152,7 +153,7 @@ export default class PhoneInput extends Component {
     }
 
     this.update(number, this._metaData(_iti))
-  }
+  },
 
   // this is a trick to format the number on user input
   didRender() {
@@ -169,13 +170,13 @@ export default class PhoneInput extends Component {
     if (this.number) {
       this._iti.setNumber(this.number)
     }
-  }
+  },
 
   willDestroyElement() {
     this._iti.destroy()
 
-    super.willDestroyElement(...arguments)
-  }
+    this._super(...arguments)
+  },
 
   _metaData(iti) {
     const extension = iti.getExtension()
@@ -188,4 +189,4 @@ export default class PhoneInput extends Component {
       isValidNumber
     }
   }
-}
+})
