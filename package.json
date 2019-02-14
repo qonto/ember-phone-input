@@ -17,7 +17,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/qonto/ember-phone-input.git"
+    "url": "https://github.com/qonto/ember-phone-input.git"
   },
   "license": "MIT",
   "author": "",
