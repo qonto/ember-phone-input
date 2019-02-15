@@ -6,7 +6,7 @@ import hbs from 'htmlbars-inline-precompile'
 module('Integration | Component | phone-input', function(hooks) {
   setupRenderingTest(hooks)
 
-  test('it renders an input of type tel', async function(assert) {
+  test('renders an input of type tel', async function(assert) {
     assert.expect(1)
 
     await this.owner.lookup('service:phone-input').load()
@@ -16,7 +16,7 @@ module('Integration | Component | phone-input', function(hooks) {
     assert.dom('input').hasAttribute('type', 'tel')
   })
 
-  test('it renders the value', async function(assert) {
+  test('renders the value', async function(assert) {
     assert.expect(3)
 
     await this.owner.lookup('service:phone-input').load()
@@ -39,7 +39,7 @@ module('Integration | Component | phone-input', function(hooks) {
     assert.dom('input').hasValue(newValue)
   })
 
-  test('it can update the country', async function(assert) {
+  test('can update the country', async function(assert) {
     assert.expect(2)
 
     await this.owner.lookup('service:phone-input').load()
