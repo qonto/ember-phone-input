@@ -10,9 +10,9 @@ module('Unit | Service | phone-input', function(hooks) {
 
     const service = this.owner.lookup('service:phone-input')
 
-    const url = `assets/ember-phone-input/scripts/intlTelInput.min.js`
+    const url = 'assets/ember-phone-input/scripts/intlTelInput.min.js'
 
-    const expectedUrl = `assets/ember-phone-input/scripts/intlTelInput.min.js`
+    const expectedUrl = 'assets/ember-phone-input/scripts/intlTelInput.min.js'
     assert.equal(service._loadUrl(url), expectedUrl)
   })
 
@@ -22,9 +22,9 @@ module('Unit | Service | phone-input', function(hooks) {
 
     const service = this.owner.lookup('service:phone-input')
 
-    const url = `assets/ember-phone-input/scripts/intlTelInput.min.js`
+    const url = 'assets/ember-phone-input/scripts/intlTelInput.min.js'
 
-    const expectedUrl = `/assets/ember-phone-input/scripts/intlTelInput.min.js`
+    const expectedUrl = '/assets/ember-phone-input/scripts/intlTelInput.min.js'
     assert.equal(service._loadUrl(url), expectedUrl)
   })
 })
