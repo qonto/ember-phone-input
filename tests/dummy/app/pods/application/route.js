@@ -1,11 +1,10 @@
 import Route from '@ember/routing/route'
-import { service } from '@ember-decorators/service'
+import { inject as service } from '@ember/service'
 
-export default class ApplicationRoute extends Route {
-  @service
-  phoneInput
+export default Route.extend({
+  phoneInput: service(),
 
   async beforeModel() {
     await this.get('phoneInput').load()
   }
-}
+})
