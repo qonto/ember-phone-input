@@ -12,14 +12,17 @@
 /.eslintignore
 /.eslintrc.js
 /.gitignore
-/.watchmanconfig
+/.prettierrc.js
+/.prettierignore
 /.travis.yml
+/.watchmanconfig
 /bower.json
 /config/ember-try.js
 /ember-cli-build.js
 /testem.js
 /tests/
 /yarn.lock
+/yarn-error.log
 .gitkeep
 
 # ember-try
