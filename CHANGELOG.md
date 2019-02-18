@@ -1,5 +1,18 @@
 # Change Log
 
+## v2.0.6 (2019-02-18)
+
+#### :bug: Bug Fix
+* [#20](https://github.com/qonto/ember-phone-input/pull/20) Remove ember-decorators dependency ([@kiwiupover](https://github.com/kiwiupover))
+
+#### :house: Internal
+* [#30](https://github.com/qonto/ember-phone-input/pull/30) Build only master and tagged branches ([@dcyriller](https://github.com/dcyriller))
+
+#### Committers: 2
+- Cyrille David ([@dcyriller](https://github.com/dcyriller))
+- David Laird ([@kiwiupover](https://github.com/kiwiupover))
+Done in 2.61s.
+
 ## v2.0.5 (2019-02-04)
 
 #### :bug: Bug Fix
@@ -48,3 +61,4 @@
 
 #### Committers: 1
 - Cyrille David ([@dcyriller](https://github.com/dcyriller))
+yarn run v1.13.0
