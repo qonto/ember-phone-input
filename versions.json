@@ -11,35 +11,11 @@
     "sha": "301e203c219a34c30a7f4aa4e56134824835a6fa",
     "tag": "v2.0.6"
   },
-  "v2.0.1": {
-    "path": "versions/v2.0.1",
-    "name": "v2.0.1",
-    "sha": "1fa4c89d9c8810af677d6f2485cb117d1aa3cce0",
-    "tag": "v2.0.1"
-  },
   "v1.1.2": {
     "path": "versions/v1.1.2",
     "name": "v1.1.2",
     "sha": "edaaf595ff8cdb266f8a8c58e0e5e647dc375758",
     "tag": "v1.1.2"
-  },
-  "v2.0.2": {
-    "path": "versions/v2.0.2",
-    "name": "v2.0.2",
-    "sha": "905d08c0a916f17e84c6fc50017056439929776c",
-    "tag": "v2.0.2"
-  },
-  "v2.0.4": {
-    "path": "versions/v2.0.4",
-    "name": "v2.0.4",
-    "sha": "a9c1c35efb883804253a905788019f4983ed7481",
-    "tag": "v2.0.4"
-  },
-  "v2.0.5": {
-    "path": "versions/v2.0.5",
-    "name": "v2.0.5",
-    "sha": "80a447b2ea3b0fcf01956083e4f21c5a7fa37d38",
-    "tag": "v2.0.5"
   },
   "v2.0.6": {
     "path": "versions/v2.0.6",
