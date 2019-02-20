@@ -37,7 +37,7 @@
     "babel-eslint": "^10.0.1",
     "ember-cli-babel": "^7.1.4",
     "ember-cli-htmlbars": "^3.0.1",
-    "intl-tel-input": "^14.0.7"
+    "intl-tel-input": "^15.0.0"
   },
   "devDependencies": {
     "@ember/jquery": "^0.5.2",
