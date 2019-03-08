@@ -29,6 +29,7 @@
     "build": "ember build",
     "changelog": "lerna-changelog",
     "lint:js": "eslint .",
+    "lint:hbs": "ember-template-lint .",
     "start": "ember serve",
     "test": "ember test",
     "test:all": "ember try:each"
@@ -68,6 +69,7 @@
     "ember-resolver": "^5.1.1",
     "ember-source": "^3.4.0",
     "ember-source-channel-url": "^1.0.1",
+    "ember-template-lint": "^1.1.0",
     "ember-try": "^1.0.0",
     "eslint": "^5.10.0",
     "eslint-plugin-ember": "^6.1.0",
