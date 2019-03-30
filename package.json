@@ -28,7 +28,8 @@
   "scripts": {
     "build": "ember build",
     "changelog": "lerna-changelog",
-    "lint:js": "eslint .",
+    "format:md": "prettier --write **/*.md",
+    "lint:js": "eslint . --cache",
     "lint:hbs": "ember-template-lint .",
     "start": "ember serve",
     "test": "ember test",

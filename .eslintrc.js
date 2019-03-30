@@ -13,8 +13,7 @@ module.exports = {
     es6: true
   },
   rules: {
-    'prettier/prettier': 2,
-    'ember/no-global-jquery': 0
+    'prettier/prettier': 2
   },
   overrides: [
     // node files

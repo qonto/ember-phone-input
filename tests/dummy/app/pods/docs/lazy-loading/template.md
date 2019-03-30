@@ -4,7 +4,7 @@ By default the `intl-tel-input` and `libphonenumber` scripts are bundled with yo
 
 To do so, you'll have to:
 
-* Add this config in your `config/environment.js`:
+- Add this config in your `config/environment.js`:
 
 ```js
 module.exports = function(environment) {
@@ -19,7 +19,7 @@ module.exports = function(environment) {
 }
 ```
 
-* Load the scripts when needed:
+- Load the scripts when needed:
 
 ```js
 export default Route.extend({
