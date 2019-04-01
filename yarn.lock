@@ -7649,10 +7649,10 @@ inquirer@^6.2.2:
     strip-ansi "^5.0.0"
     through "^2.3.6"
 
-intl-tel-input@^14.0.7:
-  version "14.0.7"
-  resolved "https://registry.yarnpkg.com/intl-tel-input/-/intl-tel-input-14.0.7.tgz#84a5b379b2977c8b8068d1533c8f4642b4e99f02"
-  integrity sha512-n73Vb/Yk8YFdu+Dt492yGSeV5X+3oC1hYYKQ8bLBLtZcdNbJQ9aRHKOLOUdSdwiuyQLgUpZIpdeM23RJ58BWYw==
+intl-tel-input@^15.0.1:
+  version "15.0.1"
+  resolved "https://registry.yarnpkg.com/intl-tel-input/-/intl-tel-input-15.0.1.tgz#85ec43e13a5a6f7ca6fb2cba6879b45ca1278f08"
+  integrity sha512-k6z6Xaz1hF3bjJSl+kLy49dDpbH92NGcfpcDecQbBW0rn8erWXfWGBdEk7IqloNHk2eOb+rVmJ/bFrkXdG26zA==
 
 into-stream@^3.1.0:
   version "3.1.0"
