@@ -35,7 +35,7 @@ module.exports = {
     const intlTelInputPath = path.resolve(
       require.resolve('intl-tel-input'),
       '..'
-    );
+    )
     const intlTelInputFiles = new Funnel(intlTelInputPath, {
       srcDir: '/build/js',
       include: [intlTelInputScriptName, utilsScriptName],
