@@ -32,7 +32,10 @@ module.exports = {
   treeForPublic() {
     // copy these files to destDir
     // to be able to lazyLoad them || not to bundle them into vendor.js
-    const intlTelInputPath = path.resolve(require.resolve('intl-tel-input'), '..');
+    const intlTelInputPath = path.resolve(
+      require.resolve('intl-tel-input'),
+      '..'
+    );
     const intlTelInputFiles = new Funnel(intlTelInputPath, {
       srcDir: '/build/js',
       include: [intlTelInputScriptName, utilsScriptName],
