@@ -23,7 +23,7 @@ module.exports = function(environment) {
 
 ```js
 export default Route.extend({
-  phoneInput: inject(),
+  phoneInput: service(),
 
   beforeModel() {
     return this.get('phoneInput').load()
