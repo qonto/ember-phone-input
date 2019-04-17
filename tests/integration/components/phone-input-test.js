@@ -59,4 +59,32 @@ module('Integration | Component | phone-input', function(hooks) {
 
     assert.dom('.iti-flag').hasClass('nz')
   })
+
+  test('can update the country', async function(assert) {
+    assert.expect(2)
+
+    await this.owner.lookup('service:phone-input').load()
+
+    const country = 'fr'
+    const validFrenchNumber = '0622334455'
+    this.set('number', null)
+    this.set('country', country)
+    this.set('update', () => {})
+
+    await render(
+      hbs`{{phone-input country=country number=number update=(action update)}}`
+    )
+
+    this.set('update', (number, { isValidNumber }) => {
+      assert.ok(isValidNumber)
+    })
+
+    await fillIn('input', validFrenchNumber)
+
+    this.set('update', (number, { isValidNumber }) => {
+      assert.notOk(isValidNumber)
+    })
+
+    this.set('country', 'pt')
+  })
 })
