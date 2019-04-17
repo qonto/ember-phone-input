@@ -2,6 +2,7 @@
 
 const Funnel = require('broccoli-funnel')
 const MergeTrees = require('broccoli-merge-trees')
+const path = require('path')
 
 const scriptsDestDir = 'assets/ember-phone-input/scripts/'
 const intlTelInputScriptName = 'intlTelInput.min.js'
@@ -31,7 +32,11 @@ module.exports = {
   treeForPublic() {
     // copy these files to destDir
     // to be able to lazyLoad them || not to bundle them into vendor.js
-    const intlTelInputFiles = new Funnel('node_modules/intl-tel-input', {
+    const intlTelInputPath = path.resolve(
+      require.resolve('intl-tel-input'),
+      '..'
+    )
+    const intlTelInputFiles = new Funnel(intlTelInputPath, {
       srcDir: '/build/js',
       include: [intlTelInputScriptName, utilsScriptName],
       destDir: `/${scriptsDestDir}`
