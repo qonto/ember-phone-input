@@ -2,6 +2,7 @@
 
 import Component from '@ember/component'
 import { assert } from '@ember/debug'
+import layout from '../templates/components/phone-input'
 
 const { intlTelInput } = window
 
@@ -24,10 +25,8 @@ const PHONE_NUMBER_FORMAT = 'E164' // https://en.wikipedia.org/wiki/E.164
 */
 
 export default Component.extend({
-  tagName: 'input',
-
-  attributeBindings: ['type'],
-  type: 'tel',
+  tagName: '',
+  layout,
 
   init() {
     this._super(...arguments)
@@ -112,19 +111,17 @@ export default Component.extend({
     )
   },
 
-  input() {
-    const format = intlTelInputUtils.numberFormat[PHONE_NUMBER_FORMAT]
-    const internationalPhoneNumber = this._iti.getNumber(format)
+  // input() {
+  //   const format = intlTelInputUtils.numberFormat[PHONE_NUMBER_FORMAT]
+  //   const internationalPhoneNumber = this._iti.getNumber(format)
 
-    var meta = this._metaData(this._iti)
-    this.update(internationalPhoneNumber, meta)
+  //   var meta = this._metaData(this._iti)
+  //   this.update(internationalPhoneNumber, meta)
 
-    return true
-  },
+  //   return true
+  // },
 
-  didInsertElement() {
-    this._super(...arguments)
-
+  elementInserted(input) {
     const {
       autoPlaceholder,
       initialCountry,
@@ -132,7 +129,6 @@ export default Component.extend({
       preferredCountries
     } = this
 
-    var input = document.getElementById(this.elementId)
     var _iti = intlTelInput(input, {
       autoHideDialCode: true,
       nationalMode: true,
@@ -153,18 +149,16 @@ export default Component.extend({
     }
 
     this.update(number, this._metaData(_iti))
-
-    this.onCountryChange = () => {
-      this._iti.setCountry(this._iti.getSelectedCountryData().iso2)
-      this.input()
-    }
-    this.element.addEventListener('countrychange', this.onCountryChange)
   },
 
   // this is a trick to format the number on user input
+
   didRender() {
     this._super(...arguments)
+    this.elementRendered()
+  },
 
+  elementRendered() {
     if (!this._iti) {
       return
     }
@@ -178,11 +172,13 @@ export default Component.extend({
     }
   },
 
-  willDestroyElement() {
+  elementWillDestroy() {
     this._iti.destroy()
-    this.element.removeEventListener('countrychange', this.onCountryChange)
+  },
 
-    this._super(...arguments)
+  onCountryChange() {
+    this._iti.setCountry(this._iti.getSelectedCountryData().iso2)
+    this.send('handleInput')
   },
 
   _metaData(iti) {
@@ -194,6 +190,18 @@ export default Component.extend({
       extension,
       selectedCountryData,
       isValidNumber
+    }
+  },
+
+  actions: {
+    handleInput() {
+      const format = intlTelInputUtils.numberFormat[PHONE_NUMBER_FORMAT]
+      const internationalPhoneNumber = this._iti.getNumber(format)
+
+      var meta = this._metaData(this._iti)
+      this.update(internationalPhoneNumber, meta)
+
+      return true
     }
   }
 })

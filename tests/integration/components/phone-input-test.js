@@ -40,8 +40,6 @@ module('Integration | Component | phone-input', function(hooks) {
   })
 
   test('can update the country', async function(assert) {
-    assert.expect(2)
-
     await this.owner.lookup('service:phone-input').load()
 
     const country = 'us'
@@ -60,7 +58,7 @@ module('Integration | Component | phone-input', function(hooks) {
     assert.dom('.iti-flag').hasClass('nz')
   })
 
-  test('can update the country', async function(assert) {
+  test('can update the number', async function(assert) {
     assert.expect(2)
 
     await this.owner.lookup('service:phone-input').load()

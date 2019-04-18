@@ -1,1 +1,7 @@
-{{yield}}
+<input
+    {{did-insert (action this.elementInserted)}}
+    {{did-insert (action this.elementRendered)}}
+    {{will-destroy (action this.elementWillDestroy)}}
+    {{on "countrychange" (action this.onCountryChange)}}
+    {{on "input" (action "handleInput")}}
+    type="tel">
