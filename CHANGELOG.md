@@ -1,5 +1,27 @@
 # Change Log
 
+## v2.0.7 (2019-04-18)
+
+#### :bug: Bug Fix
+* [#61](https://github.com/qonto/ember-phone-input/pull/61) Make sure valid check updates when country changes ([@locks](https://github.com/locks))
+* [#57](https://github.com/qonto/ember-phone-input/pull/57) Make sure correct path is used for intl-tel-input assets ([@danwenzel](https://github.com/danwenzel))
+
+#### :memo: Documentation
+* [#59](https://github.com/qonto/ember-phone-input/pull/59) Update import naming in the documentation ([@ctjhoa](https://github.com/ctjhoa))
+* [#58](https://github.com/qonto/ember-phone-input/pull/58) Update README to add ember-observer score ([@dbendaou](https://github.com/dbendaou))
+
+#### :house: Internal
+* [#60](https://github.com/qonto/ember-phone-input/pull/60) Update testing scenarios ([@dcyriller](https://github.com/dcyriller))
+* [#51](https://github.com/qonto/ember-phone-input/pull/51) Adjust eslint config / run prettier ([@dcyriller](https://github.com/dcyriller))
+* [#36](https://github.com/qonto/ember-phone-input/pull/36) Add files to npmignore ([@dcyriller](https://github.com/dcyriller))
+
+#### Committers: 5
+- Camille TJHOA ([@ctjhoa](https://github.com/ctjhoa))
+- Cyrille David ([@dcyriller](https://github.com/dcyriller))
+- Dan Wenzel ([@danwenzel](https://github.com/danwenzel))
+- Djamel B. ([@dbendaou](https://github.com/dbendaou))
+- Ricardo Mendes ([@locks](https://github.com/locks))
+
 ## v2.0.6 (2019-02-18)
 
 #### :bug: Bug Fix
