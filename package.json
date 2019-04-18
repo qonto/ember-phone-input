@@ -1,6 +1,6 @@
 {
   "name": "ember-phone-input",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "A component to input / validate / submit phone numbers",
   "keywords": [
     "ember-addon",
