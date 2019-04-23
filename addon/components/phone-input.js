@@ -153,10 +153,12 @@ export default Component.extend({
     }
 
     this.update(number, this._metaData(_iti))
-    this.element.addEventListener(
-      'countrychange',
-      this.onCountryChange.bind(this)
-    )
+
+    this.onCountryChange = () => {
+      this._iti.setCountry(this._iti.getSelectedCountryData().iso2)
+      this.input()
+    }
+    this.element.addEventListener('countrychange', this.onCountryChange)
   },
 
   // this is a trick to format the number on user input
@@ -178,17 +180,9 @@ export default Component.extend({
 
   willDestroyElement() {
     this._iti.destroy()
-    this.element.removeEventListener(
-      'countrychange',
-      this.onCountryChange.bind(this)
-    )
+    this.element.removeEventListener('countrychange', this.onCountryChange)
 
     this._super(...arguments)
-  },
-
-  onCountryChange() {
-    this._iti.setCountry(this._iti.getSelectedCountryData().iso2)
-    this.input()
   },
 
   _metaData(iti) {
