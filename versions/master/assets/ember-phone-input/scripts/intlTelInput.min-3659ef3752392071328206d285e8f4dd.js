@@ -26,7 +26,7 @@ this.d.allowDropdown&&(t+=" allow-dropdown"),this.d.separateDialCode&&(t+=" sepa
 var i=this._e2("div",{class:t})
 if(this.a.parentNode.insertBefore(i,this.a),this.k=this._e2("div",{class:"flag-container"},i),i.appendChild(this.a),this.selectedFlag=this._e2("div",{class:"selected-flag",role:"combobox","aria-owns":"country-listbox"},this.k),this.l=this._e2("div",{class:"iti-flag"},this.selectedFlag),this.d.separateDialCode&&(this.t=this._e2("div",{class:"selected-dial-code"},this.selectedFlag)),this.d.allowDropdown&&(this.selectedFlag.setAttribute("tabindex","0"),this.u=this._e2("div",{class:"iti-arrow"},this.selectedFlag),this.m=this._e2("ul",{class:"country-list hide",id:"country-listbox","aria-expanded":"false",role:"listbox"}),this.preferredCountries.length&&(this._g(this.preferredCountries,"preferred"),this._e2("li",{class:"divider",role:"separator","aria-disabled":"true"},this.m)),this._g(this.p,"standard"),this.d.dropdownContainer?(this.dropdown=this._e2("div",{class:"intl-tel-input iti-container"}),this.dropdown.appendChild(this.m)):this.k.appendChild(this.m)),this.d.hiddenInput){var e=this.d.hiddenInput,a=this.a.getAttribute("name")
 if(a){var n=a.lastIndexOf("[");-1!==n&&(e="".concat(a.substr(0,n),"[").concat(e,"]"))}this.hiddenInput=this._e2("input",{type:"hidden",name:e}),i.appendChild(this.hiddenInput)}}},{key:"_g",value:function(t,i){for(var e="",a=0;a<t.length;a++){var n=t[a]
-e+="<li class='country ".concat(i,"' id='iti-item-").concat(n.iso2,"' role='option' data-dial-code='").concat(n.dialCode,"' data-country-code='").concat(n.iso2,"'>"),e+="<div class='flag-box'><div class='iti-flag ".concat(n.iso2,"'></div></div>"),e+="<span class='country-name'>".concat(n.name,"</span>"),e+="<span class='dial-code'>+".concat(n.dialCode,"</span>"),e+="</li>"}this.m.insertAdjacentHTML("beforeend",e)}},{key:"_h",value:function(){var t=this.a.value,i=this._5(t),e=this._w(t),a=this.d,n=a.initialCountry,s=a.nationalMode,o=a.autoHideDialCode,r=a.separateDialCode
+e+="<li class='country ".concat(i,"' tabIndex='-1' id='iti-item-").concat(n.iso2,"' role='option' data-dial-code='").concat(n.dialCode,"' data-country-code='").concat(n.iso2,"'>"),e+="<div class='flag-box'><div class='iti-flag ".concat(n.iso2,"'></div></div>"),e+="<span class='country-name'>".concat(n.name,"</span>"),e+="<span class='dial-code'>+".concat(n.dialCode,"</span>"),e+="</li>"}this.m.insertAdjacentHTML("beforeend",e)}},{key:"_h",value:function(){var t=this.a.value,i=this._5(t),e=this._w(t),a=this.d,n=a.initialCountry,s=a.nationalMode,o=a.autoHideDialCode,r=a.separateDialCode
 i&&!e?this._v(t):"auto"!==n&&(n?this._z(n.toLowerCase()):i&&e?this._z("us"):(this.j=this.preferredCountries.length?this.preferredCountries[0].iso2:this.p[0].iso2,t||this._z(this.j)),t||s||o||r||(this.a.value="+".concat(this.s.dialCode))),t&&this._u(t)}},{key:"_i",value:function(){this._j(),this.d.autoHideDialCode&&this._l(),this.d.allowDropdown&&this._i2(),this.hiddenInput&&this._i0()}},{key:"_i0",value:function(){var t=this
 this._a14=function(){t.hiddenInput.value=t.getNumber()},this.a.form&&this.a.form.addEventListener("submit",this._a14)}},{key:"_i1",value:function(){for(var t=this.a;t&&"LABEL"!==t.tagName;)t=t.parentNode
 return t}},{key:"_i2",value:function(){var t=this
@@ -38,20 +38,20 @@ this._a12=function(){t._v(t.a.value)&&t._8()},this.a.addEventListener("keyup",th
 return i&&t.length>i?t.substr(0,i):t}},{key:"_l",value:function(){var t=this
 this._a8=function(){t._l2()},this.a.form&&this.a.form.addEventListener("submit",this._a8),this.a.addEventListener("blur",this._a8)}},{key:"_l2",value:function(){if("+"===this.a.value.charAt(0)){var t=this._m(this.a.value)
 t&&this.s.dialCode!==t||(this.a.value="")}}},{key:"_m",value:function(t){return t.replace(/\D/g,"")}},{key:"_m2",value:function(t){var e=i.createEvent("Event")
-e.initEvent(t,!0,!0),this.a.dispatchEvent(e)}},{key:"_n",value:function(){this.m.classList.remove("hide"),this.m.setAttribute("aria-expanded","true"),this._o(),this.b&&(this._x(this.b),this._3(this.b)),this._p(),this.u.classList.add("up"),this._m2("open:countrydropdown")}},{key:"_n2",value:function(t,i,e){e&&!t.classList.contains(i)?t.classList.add(i):!e&&t.classList.contains(i)&&t.classList.remove(i)}},{key:"_o",value:function(){var e=this
+e.initEvent(t,!0,!0),this.a.dispatchEvent(e)}},{key:"_n",value:function(){this.m.classList.remove("hide"),this.m.setAttribute("aria-expanded","true"),this._o(),this.b&&(this._x(this.b,!1),this._3(this.b,!0)),this._p(),this.u.classList.add("up"),this._m2("open:countrydropdown")}},{key:"_n2",value:function(t,i,e){e&&!t.classList.contains(i)?t.classList.add(i):!e&&t.classList.contains(i)&&t.classList.remove(i)}},{key:"_o",value:function(){var e=this
 if(this.d.dropdownContainer&&this.d.dropdownContainer.appendChild(this.dropdown),!this.g){var a=this.a.getBoundingClientRect(),n=t.pageYOffset||i.documentElement.scrollTop,s=a.top+n,o=this.m.offsetHeight,r=s+this.a.offsetHeight+o<n+t.innerHeight,l=s-o>n
 if(this._n2(this.m,"dropup",!r&&l),this.d.dropdownContainer){var u=!r&&l?0:this.a.offsetHeight
 this.dropdown.style.top="".concat(s+u,"px"),this.dropdown.style.left="".concat(a.left+i.body.scrollLeft,"px"),this._a4=function(){return e._2()},t.addEventListener("scroll",this._a4)}}}},{key:"_o2",value:function(t){for(var i=t;i&&i!==this.m&&!i.classList.contains("country");)i=i.parentNode
 return i===this.m?null:i}},{key:"_p",value:function(){var t=this
 this._a0=function(i){var e=t._o2(i.target)
-e&&t._x(e)},this.m.addEventListener("mouseover",this._a0),this._a1=function(i){var e=t._o2(i.target)
+e&&t._x(e,!1)},this.m.addEventListener("mouseover",this._a0),this._a1=function(i){var e=t._o2(i.target)
 e&&t._1(e)},this.m.addEventListener("click",this._a1)
 var e=!0
 this._a2=function(){e||t._2(),e=!1},i.documentElement.addEventListener("click",this._a2)
 var a="",n=null
 this._a3=function(i){i.preventDefault(),"ArrowUp"===i.key||"ArrowDown"===i.key?t._q(i.key):"Enter"===i.key?t._r():"Escape"===i.key?t._2():/^[a-zA-ZÀ-ÿ ]$/.test(i.key)&&(n&&clearTimeout(n),a+=i.key.toLowerCase(),t._s(a),n=setTimeout(function(){a=""},1e3))},i.addEventListener("keydown",this._a3)}},{key:"_q",value:function(t){var i="ArrowUp"===t?this.c.previousElementSibling:this.c.nextElementSibling
-i&&(i.classList.contains("divider")&&(i="ArrowUp"===t?i.previousElementSibling:i.nextElementSibling),this._x(i),this._3(i))}},{key:"_r",value:function(){this.c&&this._1(this.c)}},{key:"_s",value:function(t){for(var i=0;i<this.p.length;i++)if(this._t(this.p[i].name,t)){var e=this.m.querySelector("#iti-item-".concat(this.p[i].iso2))
-this._x(e),this._3(e,!0)
+i&&(i.classList.contains("divider")&&(i="ArrowUp"===t?i.previousElementSibling:i.nextElementSibling),this._x(i,!0))}},{key:"_r",value:function(){this.c&&this._1(this.c)}},{key:"_s",value:function(t){for(var i=0;i<this.p.length;i++)if(this._t(this.p[i].name,t)){var e=this.m.querySelector("#iti-item-".concat(this.p[i].iso2))
+this._x(e,!1),this._3(e,!0)
 break}}},{key:"_t",value:function(t,i){return t.substr(0,i.length).toLowerCase()===i}},{key:"_u",value:function(i){var e=i
 if(this.d.formatOnDisplay&&t.intlTelInputUtils&&this.s){var a=!this.d.separateDialCode&&(this.d.nationalMode||"+"!==e.charAt(0)),n=intlTelInputUtils.numberFormat,s=n.NATIONAL,o=n.INTERNATIONAL,r=a?s:o
 e=intlTelInputUtils.formatNumber(e,this.s.iso2,r)}e=this._7(e),this.a.value=e}},{key:"_v",value:function(t){var i=t,e="1"===this.s.dialCode
@@ -62,8 +62,8 @@ if(("1"!==this.s.dialCode||!this._w(n))&&(!r||l))for(var u=0;u<o.length;u++)if(o
 break}}else"+"===i.charAt(0)&&n.length?s="":i&&"+"!==i||(s=this.j)
 return null!==s&&this._z(s)}},{key:"_w",value:function(t){var i=this._m(t)
 if("1"===i.charAt(0)){var e=i.substr(1,3)
-return-1!==u.indexOf(e)}return!1}},{key:"_x",value:function(t){var i=this.c
-i&&i.classList.remove("highlight"),this.c=t,this.c.classList.add("highlight")}},{key:"_y",value:function(t,i,e){for(var a=i?n:this.p,s=0;s<a.length;s++)if(a[s].iso2===t)return a[s]
+return-1!==u.indexOf(e)}return!1}},{key:"_x",value:function(t,i){var e=this.c
+e&&e.classList.remove("highlight"),this.c=t,this.c.classList.add("highlight"),i&&this.c.focus()}},{key:"_y",value:function(t,i,e){for(var a=i?n:this.p,s=0;s<a.length;s++)if(a[s].iso2===t)return a[s]
 if(e)return null
 throw new Error("No country data for '".concat(t,"'"))}},{key:"_z",value:function(t){var i=this.s.iso2?this.s:{}
 this.s=t?this._y(t,!1,!1):{},this.s.iso2&&(this.j=this.s.iso2),this.l.setAttribute("class","iti-flag ".concat(t))
@@ -107,6 +107,6 @@ t.intlTelInputGlobals.getCountryData=function(){return n}
 var v=function(t,e,a){var n=i.createElement("script")
 n.onload=function(){d("handleUtils"),e&&e()},n.onerror=function(){d("rejectUtilsScriptPromise"),a&&a()},n.className="iti-load-utils",n.async=!0,n.src=t,i.body.appendChild(n)}
 return t.intlTelInputGlobals.loadUtils=function(i){if(!t.intlTelInputUtils&&!t.intlTelInputGlobals.startedLoadingUtilsScript){if(t.intlTelInputGlobals.startedLoadingUtilsScript=!0,"undefined"!=typeof Promise)return new Promise(function(t,e){return v(i,t,e)})
-v(i)}return null},t.intlTelInputGlobals.defaults=l,t.intlTelInputGlobals.version="15.0.2",function(i,e){var a=new c(i,e)
+v(i)}return null},t.intlTelInputGlobals.defaults=l,t.intlTelInputGlobals.version="15.1.0",function(i,e){var a=new c(i,e)
 return a._init(),i.setAttribute("data-intl-tel-input-id",a.id),t.intlTelInputGlobals.instances[a.id]=a,a}}()}(window,document)
 "object"==typeof module&&module.exports?module.exports=i:window.intlTelInput=i}()
