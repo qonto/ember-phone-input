@@ -189,11 +189,13 @@ export default Component.extend({
     const extension = iti.getExtension()
     const selectedCountryData = iti.getSelectedCountryData()
     const isValidNumber = iti.isValidNumber()
+    const validationErrorIndex = iti.getValidationError()
 
     return {
       extension,
       selectedCountryData,
-      isValidNumber
+      isValidNumber,
+      validationErrorIndex
     }
   }
 })
