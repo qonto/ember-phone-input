@@ -16,6 +16,7 @@ const PHONE_NUMBER_FORMAT = 'E164' // https://en.wikipedia.org/wiki/E.164
     number='123'
     onlyCountries=europeanCountries
     preferredCountries=englishSpeakingCountries
+    separateDialCode=true
     update=(action 'handleUpdate')}}
   ```
 
@@ -91,6 +92,14 @@ export default Component.extend({
     this.preferredCountries = this.preferredCountries || ['us', 'gb']
 
     /**
+      Display the country dial code next to the selected flag so it's not part of the typed number
+
+      @argument separateDialCode
+      @type {boolean}
+    */
+    this.separateDialCode = this.separateDialCode || false
+
+    /**
       You have to implement this function to update the `number`.
 
       @argument update
@@ -129,7 +138,8 @@ export default Component.extend({
       autoPlaceholder,
       initialCountry,
       onlyCountries,
-      preferredCountries
+      preferredCountries,
+      separateDialCode
     } = this
 
     var input = document.getElementById(this.elementId)
@@ -139,7 +149,8 @@ export default Component.extend({
       autoPlaceholder,
       initialCountry,
       onlyCountries,
-      preferredCountries
+      preferredCountries,
+      separateDialCode
     })
 
     const number = this.number
