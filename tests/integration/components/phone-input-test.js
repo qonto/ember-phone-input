@@ -39,6 +39,29 @@ module('Integration | Component | phone-input', function(hooks) {
     assert.dom('input').hasValue(newValue)
   })
 
+  test('renders the value with separate dial code option', async function(assert) {
+    assert.expect(3)
+
+    await this.owner.lookup('service:phone-input').load()
+
+    const newValue = '2'
+    this.set('separateDialNumber', null)
+    this.set('update', value => {
+      this.set('separateDialNumber', value)
+    })
+
+    await render(
+      hbs`{{phone-input separateDialCode=true number=separateDialNumber update=(action update)}}`
+    )
+
+    assert.dom('input').hasValue('')
+    assert.dom('.selected-dial-code').hasText('+1')
+
+    await fillIn('input', newValue)
+
+    assert.dom('input').hasValue(newValue)
+  })
+
   test('can update the country', async function(assert) {
     assert.expect(2)
 
