@@ -46,18 +46,16 @@ module('Integration | Component | phone-input', function(hooks) {
 
     const newValue = '2'
     this.set('separateDialNumber', null)
-    this.set('update', () => {})
+    this.set('update', value => {
+      this.set('separateDialNumber', value)
+    })
 
     await render(
       hbs`{{phone-input separateDialCode=true number=separateDialNumber update=(action update)}}`
     )
 
     assert.dom('input').hasValue('')
-
-    this.set('update', value => {
-      this.set('separateDialNumber', newValue)
-      assert.equal(value, '+12')
-    })
+    assert.dom('.selected-dial-code').hasText('+1')
 
     await fillIn('input', newValue)
 
