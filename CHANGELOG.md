@@ -1,5 +1,23 @@
 # Change Log
 
+## v3.0.0 (2019-09-23)
+
+#### :boom: Breaking Change
+* [#83](https://github.com/qonto/ember-phone-input/pull/83) Drop node 6 support ([@dcyriller](https://github.com/dcyriller))
+
+#### :rocket: Enhancement
+* [#123](https://github.com/qonto/ember-phone-input/pull/123) Feature: Add separateDialCode option ([@AleksandrBorovkov](https://github.com/AleksandrBorovkov))
+
+#### :bug: Bug Fix
+* [#84](https://github.com/qonto/ember-phone-input/pull/84) Upgrade ember-cli-favicon ([@dcyriller](https://github.com/dcyriller))
+
+#### :house: Internal
+* [#65](https://github.com/qonto/ember-phone-input/pull/65) Do not bind eventListener callback ([@dcyriller](https://github.com/dcyriller))
+
+#### Committers: 3
+- Cyrille David ([@dcyriller](https://github.com/dcyriller))
+- [@AleksandrBorovkov](https://github.com/AleksandrBorovkov)
+
 ## v2.0.7 (2019-04-18)
 
 #### :bug: Bug Fix
@@ -98,4 +116,3 @@
 #### Committers: 1
 
 - Cyrille David ([@dcyriller](https://github.com/dcyriller))
-  yarn run v1.13.0
