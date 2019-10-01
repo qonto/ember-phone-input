@@ -42,7 +42,7 @@
     "intl-tel-input": "^15.0.2"
   },
   "devDependencies": {
-    "@ember/optional-features": "^0.7.0",
+    "@ember/optional-features": "^1.0.0",
     "broccoli-asset-rev": "^3.0.0",
     "broccoli-funnel": "^2.0.1",
     "broccoli-merge-trees": "^3.0.1",
