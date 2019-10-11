@@ -2,7 +2,7 @@
 
 import Component from '@ember/component'
 import { assert } from '@ember/debug'
-import { isPresent } from '@ember/utils';
+import { isPresent } from '@ember/utils'
 
 const { intlTelInput } = window
 
