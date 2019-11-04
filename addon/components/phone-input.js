@@ -12,6 +12,7 @@ const PHONE_NUMBER_FORMAT = 'E164' // https://en.wikipedia.org/wiki/E.164
   ```hbs
     {{phone-input
     autoPlaceholder='aggressive'
+    disabled=true
     initialCountry='fr'
     number='123'
     onlyCountries=europeanCountries
@@ -27,9 +28,9 @@ const PHONE_NUMBER_FORMAT = 'E164' // https://en.wikipedia.org/wiki/E.164
 export default Component.extend({
   tagName: 'input',
 
-  attributeBindings: ['type'],
+  attributeBindings: ['type', 'disabled'],
   type: 'tel',
-
+  disabled: false,
   init() {
     this._super(...arguments)
 
