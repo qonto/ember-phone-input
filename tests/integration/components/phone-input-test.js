@@ -112,19 +112,15 @@ module('Integration | Component | phone-input', function(hooks) {
   })
 
   test('can be disabled', async function(assert) {
-    const country = 'fr'
     this.set('number', null)
-    this.set('country', country)
     this.set('update', () => {})
 
-    await render(
-      hbs`{{phone-input country=country number=number update=(action update)}}`
-    )
+    await render(hbs`{{phone-input number=number update=(action update)}}`)
 
     assert.notOk(find('input').disabled)
 
     await render(
-      hbs`{{phone-input country=country disabled=true number=number update=(action update)}}`
+      hbs`{{phone-input disabled=true number=number update=(action update)}}`
     )
     assert.ok(find('input').disabled)
   })
