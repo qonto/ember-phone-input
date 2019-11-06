@@ -30,11 +30,18 @@ export default Component.extend({
 
   attributeBindings: ['type', 'disabled'],
   type: 'tel',
-  disabled: false,
   init() {
     this._super(...arguments)
 
     this._iti = this._iti || null
+
+    /**
+     * Setting this to true will disabled the input and the country dropdown.
+     * Defaults to `false`
+     * @argument disabled
+     * @type {boolean}
+     */
+    this.disabled = this.disabled || false
 
     /**
       The international phone number. This is the main data supposed
