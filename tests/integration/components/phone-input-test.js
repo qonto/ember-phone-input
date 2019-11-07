@@ -1,7 +1,7 @@
 import { module, test } from 'qunit'
 import { setupRenderingTest } from 'ember-qunit'
 import { fillIn, render } from '@ember/test-helpers'
-import hbs from 'htmlbars-inline-precompile'
+import { hbs } from 'ember-cli-htmlbars'
 
 module('Integration | Component | phone-input', function(hooks) {
   setupRenderingTest(hooks)
