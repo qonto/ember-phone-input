@@ -1,6 +1,6 @@
 import { module, test } from 'qunit'
 import { setupRenderingTest } from 'ember-qunit'
-import { fillIn, render } from '@ember/test-helpers'
+import { fillIn, render, find } from '@ember/test-helpers'
 import { hbs } from 'ember-cli-htmlbars'
 
 module('Integration | Component | phone-input', function(hooks) {
@@ -109,5 +109,19 @@ module('Integration | Component | phone-input', function(hooks) {
     })
 
     this.set('country', 'pt')
+  })
+
+  test('can be disabled', async function(assert) {
+    this.set('number', null)
+    this.set('update', () => {})
+
+    await render(hbs`{{phone-input number=number update=(action update)}}`)
+
+    assert.notOk(find('input').disabled)
+
+    await render(
+      hbs`{{phone-input disabled=true number=number update=(action update)}}`
+    )
+    assert.ok(find('input').disabled)
   })
 })

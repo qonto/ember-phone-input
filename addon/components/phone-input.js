@@ -12,6 +12,7 @@ const PHONE_NUMBER_FORMAT = 'E164' // https://en.wikipedia.org/wiki/E.164
   ```hbs
     {{phone-input
     autoPlaceholder='aggressive'
+    disabled=true
     initialCountry='fr'
     number='123'
     onlyCountries=europeanCountries
@@ -27,13 +28,20 @@ const PHONE_NUMBER_FORMAT = 'E164' // https://en.wikipedia.org/wiki/E.164
 export default Component.extend({
   tagName: 'input',
 
-  attributeBindings: ['type'],
+  attributeBindings: ['type', 'disabled'],
   type: 'tel',
-
   init() {
     this._super(...arguments)
 
     this._iti = this._iti || null
+
+    /**
+     * Setting this to true will disabled the input and the country dropdown.
+     * Defaults to `false`
+     * @argument disabled
+     * @type {boolean}
+     */
+    this.disabled = this.disabled || false
 
     /**
       The international phone number. This is the main data supposed
