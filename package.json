@@ -79,9 +79,6 @@
     "prettier": "^1.15.3",
     "qunit-dom": "^0.9.0"
   },
-  "resolutions": {
-    "**/tough-cookie": "~2.4.0"
-  },
   "engines": {
     "node": "8.* || >= 10.*"
   },
