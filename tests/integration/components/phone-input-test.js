@@ -6,6 +6,10 @@ import { hbs } from 'ember-cli-htmlbars'
 module('Integration | Component | phone-input', function(hooks) {
   setupRenderingTest(hooks)
 
+  hooks.beforeEach(async function() {
+    await this.owner.lookup('service:phone-input').load()
+  })
+
   test('renders an input of type tel', async function(assert) {
     assert.expect(1)
 
