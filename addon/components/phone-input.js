@@ -1,11 +1,7 @@
-/* global intlTelInputUtils */
-
 import Component from '@ember/component'
 import { assert } from '@ember/debug'
 
 const { intlTelInput } = window
-
-const PHONE_NUMBER_FORMAT = 'E164' // https://en.wikipedia.org/wiki/E.164
 
 /**
   A phone-input component. Usage:
@@ -130,8 +126,7 @@ export default Component.extend({
   },
 
   input() {
-    const format = intlTelInputUtils.numberFormat[PHONE_NUMBER_FORMAT]
-    const internationalPhoneNumber = this._iti.getNumber(format)
+    const internationalPhoneNumber = this._iti.getNumber()
 
     var meta = this._metaData(this._iti)
     this.update(internationalPhoneNumber, meta)
