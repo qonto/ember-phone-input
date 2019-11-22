@@ -1,11 +1,6 @@
-/* global intlTelInputUtils */
-
 import Component from '@ember/component'
 import { assert } from '@ember/debug'
-
-const { intlTelInput } = window
-
-const PHONE_NUMBER_FORMAT = 'E164' // https://en.wikipedia.org/wiki/E.164
+import { inject as service } from '@ember/service'
 
 /**
   A phone-input component. Usage:
@@ -30,6 +25,9 @@ export default Component.extend({
 
   attributeBindings: ['type', 'disabled'],
   type: 'tel',
+
+  phoneInput: service(),
+
   init() {
     this._super(...arguments)
 
@@ -130,8 +128,7 @@ export default Component.extend({
   },
 
   input() {
-    const format = intlTelInputUtils.numberFormat[PHONE_NUMBER_FORMAT]
-    const internationalPhoneNumber = this._iti.getNumber(format)
+    const internationalPhoneNumber = this._iti.getNumber()
 
     var meta = this._metaData(this._iti)
     this.update(internationalPhoneNumber, meta)
@@ -151,7 +148,7 @@ export default Component.extend({
     } = this
 
     var input = document.getElementById(this.elementId)
-    var _iti = intlTelInput(input, {
+    var _iti = this.phoneInput.intlTelInput(input, {
       autoHideDialCode: true,
       nationalMode: true,
       autoPlaceholder,

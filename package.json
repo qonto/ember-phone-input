@@ -36,6 +36,7 @@
     "test:all": "ember try:each"
   },
   "dependencies": {
+    "ember-auto-import": "^1.5.3",
     "ember-cli-babel": "^7.1.4",
     "ember-cli-htmlbars": "^4.0.8",
     "intl-tel-input": "^15.0.2"
