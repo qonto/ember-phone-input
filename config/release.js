@@ -18,4 +18,4 @@ module.exports = {
   //     // Do custom things here...
   //   });
   // }
-}
+};

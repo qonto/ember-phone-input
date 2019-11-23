@@ -18,4 +18,4 @@ module.exports = {
       ].filter(Boolean)
     }
   }
-}
+};

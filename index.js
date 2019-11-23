@@ -1,12 +1,12 @@
-'use strict'
+'use strict';
 
-const Funnel = require('broccoli-funnel')
-const MergeTrees = require('broccoli-merge-trees')
-const path = require('path')
+const Funnel = require('broccoli-funnel');
+const MergeTrees = require('broccoli-merge-trees');
+const path = require('path');
 
-const scriptsDestDir = 'assets/ember-phone-input/scripts/'
-const intlTelInputScriptName = 'intlTelInput.min.js'
-const utilsScriptName = 'utils.js'
+const scriptsDestDir = 'assets/ember-phone-input/scripts/';
+const intlTelInputScriptName = 'intlTelInput.min.js';
+const utilsScriptName = 'utils.js';
 
 module.exports = {
   name: 'ember-phone-input',
@@ -18,21 +18,21 @@ module.exports = {
   },
 
   included(app) {
-    this._super.included.apply(this, app)
+    this._super.included.apply(this, app);
 
     // images
     // they get copied to destDir
     app.import('node_modules/intl-tel-input/build/img/flags.png', {
       destDir: 'assets/ember-phone-input/images'
-    })
+    });
     app.import('node_modules/intl-tel-input/build/img/flags@2x.png', {
       destDir: 'assets/ember-phone-input/images'
-    })
+    });
 
     // intlTelInputUtils style
     // it get merged into vendor.css
-    app.import('node_modules/intl-tel-input/build/css/intlTelInput.css')
-    app.import('vendor/ember-phone-input.css')
+    app.import('node_modules/intl-tel-input/build/css/intlTelInput.css');
+    app.import('vendor/ember-phone-input.css');
   },
 
   treeForPublic() {
@@ -41,25 +41,25 @@ module.exports = {
     const intlTelInputPath = path.resolve(
       require.resolve('intl-tel-input'),
       '..'
-    )
+    );
     const intlTelInputFiles = new Funnel(intlTelInputPath, {
       srcDir: '/build/js',
       include: [intlTelInputScriptName, utilsScriptName],
       destDir: `/${scriptsDestDir}`
-    })
+    });
 
-    return new MergeTrees([intlTelInputFiles])
+    return new MergeTrees([intlTelInputFiles]);
   },
 
   contentFor(type, config) {
-    const { phoneInput, rootURL } = config
-    const shouldLazyLoad = phoneInput ? phoneInput.lazyLoad : false
+    const { phoneInput, rootURL } = config;
+    const shouldLazyLoad = phoneInput ? phoneInput.lazyLoad : false;
 
     if (type === 'body-footer' && !shouldLazyLoad) {
       return `
         <script type="text/javascript" src="${rootURL}${scriptsDestDir}${intlTelInputScriptName}"></script>
         <script type="text/javascript" src="${rootURL}${scriptsDestDir}${utilsScriptName}"></script>
-      `
+      `;
     }
   }
-}
+};
