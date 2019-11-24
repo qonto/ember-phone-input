@@ -1,50 +1,33 @@
-import Service from '@ember/service'
-import { getOwner } from '@ember/application'
-import loadScript from 'ember-phone-input/utils/load-script'
-import RSVP from 'rsvp'
+import Service from '@ember/service';
+import { getOwner } from '@ember/application';
+import RSVP from 'rsvp';
 
 export default Service.extend({
-  didLoad: false,
+  intlTelInput: null,
 
   init() {
-    this._super(...arguments)
+    this._super(...arguments);
 
-    const config = getOwner(this).resolveRegistration('config:environment')
-    const { lazyLoad, hasPrepend } = config.phoneInput
-
-    this.hasPrepend = hasPrepend
+    const config = getOwner(this).resolveRegistration('config:environment');
+    const { lazyLoad } = config.phoneInput;
 
     if (!lazyLoad) {
       // if lazyLoad is disabled, load them now
       // that is to say at the app boot
-      this.load()
+      this.load();
     }
   },
 
   load() {
-    const doLoadScript1 = this.didLoad
-      ? RSVP.resolve()
-      : loadScript(
-          this._loadUrl('assets/ember-phone-input/scripts/intlTelInput.min.js')
-        )
+    if (this.intlTelInput) return;
 
-    const doLoadScript2 = this.didLoad
-      ? RSVP.resolve()
-      : loadScript(this._loadUrl('assets/ember-phone-input/scripts/utils.js'))
-
-    return RSVP.all([doLoadScript1, doLoadScript2]).then(() => {
-      if (this.isDestroyed) {
-        return
+    return RSVP.all([
+      import('intl-tel-input/build/js/intlTelInput.js'),
+      import('intl-tel-input/build/js/utils.js')
+    ]).then(([intlTelInput]) => {
+      if (!this.isDestroying && !this.isDestroyed) {
+        this.set('intlTelInput', intlTelInput.default);
       }
-
-      this.set('didLoad', true)
-    })
-  },
-
-  _loadUrl(url) {
-    const { rootURL } = getOwner(this).resolveRegistration('config:environment')
-    const prependUrl = this.hasPrepend ? '' : rootURL
-
-    return `${prependUrl}${url}`
+    });
   }
-})
+});

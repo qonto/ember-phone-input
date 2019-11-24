@@ -1,12 +1,7 @@
-/* global intlTelInputUtils */
-
-import Component from '@ember/component'
-import { assert } from '@ember/debug'
-import { isPresent } from '@ember/utils'
-
-const { intlTelInput } = window
-
-const PHONE_NUMBER_FORMAT = 'E164' // https://en.wikipedia.org/wiki/E.164
+import Component from '@ember/component';
+import { assert } from '@ember/debug';
+import { inject as service } from '@ember/service';
+import { isPresent } from '@ember/utils';
 
 /**
   A phone-input component. Usage:
@@ -14,6 +9,7 @@ const PHONE_NUMBER_FORMAT = 'E164' // https://en.wikipedia.org/wiki/E.164
     {{phone-input
     allowDropdown=false
     autoPlaceholder='aggressive'
+    disabled=true
     initialCountry='fr'
     number='123'
     onlyCountries=europeanCountries
@@ -29,13 +25,23 @@ const PHONE_NUMBER_FORMAT = 'E164' // https://en.wikipedia.org/wiki/E.164
 export default Component.extend({
   tagName: 'input',
 
-  attributeBindings: ['type'],
+  attributeBindings: ['type', 'disabled'],
   type: 'tel',
 
-  init() {
-    this._super(...arguments)
+  phoneInput: service(),
 
-    this._iti = this._iti || null
+  init() {
+    this._super(...arguments);
+
+    this._iti = this._iti || null;
+
+    /**
+     * Setting this to true will disabled the input and the country dropdown.
+     * Defaults to `false`
+     * @argument disabled
+     * @type {boolean}
+     */
+    this.disabled = this.disabled || false;
 
     /**
       The international phone number. This is the main data supposed
@@ -44,7 +50,7 @@ export default Component.extend({
       @argument number
       @type {string}
     */
-    this.number = this.number || null
+    this.number = this.number || null;
 
     /**
       Whether or not to allow the dropdown. If disabled, there is no dropdown arrow, and the selected flag is not clickable. Also we display the selected flag on the right instead because it is just a marker of state.
@@ -55,7 +61,7 @@ export default Component.extend({
 
     this.allowDropdown = isPresent(this.allowDropdown)
       ? this.allowDropdown
-      : true
+      : true;
 
     /**
       Add or remove input placeholder with an example number for the selected
@@ -65,7 +71,7 @@ export default Component.extend({
       @argument autoPlaceholder
       @type {string}
     */
-    this.autoPlaceholder = this.autoPlaceholder || 'polite'
+    this.autoPlaceholder = this.autoPlaceholder || 'polite';
 
     /**
       It will just be the first country in the list. Set the initial country by
@@ -74,7 +80,7 @@ export default Component.extend({
       @argument initialCountry
       @type {string}
     */
-    this.initialCountry = this.initialCountry || ''
+    this.initialCountry = this.initialCountry || '';
 
     /**
       It will force the selected country. Set the country by it's country code.
@@ -85,7 +91,7 @@ export default Component.extend({
       @argument country
       @type {string}
     */
-    this.country = this.country || ''
+    this.country = this.country || '';
 
     /**
       Display only the countries you specify -
@@ -94,7 +100,7 @@ export default Component.extend({
       @argument onlyCountries
       @type {Array}
     */
-    this.onlyCountries = this.onlyCountries || []
+    this.onlyCountries = this.onlyCountries || [];
 
     /**
       Specify the countries to appear at the top of the list.
@@ -102,7 +108,7 @@ export default Component.extend({
       @argument preferredCountries
       @type {Array}
     */
-    this.preferredCountries = this.preferredCountries || ['us', 'gb']
+    this.preferredCountries = this.preferredCountries || ['us', 'gb'];
 
     /**
       Display the country dial code next to the selected flag so it's not part of the typed number
@@ -110,7 +116,7 @@ export default Component.extend({
       @argument separateDialCode
       @type {boolean}
     */
-    this.separateDialCode = this.separateDialCode || false
+    this.separateDialCode = this.separateDialCode || false;
 
     /**
       You have to implement this function to update the `number`.
@@ -122,30 +128,29 @@ export default Component.extend({
       @param {Object} metadata.selectedCountryData The country data for the currently selected flag.
       @param {boolean} metadata.isValidNumber The validity of the current `phoneNumber`.
     */
-    this.update = this.update || function() {}
+    this.update = this.update || function() {};
 
     const validAutoPlaceholer = ['polite', 'aggressive', 'off'].includes(
       this.autoPlaceholder
-    )
+    );
 
     assert(
       "`autoPlaceholder` possible values are 'polite', 'aggressive' and 'off'",
       validAutoPlaceholer
-    )
+    );
   },
 
   input() {
-    const format = intlTelInputUtils.numberFormat[PHONE_NUMBER_FORMAT]
-    const internationalPhoneNumber = this._iti.getNumber(format)
+    const internationalPhoneNumber = this._iti.getNumber();
 
-    var meta = this._metaData(this._iti)
-    this.update(internationalPhoneNumber, meta)
+    var meta = this._metaData(this._iti);
+    this.update(internationalPhoneNumber, meta);
 
-    return true
+    return true;
   },
 
   didInsertElement() {
-    this._super(...arguments)
+    this._super(...arguments);
 
     const {
       allowDropdown,
@@ -154,10 +159,10 @@ export default Component.extend({
       onlyCountries,
       preferredCountries,
       separateDialCode
-    } = this
+    } = this;
 
-    var input = document.getElementById(this.elementId)
-    var _iti = intlTelInput(input, {
+    var input = document.getElementById(this.elementId);
+    var _iti = this.phoneInput.intlTelInput(input, {
       autoHideDialCode: true,
       nationalMode: true,
       allowDropdown,
@@ -166,60 +171,60 @@ export default Component.extend({
       onlyCountries,
       preferredCountries,
       separateDialCode
-    })
+    });
 
-    const number = this.number
+    const number = this.number;
     if (number) {
-      _iti.setNumber(number)
+      _iti.setNumber(number);
     }
-    this._iti = _iti
+    this._iti = _iti;
 
     if (this.initialCountry) {
-      this._iti.setCountry(this.initialCountry)
+      this._iti.setCountry(this.initialCountry);
     }
 
-    this.update(number, this._metaData(_iti))
+    this.update(number, this._metaData(_iti));
 
     this.onCountryChange = () => {
-      this._iti.setCountry(this._iti.getSelectedCountryData().iso2)
-      this.input()
-    }
-    this.element.addEventListener('countrychange', this.onCountryChange)
+      this._iti.setCountry(this._iti.getSelectedCountryData().iso2);
+      this.input();
+    };
+    this.element.addEventListener('countrychange', this.onCountryChange);
   },
 
   // this is a trick to format the number on user input
   didRender() {
-    this._super(...arguments)
+    this._super(...arguments);
 
     if (!this._iti) {
-      return
+      return;
     }
 
     if (this.country) {
-      this._iti.setCountry(this.country)
+      this._iti.setCountry(this.country);
     }
 
     if (this.number) {
-      this._iti.setNumber(this.number)
+      this._iti.setNumber(this.number);
     }
   },
 
   willDestroyElement() {
-    this._iti.destroy()
-    this.element.removeEventListener('countrychange', this.onCountryChange)
+    this._iti.destroy();
+    this.element.removeEventListener('countrychange', this.onCountryChange);
 
-    this._super(...arguments)
+    this._super(...arguments);
   },
 
   _metaData(iti) {
-    const extension = iti.getExtension()
-    const selectedCountryData = iti.getSelectedCountryData()
-    const isValidNumber = iti.isValidNumber()
+    const extension = iti.getExtension();
+    const selectedCountryData = iti.getSelectedCountryData();
+    const isValidNumber = iti.isValidNumber();
 
     return {
       extension,
       selectedCountryData,
       isValidNumber
-    }
+    };
   }
-})
+});
