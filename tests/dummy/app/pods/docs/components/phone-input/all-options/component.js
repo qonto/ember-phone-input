@@ -1,7 +1,7 @@
 import Component from '@ember/component'
 
 export default Component.extend({
-  allowDropdown: null,
+  allowDropdownNumber: null,
   number: null,
   separateDialNumber: null,
 
@@ -9,6 +9,10 @@ export default Component.extend({
     handleUpdate(number, metaData) {
       this.set('number', number)
       this.setProperties(metaData)
+    },
+
+    updateAllowDropdownNumber(allowDropdownNumber) {
+      this.set('allowDropdownNumber', allowDropdownNumber)
     },
 
     updateSeparateDialOption(separateDialNumber, metaData) {

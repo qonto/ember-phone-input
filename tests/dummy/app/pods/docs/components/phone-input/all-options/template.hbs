@@ -36,9 +36,11 @@
 {{#docs-demo as |demo|}}
   {{#demo.example name="phone-input-allow-dropdown-option.hbs"}}
 
-    <p>{{phone-input allowDropdown=false initialCountry="fr" update=(action "handleUpdate")}}</p>
+    <p>{{phone-input allowDropdown=false number=allowDropdownNumber initialCountry="fr" update=(action "updateAllowDropdownNumber")}}</p>
 
     <p>The dropdown can be disabled.</p>
+
+    <p>The internal phone number you'll want to persist on your backend is <em>\{{allowDropdownNumber}}: </em><strong>{{allowDropdownNumber}}</strong></p>
 
   {{/demo.example}}
 

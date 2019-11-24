@@ -55,7 +55,7 @@ export default Component.extend({
 
     this.allowDropdown = isPresent(this.allowDropdown)
       ? this.allowDropdown
-      : false
+      : true
 
     /**
       Add or remove input placeholder with an example number for the selected
