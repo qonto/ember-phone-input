@@ -12,7 +12,7 @@ export default Component.extend({
     },
 
     updateAllowDropdownNumber(allowDropdownNumber) {
-      this.set('allowDropdownNumber', allowDropdownNumber)
+      this.set('allowDropdownNumber', allowDropdownNumber);
     },
 
     updateSeparateDialOption(separateDialNumber, metaData) {
