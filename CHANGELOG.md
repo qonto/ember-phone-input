@@ -1,5 +1,28 @@
 # Change Log
 
+## v3.1.0 (2019-11-27)
+
+#### :rocket: Enhancement
+* [#134](https://github.com/qonto/ember-phone-input/pull/134) [FEATURE] Add allowDropdown option ([@evanlouden](https://github.com/evanlouden))
+* [#151](https://github.com/qonto/ember-phone-input/pull/151) Replace custom script loading code with `ember-auto-import` ([@Turbo87](https://github.com/Turbo87))
+* [#144](https://github.com/qonto/ember-phone-input/pull/144) Feature add attribute biding for disabled ([@vsergiu93](https://github.com/vsergiu93))
+
+#### :memo: Documentation
+* [#148](https://github.com/qonto/ember-phone-input/pull/148) 📝 add pull request template ([@dbendaou](https://github.com/dbendaou))
+
+#### :house: Internal
+* [#153](https://github.com/qonto/ember-phone-input/pull/153) prettier: Set `semi: true` ([@Turbo87](https://github.com/Turbo87))
+* [#152](https://github.com/qonto/ember-phone-input/pull/152) package.json: Move `babel-eslint` into `devDependencies` ([@Turbo87](https://github.com/Turbo87))
+* [#150](https://github.com/qonto/ember-phone-input/pull/150) Remove obsolete `tough-cookie` resolution ([@Turbo87](https://github.com/Turbo87))
+* [#145](https://github.com/qonto/ember-phone-input/pull/145) Remove ember-cli-htmlbars-inline-precompile to get rid of the deprecation warning while building ([@vsergiu93](https://github.com/vsergiu93))
+
+#### Committers: 5
+- Djamel B. ([@dbendaou](https://github.com/dbendaou))
+- Evan Louden ([@evanlouden](https://github.com/evanlouden))
+- Sergiu ([@vsergiu93](https://github.com/vsergiu93))
+- Tobias Bieniek ([@Turbo87](https://github.com/Turbo87))
+- [@dependabot-preview[bot]](https://github.com/apps/dependabot-preview)
+
 ## v3.0.0 (2019-09-23)
 
 #### :boom: Breaking Change
