@@ -159,17 +159,7 @@ export default Component.extend({
   didRender() {
     this._super(...arguments);
 
-    if (!this._iti) {
-      return;
-    }
-
-    if (this.country) {
-      this._iti.setCountry(this.country);
-    }
-
-    if (this.number) {
-      this._iti.setNumber(this.number);
-    }
+    this._formatNumber();
   },
 
   willDestroyElement() {
@@ -220,6 +210,22 @@ export default Component.extend({
       this.input();
     };
     this.element.addEventListener('countrychange', this.onCountryChange);
+
+    this._formatNumber();
+  },
+
+  _formatNumber() {
+    if (!this._iti) {
+      return;
+    }
+
+    if (this.country) {
+      this._iti.setCountry(this.country);
+    }
+
+    if (this.number) {
+      this._iti.setNumber(this.number);
+    }
   },
 
   _metaData(iti) {
