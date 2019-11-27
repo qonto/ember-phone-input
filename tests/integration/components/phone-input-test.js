@@ -132,14 +132,10 @@ module('Integration | Component | phone-input', function(hooks) {
   test('can prevent the dropdown', async function(assert) {
     assert.expect(1);
 
-    await this.owner.lookup('service:phone-input').load();
-
-    this.set('update', value => {
-      this.set('allowDropdown', value);
-    });
+    this.set('updateAllowDropdownNumber', () => {});
 
     await render(
-      hbs`{{phone-input allowDropdown=false update=(action update)}}`
+      hbs`{{phone-input allowDropdown=false update=(action updateAllowDropdownNumber)}}`
     );
 
     assert.dom('ul.country-list').doesNotExist();
