@@ -1,11 +1,13 @@
 import Component from '@ember/component';
 import { assert } from '@ember/debug';
 import { inject as service } from '@ember/service';
+import { isPresent } from '@ember/utils';
 
 /**
   A phone-input component. Usage:
   ```hbs
     {{phone-input
+    allowDropdown=false
     autoPlaceholder='aggressive'
     disabled=true
     initialCountry='fr'
@@ -49,6 +51,17 @@ export default Component.extend({
       @type {string}
     */
     this.number = this.number || null;
+
+    /**
+      Whether or not to allow the dropdown. If disabled, there is no dropdown arrow, and the selected flag is not clickable. Also we display the selected flag on the right instead because it is just a marker of state.
+
+      @argument allowDropdown
+      @type {boolean}
+    */
+
+    this.allowDropdown = isPresent(this.allowDropdown)
+      ? this.allowDropdown
+      : true;
 
     /**
       Add or remove input placeholder with an example number for the selected
@@ -140,6 +153,7 @@ export default Component.extend({
     this._super(...arguments);
 
     const {
+      allowDropdown,
       autoPlaceholder,
       initialCountry,
       onlyCountries,
@@ -151,6 +165,7 @@ export default Component.extend({
     var _iti = this.phoneInput.intlTelInput(input, {
       autoHideDialCode: true,
       nationalMode: true,
+      allowDropdown,
       autoPlaceholder,
       initialCountry,
       onlyCountries,

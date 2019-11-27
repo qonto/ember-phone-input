@@ -128,4 +128,16 @@ module('Integration | Component | phone-input', function(hooks) {
     );
     assert.ok(find('input').disabled);
   });
+
+  test('can prevent the dropdown', async function(assert) {
+    assert.expect(1);
+
+    this.set('updateAllowDropdownNumber', () => {});
+
+    await render(
+      hbs`{{phone-input allowDropdown=false update=(action updateAllowDropdownNumber)}}`
+    );
+
+    assert.dom('ul.country-list').doesNotExist();
+  });
 });

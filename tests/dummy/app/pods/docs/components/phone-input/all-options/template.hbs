@@ -31,3 +31,18 @@
 
   {{demo.snippet "phone-input-separate-dial-option.hbs"}}
 {{/docs-demo}}
+
+<h2>`allowDropdown` option</h2>
+{{#docs-demo as |demo|}}
+  {{#demo.example name="phone-input-allow-dropdown-option.hbs"}}
+
+    <p>{{phone-input allowDropdown=false number=allowDropdownNumber initialCountry="fr" update=(action "updateAllowDropdownNumber")}}</p>
+
+    <p>The dropdown can be disabled.</p>
+
+    <p>The internal phone number you'll want to persist on your backend is <em>\{{allowDropdownNumber}}: </em><strong>{{allowDropdownNumber}}</strong></p>
+
+  {{/demo.example}}
+
+  {{demo.snippet "phone-input-allow-dropdown-option.hbs"}}
+{{/docs-demo}}
