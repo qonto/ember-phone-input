@@ -152,6 +152,36 @@ export default Component.extend({
   didInsertElement() {
     this._super(...arguments);
 
+    this._loadAndSetup();
+  },
+
+  // this is a trick to format the number on user input
+  didRender() {
+    this._super(...arguments);
+
+    if (!this._iti) {
+      return;
+    }
+
+    if (this.country) {
+      this._iti.setCountry(this.country);
+    }
+
+    if (this.number) {
+      this._iti.setNumber(this.number);
+    }
+  },
+
+  willDestroyElement() {
+    this._iti.destroy();
+    this.element.removeEventListener('countrychange', this.onCountryChange);
+
+    this._super(...arguments);
+  },
+
+  async _loadAndSetup() {
+    await this.phoneInput.load();
+
     const {
       allowDropdown,
       autoPlaceholder,
@@ -190,30 +220,6 @@ export default Component.extend({
       this.input();
     };
     this.element.addEventListener('countrychange', this.onCountryChange);
-  },
-
-  // this is a trick to format the number on user input
-  didRender() {
-    this._super(...arguments);
-
-    if (!this._iti) {
-      return;
-    }
-
-    if (this.country) {
-      this._iti.setCountry(this.country);
-    }
-
-    if (this.number) {
-      this._iti.setNumber(this.number);
-    }
-  },
-
-  willDestroyElement() {
-    this._iti.destroy();
-    this.element.removeEventListener('countrychange', this.onCountryChange);
-
-    this._super(...arguments);
   },
 
   _metaData(iti) {
