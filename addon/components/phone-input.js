@@ -164,7 +164,7 @@ export default Component.extend({
 
   willDestroyElement() {
     this._iti.destroy();
-    this.element.removeEventListener('countrychange', this.onCountryChange);
+    this.element.removeEventListener('countrychange', this._onCountryChange);
 
     this._super(...arguments);
   },
@@ -172,6 +172,17 @@ export default Component.extend({
   async _loadAndSetup() {
     await this.phoneInput.load();
 
+    this._setupLibrary();
+
+    this._formatNumber();
+
+    this.element.addEventListener(
+      'countrychange',
+      this._onCountryChange.bind(this)
+    );
+  },
+
+  _setupLibrary() {
     const {
       allowDropdown,
       autoPlaceholder,
@@ -193,9 +204,8 @@ export default Component.extend({
       separateDialCode
     });
 
-    const number = this.number;
-    if (number) {
-      _iti.setNumber(number);
+    if (this.number) {
+      _iti.setNumber(this.number);
     }
     this._iti = _iti;
 
@@ -203,15 +213,7 @@ export default Component.extend({
       this._iti.setCountry(this.initialCountry);
     }
 
-    this.update(number, this._metaData(_iti));
-
-    this.onCountryChange = () => {
-      this._iti.setCountry(this._iti.getSelectedCountryData().iso2);
-      this.input();
-    };
-    this.element.addEventListener('countrychange', this.onCountryChange);
-
-    this._formatNumber();
+    this.update(this.number, this._metaData(_iti));
   },
 
   _formatNumber() {
@@ -226,6 +228,11 @@ export default Component.extend({
     if (this.number) {
       this._iti.setNumber(this.number);
     }
+  },
+
+  _onCountryChange() {
+    this._iti.setCountry(this._iti.getSelectedCountryData().iso2);
+    this.input();
   },
 
   _metaData(iti) {
