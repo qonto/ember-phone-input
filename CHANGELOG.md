@@ -1,5 +1,13 @@
 # Change Log
 
+## v3.1.1 (2019-11-28)
+
+#### :bug: Bug Fix
+* [#154](https://github.com/qonto/ember-phone-input/pull/154) Fix option lazyLoad: false ([@dcyriller](https://github.com/dcyriller))
+
+#### Committers: 1
+- Cyrille David ([@dcyriller](https://github.com/dcyriller))
+
 ## v3.1.0 (2019-11-27)
 
 #### :rocket: Enhancement
@@ -77,7 +85,6 @@
 
 - Cyrille David ([@dcyriller](https://github.com/dcyriller))
 - David Laird ([@kiwiupover](https://github.com/kiwiupover))
-  Done in 2.61s.
 
 ## v2.0.5 (2019-02-04)
 
