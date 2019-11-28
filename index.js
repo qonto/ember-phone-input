@@ -1,13 +1,5 @@
 'use strict';
 
-const Funnel = require('broccoli-funnel');
-const MergeTrees = require('broccoli-merge-trees');
-const path = require('path');
-
-const scriptsDestDir = 'assets/ember-phone-input/scripts/';
-const intlTelInputScriptName = 'intlTelInput.min.js';
-const utilsScriptName = 'utils.js';
-
 module.exports = {
   name: 'ember-phone-input',
 
@@ -33,33 +25,5 @@ module.exports = {
     // it get merged into vendor.css
     app.import('node_modules/intl-tel-input/build/css/intlTelInput.css');
     app.import('vendor/ember-phone-input.css');
-  },
-
-  treeForPublic() {
-    // copy these files to destDir
-    // to be able to lazyLoad them || not to bundle them into vendor.js
-    const intlTelInputPath = path.resolve(
-      require.resolve('intl-tel-input'),
-      '..'
-    );
-    const intlTelInputFiles = new Funnel(intlTelInputPath, {
-      srcDir: '/build/js',
-      include: [intlTelInputScriptName, utilsScriptName],
-      destDir: `/${scriptsDestDir}`
-    });
-
-    return new MergeTrees([intlTelInputFiles]);
-  },
-
-  contentFor(type, config) {
-    const { phoneInput, rootURL } = config;
-    const shouldLazyLoad = phoneInput ? phoneInput.lazyLoad : false;
-
-    if (type === 'body-footer' && !shouldLazyLoad) {
-      return `
-        <script type="text/javascript" src="${rootURL}${scriptsDestDir}${intlTelInputScriptName}"></script>
-        <script type="text/javascript" src="${rootURL}${scriptsDestDir}${utilsScriptName}"></script>
-      `;
-    }
   }
 };

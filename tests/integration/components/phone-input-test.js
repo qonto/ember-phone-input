@@ -13,8 +13,6 @@ module('Integration | Component | phone-input', function(hooks) {
   test('renders an input of type tel', async function(assert) {
     assert.expect(1);
 
-    await this.owner.lookup('service:phone-input').load();
-
     await render(hbs`{{phone-input number='1111'}}`);
 
     assert.dom('input').hasAttribute('type', 'tel');
@@ -22,8 +20,6 @@ module('Integration | Component | phone-input', function(hooks) {
 
   test('renders the value', async function(assert) {
     assert.expect(3);
-
-    await this.owner.lookup('service:phone-input').load();
 
     const newValue = '2';
     this.set('number', null);
@@ -46,8 +42,6 @@ module('Integration | Component | phone-input', function(hooks) {
   test('renders the value with separate dial code option', async function(assert) {
     assert.expect(3);
 
-    await this.owner.lookup('service:phone-input').load();
-
     const newValue = '2';
     this.set('separateDialNumber', null);
     this.set('update', value => {
@@ -69,8 +63,6 @@ module('Integration | Component | phone-input', function(hooks) {
   test('can update the country', async function(assert) {
     assert.expect(2);
 
-    await this.owner.lookup('service:phone-input').load();
-
     const country = 'us';
     this.set('number', null);
     this.set('update', () => {});
@@ -87,10 +79,8 @@ module('Integration | Component | phone-input', function(hooks) {
     assert.dom('.iti-flag').hasClass('nz');
   });
 
-  test('can update the country', async function(assert) {
+  test('phoneNumber is correctly invalid when country is changed', async function(assert) {
     assert.expect(2);
-
-    await this.owner.lookup('service:phone-input').load();
 
     const country = 'fr';
     const validFrenchNumber = '0622334455';
