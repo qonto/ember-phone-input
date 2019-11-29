@@ -6138,7 +6138,7 @@ Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var r=t.default.extend()
 e.default=r})),define("ember-cli-addon-docs/addon-files",["exports"],(function(e){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
-e.default=[".gitkeep","components/phone-input.js","services/phone-input.js","templates/components/phone-input.hbs"]})),define("ember-cli-addon-docs/app-files",["exports"],(function(e){"use strict"
+e.default=[".gitkeep","components/phone-input.js","instance-initializers/phone-input.js","services/phone-input.js","templates/components/phone-input.hbs"]})),define("ember-cli-addon-docs/app-files",["exports"],(function(e){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 e.default=["app.js","index.html","pods/application/route.js","pods/application/template.hbs","pods/docs/action-handling/template.md","pods/docs/components/phone-input/action-handling/component.js","pods/docs/components/phone-input/action-handling/template.hbs","pods/docs/components/phone-input/all-options/component.js","pods/docs/components/phone-input/all-options/template.hbs","pods/docs/installation/template.md","pods/docs/lazy-loading/template.md","pods/docs/route.js","pods/docs/template.hbs","pods/docs/usage/template.md","pods/index/template.hbs","pods/not-found/template.hbs","resolver.js","router.js","styles/app.css"]})),define("ember-cli-addon-docs/breakpoints",["exports"],(function(e){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
@@ -7712,13 +7712,14 @@ return this.update(e,t),!0},didInsertElement:function(){this._super.apply(this,a
 case 2:this._setupLibrary(),this._formatNumber(),this.element.addEventListener("countrychange",this._onCountryChange.bind(this))
 case 5:case"end":return e.stop()}}),null,this)},_setupLibrary:function(){var e=this.allowDropdown,t=this.autoPlaceholder,r=this.initialCountry,n=this.onlyCountries,i=this.preferredCountries,o=this.separateDialCode,a=document.getElementById(this.elementId),s=this.phoneInput.intlTelInput(a,{autoHideDialCode:!0,nationalMode:!0,allowDropdown:e,autoPlaceholder:t,initialCountry:r,onlyCountries:n,preferredCountries:i,separateDialCode:o})
 this.number&&s.setNumber(this.number),this._iti=s,this.initialCountry&&this._iti.setCountry(this.initialCountry),this.update(this.number,this._metaData(s))},_formatNumber:function(){this._iti&&(this.country&&this._iti.setCountry(this.country),this.number&&this._iti.setNumber(this.number))},_onCountryChange:function(){this._iti.setCountry(this._iti.getSelectedCountryData().iso2),this.input()},_metaData:function(e){return{extension:e.getExtension(),selectedCountryData:e.getSelectedCountryData(),isValidNumber:e.isValidNumber()}}})
-e.default=t})),define("ember-phone-input/services/phone-input",["exports"],(function(e){"use strict"
+e.default=t})),define("ember-phone-input/instance-initializers/phone-input",["exports"],(function(e){"use strict"
+function t(e){e.resolveRegistration("config:environment").phoneInput.lazyLoad||e.lookup("service:phone-input").load()}Object.defineProperty(e,"__esModule",{value:!0}),e.initialize=t,e.default=void 0
+var r={initialize:t}
+e.default=r})),define("ember-phone-input/services/phone-input",["exports"],(function(e){"use strict"
 function t(e,t){return function(e){if(Array.isArray(e))return e}(e)||function(e,t){if(!(Symbol.iterator in Object(e)||"[object Arguments]"===Object.prototype.toString.call(e)))return
 var r=[],n=!0,i=!1,o=void 0
 try{for(var a,s=e[Symbol.iterator]();!(n=(a=s.next()).done)&&(r.push(a.value),!t||r.length!==t);n=!0);}catch(u){i=!0,o=u}finally{try{n||null==s.return||s.return()}finally{if(i)throw o}}return r}(e,t)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance")}()}Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
-var r=Ember.Service.extend({intlTelInput:null,init:function(){this._super.apply(this,arguments)
-var e=Ember.getOwner(this).resolveRegistration("config:environment"),t=e.phoneInput.lazyLoad
-t||this.load()},load:function(){var e=this
+var r=Ember.Service.extend({intlTelInput:null,load:function(){var e=this
 if(!this.intlTelInput)return Ember.RSVP.all([emberAutoImportDynamic("intl-tel-input/build/js/intlTelInput.js"),emberAutoImportDynamic("intl-tel-input/build/js/utils.js")]).then((function(r){var n=t(r,1)[0]
 e.isDestroying||e.isDestroyed||e.set("intlTelInput",n.default)}))}})
 e.default=r})),define("ember-phone-input/templates/components/phone-input",["exports"],(function(e){"use strict"
@@ -7812,7 +7813,8 @@ var t=function(){return"xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g,(f
 return("x"===e?t:3&t|8).toString(16)}))},r=Ember.HistoryLocation.extend({init:function(){this._super.apply(this,arguments)},pushState:function(e){var r={path:e,uuid:t()}
 Ember.get(this,"history").pushState(r,null,e),Ember.set(this,"_previousURL",this.getURL())},replaceState:function(e){var r={path:e,uuid:t()}
 Ember.get(this,"history").replaceState(r,null,e),Ember.set(this,"_previousURL",this.getURL())}})
-e.default=r})),define("ember-router-scroll/services/router-scroll",["exports"],(function(e){"use strict"
+e.default=r}))
+define("ember-router-scroll/services/router-scroll",["exports"],(function(e){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var t=Ember.Service.extend({isFastBoot:Ember.computed((function(){var e=Ember.getOwner(this).lookup("service:fastboot")
 return!!e&&e.get("isFastBoot")})),key:null,scrollElement:"window",targetElement:null,isFirstLoad:!0,preserveScrollPosition:!1,delayScrollTop:!1,scrollWhenPainted:!1,scrollWhenIdle:!1,init:function(){this._super.apply(this,arguments),this._loadConfig(),Ember.set(this,"scrollMap",{default:{x:0,y:0}})},unsetFirstLoad:function(){Ember.set(this,"isFirstLoad",!1)},update:function(){if(!Ember.get(this,"isFastBoot")&&!Ember.get(this,"isFirstLoad")){var e,t,r=Ember.get(this,"scrollElement"),n=Ember.get(this,"targetElement"),i=Ember.get(this,"scrollMap"),o=Ember.get(this,"key")
@@ -7829,8 +7831,7 @@ Ember.set(this,"key",t)
 var r=Ember.getWithDefault(this,"key","-1")
 return Ember.getWithDefault(e,r,e.default)}})
 var r=t
-e.default=r}))
-define("ember-router-scroll/utils/scrollbar-width",["exports"],(function(e){"use strict"
+e.default=r})),define("ember-router-scroll/utils/scrollbar-width",["exports"],(function(e){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.getScrollBarWidth=function(){var e=document.createElement("div")
 e.style.visibility="hidden",e.style.width="100px",e.style.msOverflowStyle="scrollbar",document.body.appendChild(e)
 var t=e.offsetWidth
@@ -7936,9 +7937,9 @@ if(Symbol.iterator in Object(e))return function(e,t){var r=[],n=!0,i=!1,o=void 0
 try{for(var a,s=e[Symbol.iterator]();!(n=(a=s.next()).done)&&(r.push(a.value),!t||r.length!==t);n=!0);}catch(u){i=!0,o=u}finally{try{!n&&s.return&&s.return()}finally{if(i)throw o}}return r}(e,t)
 throw new TypeError("Invalid attempt to destructure non-iterable instance")}
 function r(e,r){var n=t(e,2),i=n[0],o=n[1]
-return r.forceNumber&&("number"!=typeof i&&(i=Number(i)),"number"!=typeof o&&(o=Number(o))),i<=o}e.default=Ember.Helper.helper(r)})),define("ember-truth-helpers/helpers/not-equal",["exports"],(function(e){"use strict"
-function t(e){return e[0]!==e[1]}Object.defineProperty(e,"__esModule",{value:!0}),e.notEqualHelper=t,e.default=Ember.Helper.helper(t)}))
-define("ember-truth-helpers/helpers/not",["exports","ember-truth-helpers/utils/truth-convert"],(function(e,t){"use strict"
+return r.forceNumber&&("number"!=typeof i&&(i=Number(i)),"number"!=typeof o&&(o=Number(o))),i<=o}e.default=Ember.Helper.helper(r)}))
+define("ember-truth-helpers/helpers/not-equal",["exports"],(function(e){"use strict"
+function t(e){return e[0]!==e[1]}Object.defineProperty(e,"__esModule",{value:!0}),e.notEqualHelper=t,e.default=Ember.Helper.helper(t)})),define("ember-truth-helpers/helpers/not",["exports","ember-truth-helpers/utils/truth-convert"],(function(e,t){"use strict"
 function r(e){for(var r=0,n=e.length;r<n;r++)if(!0===(0,t.default)(e[r]))return!1
 return!0}Object.defineProperty(e,"__esModule",{value:!0}),e.not=r,e.default=Ember.Helper.helper(r)})),define("ember-truth-helpers/helpers/or",["exports","ember-truth-helpers/utils/truth-convert"],(function(e,t){"use strict"
 function r(e){for(var r=0,n=e.length;r<n;r++)if(!0===(0,t.default)(e[r]))return e[r]
@@ -8149,11 +8150,11 @@ var r=[],n=!0,i=!1,o=void 0
 try{for(var a,s=e[Symbol.iterator]();!(n=(a=s.next()).done)&&(r.push(a.value),!t||r.length!==t);n=!0);}catch(u){i=!0,o=u}finally{try{n||null==s.return||s.return()}finally{if(i)throw o}}return r}(e,t)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance")}()}function n(e){var n=r(e,2),i=n[0],o=n[1]
 return(0,t.routeModel)((0,t.childRoute)(i,o)),i}Object.defineProperty(e,"__esModule",{value:!0}),e.lfLockModel=n,e.default=void 0
 var i=Ember.Helper.helper(n)
-e.default=i})),define("liquid-fire/helpers/lf-or",["exports"],(function(e){"use strict"
+e.default=i}))
+define("liquid-fire/helpers/lf-or",["exports"],(function(e){"use strict"
 function t(e){return e.reduce((function(e,t){return e||t}),!1)}Object.defineProperty(e,"__esModule",{value:!0}),e.lfOr=t,e.default=void 0
 var r=Ember.Helper.helper(t)
-e.default=r}))
-define("liquid-fire/index",["exports","liquid-fire/transition-map","liquid-fire/animate","liquid-fire/promise","liquid-fire/mutation-observer","liquid-fire/mixins/pausable"],(function(e,t,r,n,i,o){"use strict"
+e.default=r})),define("liquid-fire/index",["exports","liquid-fire/transition-map","liquid-fire/animate","liquid-fire/promise","liquid-fire/mutation-observer","liquid-fire/mixins/pausable"],(function(e,t,r,n,i,o){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"TransitionMap",{enumerable:!0,get:function(){return t.default}}),Object.defineProperty(e,"animate",{enumerable:!0,get:function(){return r.animate}}),Object.defineProperty(e,"stop",{enumerable:!0,get:function(){return r.stop}}),Object.defineProperty(e,"isAnimating",{enumerable:!0,get:function(){return r.isAnimating}}),Object.defineProperty(e,"timeSpent",{enumerable:!0,get:function(){return r.timeSpent}}),Object.defineProperty(e,"timeRemaining",{enumerable:!0,get:function(){return r.timeRemaining}}),Object.defineProperty(e,"finish",{enumerable:!0,get:function(){return r.finish}}),Object.defineProperty(e,"Promise",{enumerable:!0,get:function(){return n.default}}),Object.defineProperty(e,"MutationObserver",{enumerable:!0,get:function(){return i.default}}),Object.defineProperty(e,"Pausable",{enumerable:!0,get:function(){return o.default}})})),define("liquid-fire/is-browser",["exports"],(function(e){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(){return"undefined"!=typeof window&&window&&"undefined"!=typeof document&&document}})),define("liquid-fire/mixins/pausable",["exports"],(function(e){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
@@ -8296,9 +8297,9 @@ return(0,t.animate)(this.oldElement,{scale:[.2,1]},r).then((function(){return(0,
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(e,r){for(var n=this,i=arguments.length,o=new Array(i>2?i-2:0),a=2;a<i;a++)o[a-2]=arguments[a]
 if((0,t.default)()){var s=document.getElementsByTagName("html"),u=this.lookup(e)
 return r||(r={}),r=Ember.merge({duration:500,offset:0},r),window.$.Velocity(s,"scroll",r).then((function(){u.apply(n,o)}))}}})),define("liquid-fire/transitions/to-down",["exports","liquid-fire/transitions/move-over"],(function(e,t){"use strict"
-Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(e){return t.default.call(this,"y",1,e)}})),define("liquid-fire/transitions/to-left",["exports","liquid-fire/transitions/move-over"],(function(e,t){"use strict"
-Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(e){return t.default.call(this,"x",-1,e)}}))
-define("liquid-fire/transitions/to-right",["exports","liquid-fire/transitions/move-over"],(function(e,t){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(e){return t.default.call(this,"y",1,e)}}))
+define("liquid-fire/transitions/to-left",["exports","liquid-fire/transitions/move-over"],(function(e,t){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(e){return t.default.call(this,"x",-1,e)}})),define("liquid-fire/transitions/to-right",["exports","liquid-fire/transitions/move-over"],(function(e,t){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(e){return t.default.call(this,"x",1,e)}})),define("liquid-fire/transitions/to-up",["exports","liquid-fire/transitions/move-over"],(function(e,t){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(e){return t.default.call(this,"y",-1,e)}})),define("liquid-fire/transitions/wait",["exports"],(function(e){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(e,t){for(var r=this,n=arguments.length,i=new Array(n>2?n-2:0),o=2;o<n;o++)i[o-2]=arguments[o]
