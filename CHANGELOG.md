@@ -1,5 +1,13 @@
 # Change Log
 
+## v3.1.2 (2019-11-29)
+
+#### :bug: Bug Fix
+* [#157](https://github.com/qonto/ember-phone-input/pull/157) Move script loading when `lazyLoad:false` ([@dcyriller](https://github.com/dcyriller))
+
+#### Committers: 1
+- Cyrille David ([@dcyriller](https://github.com/dcyriller))
+
 ## v3.1.1 (2019-11-28)
 
 #### :bug: Bug Fix
