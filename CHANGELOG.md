@@ -1,5 +1,14 @@
 # Change Log
 
+## v.4.0.0 (2020-01-03)
+
+#### :boom: Breaking Change
+* [#177](https://github.com/qonto/ember-phone-input/pull/177) ð Drop node 8 support  ([@dbendaou](https://github.com/dbendaou))
+
+#### Committers: 2
+- Djamel B. ([@dbendaou](https://github.com/dbendaou))
+- [@dependabot-preview[bot]](https://github.com/apps/dependabot-preview)
+
 ## v3.1.2 (2019-11-29)
 
 #### :bug: Bug Fix
