@@ -119,6 +119,18 @@ module('Integration | Component | phone-input', function(hooks) {
     assert.ok(find('input').disabled);
   });
 
+  test('can be required', async function(assert) {
+    this.set('number', null);
+
+    await render(hbs`{{phone-input number=number}}`);
+
+    assert.notOk(find('input').required);
+
+    await render(hbs`{{phone-input required=true number=number}}`);
+    
+    assert.ok(find('input').required);
+  });
+
   test('can prevent the dropdown', async function(assert) {
     assert.expect(1);
 
