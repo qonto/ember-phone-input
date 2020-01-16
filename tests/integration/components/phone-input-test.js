@@ -127,7 +127,7 @@ module('Integration | Component | phone-input', function(hooks) {
     assert.notOk(find('input').required);
 
     await render(hbs`{{phone-input required=true number=number}}`);
-    
+
     assert.ok(find('input').required);
   });
 

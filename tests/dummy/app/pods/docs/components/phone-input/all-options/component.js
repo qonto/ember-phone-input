@@ -18,6 +18,10 @@ export default Component.extend({
     updateSeparateDialOption(separateDialNumber, metaData) {
       this.set('separateDialNumber', separateDialNumber);
       this.setProperties(metaData);
+    },
+
+    submitForm() {
+      alert('The form has been submitted');
     }
   }
 });
