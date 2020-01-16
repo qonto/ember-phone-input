@@ -46,3 +46,21 @@
 
   {{demo.snippet "phone-input-allow-dropdown-option.hbs"}}
 {{/docs-demo}}
+
+<h2>`required` option</h2>
+{{#docs-demo as |demo|}}
+  {{#demo.example name="phone-input-required-option.hbs"}}
+    <form {{action "submitForm" on="submit"}}>
+      <p>{{phone-input required=true initialCountry="us" number=number}}</p>
+
+      <p>The input is required.</p>
+
+      <p>The input is required and you will not be able to submit the form when the field is empty as the clients-side HTML5 form validation will prvent it.</p>
+      
+      <button name="button" type="submit" class="docs-bg-grey-darkest docs-text-white docs-no-underline docs-rounded docs-py-2 docs-px-4">submit</button>
+    </form>
+  {{/demo.example}}
+
+  {{demo.snippet "phone-input-required-option.hbs"}}
+{{/docs-demo}}
+

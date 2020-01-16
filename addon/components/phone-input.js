@@ -10,6 +10,7 @@ import { isPresent } from '@ember/utils';
     allowDropdown=false
     autoPlaceholder='aggressive'
     disabled=true
+    required=required
     initialCountry='fr'
     number='123'
     onlyCountries=europeanCountries
@@ -25,7 +26,7 @@ import { isPresent } from '@ember/utils';
 export default Component.extend({
   tagName: 'input',
 
-  attributeBindings: ['type', 'disabled'],
+  attributeBindings: ['type', 'disabled', 'required'],
   type: 'tel',
 
   phoneInput: service(),
@@ -42,6 +43,14 @@ export default Component.extend({
      * @type {boolean}
      */
     this.disabled = this.disabled || false;
+
+    /**
+     * Setting this to true will make the input field required. This will enabled client side form validation.
+     * Defaults to `false`
+     * @argument required
+     * @type {boolean}
+     */
+    this.required = this.required || false;
 
     /**
       The international phone number. This is the main data supposed
