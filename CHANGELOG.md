@@ -1,4 +1,11 @@
-# Change Log
+## v.4.1.0 (2020-01-16)
+
+#### :rocket: Enhancement
+* [#178](https://github.com/qonto/ember-phone-input/pull/178) Make input field bind to required HTML attribute ([@samdemaeyer](https://github.com/samdemaeyer))
+
+#### Committers: 2
+- Sam De Maeyer ([@samdemaeyer](https://github.com/samdemaeyer))
+- [@dependabot-preview[bot]](https://github.com/apps/dependabot-preview)
 
 ## v.4.0.0 (2020-01-03)
 
