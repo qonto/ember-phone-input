@@ -1,4 +1,22 @@
-## v.4.1.0 (2020-01-16)
+## v5.0.0 (2020-03-12)
+
+#### :boom: Breaking Change
+
+This main change in this release is updating intl-tel-input to a new major
+version, which changes their CSS class names to use BEM. Since this might break
+CSS overrides for a few people we decided to release this as a new major version
+too.
+
+* [#197](https://github.com/qonto/ember-phone-input/pull/197) Update intl-tel-input from 15.0.2 to 16.0.11
+
+#### :house: Internal
+* [#180](https://github.com/qonto/ember-phone-input/pull/180) 🔧 add Dependabot config.yml ([@dbendaou](https://github.com/dbendaou))
+
+#### Committers: 2
+- Djamel B. ([@dbendaou](https://github.com/dbendaou))
+
+
+## v4.1.0 (2020-01-16)
 
 #### :rocket: Enhancement
 * [#178](https://github.com/qonto/ember-phone-input/pull/178) Make input field bind to required HTML attribute ([@samdemaeyer](https://github.com/samdemaeyer))
@@ -7,7 +25,7 @@
 - Sam De Maeyer ([@samdemaeyer](https://github.com/samdemaeyer))
 - [@dependabot-preview[bot]](https://github.com/apps/dependabot-preview)
 
-## v.4.0.0 (2020-01-03)
+## v4.0.0 (2020-01-03)
 
 #### :boom: Breaking Change
 * [#177](https://github.com/qonto/ember-phone-input/pull/177) ð Drop node 8 support  ([@dbendaou](https://github.com/dbendaou))
