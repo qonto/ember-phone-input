@@ -1,4 +1,4 @@
-.iti-flag {
+.iti__flag {
   background-image: url('ember-phone-input/images/flags.png');
 }
 
@@ -8,7 +8,7 @@
   only screen and (min-device-pixel-ratio: 2),
   only screen and (min-resolution: 192dpi),
   only screen and (min-resolution: 2dppx) {
-  .iti-flag {
+  .iti__flag {
     background-image: url('ember-phone-input/images/flags@2x.png');
   }
 }
