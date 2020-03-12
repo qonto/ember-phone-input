@@ -18,6 +18,7 @@
 /yarn-error.log
 /.DS_Store
 /.eslintcache
+/*.tgz
 
 # ember-try
 /.node_modules.ember-try/
