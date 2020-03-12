@@ -11,7 +11,7 @@
 /.ember-cli
 /.eslintignore
 /.eslintrc.js
-.eslintcache
+/.eslintcache
 /.gitignore
 /.prettierrc.js
 /.prettierignore
