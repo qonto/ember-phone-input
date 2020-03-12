@@ -53,7 +53,7 @@ module('Integration | Component | phone-input', function(hooks) {
     );
 
     assert.dom('input').hasValue('');
-    assert.dom('.selected-dial-code').hasText('+1');
+    assert.dom('.iti__selected-dial-code').hasText('+1');
 
     await fillIn('input', newValue);
 
@@ -72,11 +72,11 @@ module('Integration | Component | phone-input', function(hooks) {
       hbs`{{phone-input country=country number=number update=(action update)}}`
     );
 
-    assert.dom('.iti-flag').hasClass('us');
+    assert.dom('.iti__flag').hasClass('iti__us');
 
     this.set('country', 'nz');
 
-    assert.dom('.iti-flag').hasClass('nz');
+    assert.dom('.iti__flag').hasClass('iti__nz');
   });
 
   test('phoneNumber is correctly invalid when country is changed', async function(assert) {
