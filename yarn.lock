@@ -9057,10 +9057,10 @@ inquirer@^7.0.0, inquirer@^7.0.1:
     strip-ansi "^5.1.0"
     through "^2.3.6"
 
-intl-tel-input@^16.0.11:
-  version "16.0.11"
-  resolved "https://registry.yarnpkg.com/intl-tel-input/-/intl-tel-input-16.0.11.tgz#6ab98d93b4995bd25463841ab30996ab7c9ec7b5"
-  integrity sha512-ouuoUDVM+iYtLJFwWAqATFWGxTIt/HTtWVVVIBRQdhbnjAkDU0gdzpk2JJn4i3Ttqvymo9Z5MkQr8zcxmVe2vg==
+intl-tel-input@^17.0.0:
+  version "17.0.0"
+  resolved "https://registry.yarnpkg.com/intl-tel-input/-/intl-tel-input-17.0.0.tgz#a444ea8be4a570014afa770272a59e4f8857b7b7"
+  integrity sha512-O79jcYy1nTV+legYrqu4AniOmA8phA4fz0JrUgG43MmvLK47dfvZ33JFS498t3AR0142T2oAYhZBJFlR03SoXA==
 
 into-stream@^3.1.0:
   version "3.1.0"
