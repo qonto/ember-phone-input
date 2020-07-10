@@ -11,6 +11,7 @@ import { isPresent } from '@ember/utils';
     autoPlaceholder='aggressive'
     disabled=true
     required=required
+    autocomplete=autocomplete
     initialCountry='fr'
     number='123'
     onlyCountries=europeanCountries
@@ -26,7 +27,7 @@ import { isPresent } from '@ember/utils';
 export default Component.extend({
   tagName: 'input',
 
-  attributeBindings: ['type', 'disabled', 'required'],
+  attributeBindings: ['type', 'disabled', 'required', 'autocomplete'],
   type: 'tel',
 
   phoneInput: service(),
@@ -51,6 +52,14 @@ export default Component.extend({
      * @type {boolean}
      */
     this.required = this.required || false;
+
+    /**
+     * `autocomplete` attribute on input field. Can be used to support browser autocompletion.
+     * Defaults to `null`
+     * @argument autocomplete
+     * @type {string}
+     */
+    this.autocomplete = this.autocomplete || null;
 
     /**
       The international phone number. This is the main data supposed
