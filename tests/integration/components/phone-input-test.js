@@ -142,4 +142,10 @@ module('Integration | Component | phone-input', function(hooks) {
 
     assert.dom('ul.country-list').doesNotExist();
   });
+
+  test('can set autocomplete', async function(assert) {
+    await render(hbs`{{phone-input autocomplete="tel"}}`);
+
+    assert.equal(find('input').autocomplete, 'tel');
+  });
 });
