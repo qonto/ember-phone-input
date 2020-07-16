@@ -1,3 +1,16 @@
+## v5.1.0 (2020-07-16)
+
+#### :house: Internal
+* [#200](https://github.com/qonto/ember-phone-input/pull/200) Update ignore files ([@Turbo87](https://github.com/Turbo87))
+
+#### :rocket: Enhancement
+* [#240](https://github.com/qonto/ember-phone-input/pull/240) Add binding for autocomplete ([@lan0](https://github.com/lan0))
+
+#### Committers: 3
+- Michael Pitzer ([@lan0](https://github.com/lan0))
+- Tobias Bieniek ([@Turbo87](https://github.com/Turbo87))
+- [@dependabot-preview[bot]](https://github.com/apps/dependabot-preview)
+
 ## v5.0.0 (2020-03-12)
 
 #### :boom: Breaking Change
