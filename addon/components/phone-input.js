@@ -257,11 +257,24 @@ export default Component.extend({
     const extension = iti.getExtension();
     const selectedCountryData = iti.getSelectedCountryData();
     const isValidNumber = iti.isValidNumber();
+    // From https://github.com/jackocnr/intl-tel-input/blob/master/src/js/utils.js#L102
+    const E164 = iti.getNumber(0);
+    const INTERNATIONAL = iti.getNumber(1);
+    const NATIONAL = iti.getNumber(2);
+    const RFC3966 = iti.getNumber(3);
 
     return {
       extension,
       selectedCountryData,
-      isValidNumber
+      isValidNumber,
+      numberFormat: isValidNumber
+        ? {
+            E164,
+            INTERNATIONAL,
+            NATIONAL,
+            RFC3966
+          }
+        : null
     };
   }
 });
