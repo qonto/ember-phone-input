@@ -1,3 +1,11 @@
+## v5.2.0 (2020-08-05)
+
+#### :rocket: Enhancement
+* [#242](https://github.com/qonto/ember-phone-input/pull/242) Add numberFormat meta if number is valid ([@ctjhoa](https://github.com/ctjhoa))
+
+#### Committers: 1
+- Camille TJHOA ([@ctjhoa](https://github.com/ctjhoa))
+
 ## v5.1.0 (2020-07-16)
 
 #### :house: Internal
