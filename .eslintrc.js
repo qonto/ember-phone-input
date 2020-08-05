@@ -12,6 +12,9 @@ module.exports = {
     browser: true,
     es6: true
   },
+  globals: {
+    intlTelInputUtils: true
+  },
   rules: {
     'prettier/prettier': 2
   },
