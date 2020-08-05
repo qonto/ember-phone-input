@@ -257,11 +257,25 @@ export default Component.extend({
     const extension = iti.getExtension();
     const selectedCountryData = iti.getSelectedCountryData();
     const isValidNumber = iti.isValidNumber();
+    const E164 = iti.getNumber(intlTelInputUtils.numberFormat.E164);
+    const INTERNATIONAL = iti.getNumber(
+      intlTelInputUtils.numberFormat.INTERNATIONAL
+    );
+    const NATIONAL = iti.getNumber(intlTelInputUtils.numberFormat.NATIONAL);
+    const RFC3966 = iti.getNumber(intlTelInputUtils.numberFormat.RFC3966);
 
     return {
       extension,
       selectedCountryData,
-      isValidNumber
+      isValidNumber,
+      numberFormat: isValidNumber
+        ? {
+            E164,
+            INTERNATIONAL,
+            NATIONAL,
+            RFC3966
+          }
+        : null
     };
   }
 });

@@ -14,6 +14,13 @@
       <li>the phone number validity <em>\{{isValidNumber}}: </em><strong>{{isValidNumber}}</strong></li>
       <li>the phone number extension <em>\{{extension}}</em>: <strong>{{extension}}</strong></li>
     </ul>
+    <p><b>If the number is valid</b>, you also get different formats:</p>
+    <ul>
+      <li>E164 format <em>\{{numberFormat.E164}}</em>: <strong>{{numberFormat.E164}}</strong></li>
+      <li>INTERNATIONAL format <em>\{{numberFormat.INTERNATIONAL}}</em>: <strong>{{numberFormat.INTERNATIONAL}}</strong></li>
+      <li>NATIONAL format <em>\{{numberFormat.NATIONAL}}</em>: <strong>{{numberFormat.NATIONAL}}</strong></li>
+      <li>RFC3966 format <em>\{{numberFormat.RFC3966}}</em>: <strong>{{numberFormat.RFC3966}}</strong></li>
+    </ul>
   {{/demo.example}}
 
   {{demo.snippet "phone-input-all-options.hbs"}}
@@ -56,7 +63,7 @@
       <p>The input is required.</p>
 
       <p>The input is required and you will not be able to submit the form when the field is empty as the clients-side HTML5 form validation will prvent it.</p>
-      
+
       <button name="button" type="submit" class="docs-bg-grey-darkest docs-text-white docs-no-underline docs-rounded docs-py-2 docs-px-4">submit</button>
     </form>
   {{/demo.example}}

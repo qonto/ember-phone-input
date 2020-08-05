@@ -80,7 +80,7 @@ module('Integration | Component | phone-input', function(hooks) {
   });
 
   test('phoneNumber is correctly invalid when country is changed', async function(assert) {
-    assert.expect(2);
+    assert.expect(7);
 
     const country = 'fr';
     const validFrenchNumber = '0622334455';
@@ -92,14 +92,19 @@ module('Integration | Component | phone-input', function(hooks) {
       hbs`{{phone-input country=country number=number update=(action update)}}`
     );
 
-    this.set('update', (number, { isValidNumber }) => {
+    this.set('update', (number, { isValidNumber, numberFormat }) => {
       assert.ok(isValidNumber);
+      assert.equal(numberFormat.E164, '+33622334455');
+      assert.equal(numberFormat.INTERNATIONAL, '+33 6 22 33 44 55');
+      assert.equal(numberFormat.NATIONAL, '06 22 33 44 55');
+      assert.equal(numberFormat.RFC3966, 'tel:+33-6-22-33-44-55');
     });
 
     await fillIn('input', validFrenchNumber);
 
-    this.set('update', (number, { isValidNumber }) => {
+    this.set('update', (number, { isValidNumber, numberFormat }) => {
       assert.notOk(isValidNumber);
+      assert.equal(numberFormat, null);
     });
 
     this.set('country', 'pt');
