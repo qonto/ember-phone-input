@@ -82,6 +82,16 @@ export default Component.extend({
       : true;
 
     /**
+      add option to control input format
+      @argument formatOnDisplay
+      @type {boolean}
+    */
+
+    this.formatOnDisplay = isPresent(this.formatOnDisplay)
+      ? this.formatOnDisplay
+      : true;
+
+    /**
       Add or remove input placeholder with an example number for the selected
       country. Possible values are 'polite', 'aggressive' and 'off'. Defaults to
       'polite'.
@@ -207,7 +217,8 @@ export default Component.extend({
       initialCountry,
       onlyCountries,
       preferredCountries,
-      separateDialCode
+      separateDialCode,
+      formatOnDisplay
     } = this;
 
     var input = document.getElementById(this.elementId);
@@ -219,7 +230,8 @@ export default Component.extend({
       initialCountry,
       onlyCountries,
       preferredCountries,
-      separateDialCode
+      separateDialCode,
+      formatOnDisplay
     });
 
     if (this.number) {
