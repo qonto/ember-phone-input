@@ -25,7 +25,9 @@ module('Integration | Component | phone-input', function(hooks) {
     this.set('number', null);
     this.set('update', () => {});
 
-    await render(hbs`<PhoneInput @number={{this.number}} @update={{this.update}} />`);
+    await render(
+      hbs`<PhoneInput @number={{this.number}} @update={{this.update}} />`
+    );
 
     assert.dom('input').hasValue('');
 
@@ -114,7 +116,9 @@ module('Integration | Component | phone-input', function(hooks) {
     this.set('number', null);
     this.set('update', () => {});
 
-    await render(hbs`<PhoneInput @number={{this.number}} @update={{action this.update}} />`);
+    await render(
+      hbs`<PhoneInput @number={{this.number}} @update={{action this.update}} />`
+    );
 
     assert.notOk(find('input').disabled);
 
@@ -131,7 +135,9 @@ module('Integration | Component | phone-input', function(hooks) {
 
     assert.notOk(find('input').required);
 
-    await render(hbs`<PhoneInput @required={{true}} @number={{this.number}} />`);
+    await render(
+      hbs`<PhoneInput @required={{true}} @number={{this.number}} />`
+    );
 
     assert.ok(find('input').required);
   });
