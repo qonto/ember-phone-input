@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { fillIn, render, find } from '@ember/test-helpers';
+import { fillIn, render, find, typeIn } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | phone-input', function(hooks) {
@@ -152,5 +152,25 @@ module('Integration | Component | phone-input', function(hooks) {
     await render(hbs`<PhoneInput @autocomplete={{"tel"}} />`);
 
     assert.equal(find('input').autocomplete, 'tel');
+  });
+
+  test('can update the country when the user types in the digits from Brazil code', async function(assert) {
+    assert.expect(1);
+
+    await render(hbs`<PhoneInput />`);
+
+    await typeIn('input', '+55');
+
+    assert.dom('.iti__flag').hasClass('iti__br');
+  });
+
+  test('can update the country when the user types in the digits from Malaysia code', async function(assert) {
+    assert.expect(1);
+
+    await render(hbs`<PhoneInput />`);
+
+    await typeIn('input', '+60');
+
+    assert.dom('.iti__flag').hasClass('iti__my');
   });
 });
