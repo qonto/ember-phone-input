@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { fillIn, render, find } from '@ember/test-helpers';
+import { fillIn, render, find, typeIn } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | phone-input', function(hooks) {
@@ -25,7 +25,9 @@ module('Integration | Component | phone-input', function(hooks) {
     this.set('number', null);
     this.set('update', () => {});
 
-    await render(hbs`{{phone-input number=number update=(action update)}}`);
+    await render(
+      hbs`<PhoneInput @number={{this.number}} @update={{this.update}} />`
+    );
 
     assert.dom('input').hasValue('');
 
@@ -49,7 +51,7 @@ module('Integration | Component | phone-input', function(hooks) {
     });
 
     await render(
-      hbs`{{phone-input separateDialCode=true number=separateDialNumber update=(action update)}}`
+      hbs`<PhoneInput @separateDialCode={{true}} @number={{this.separateDialNumber}} @update={{action this.update}} />`
     );
 
     assert.dom('input').hasValue('');
@@ -69,7 +71,7 @@ module('Integration | Component | phone-input', function(hooks) {
     this.set('country', country);
 
     await render(
-      hbs`{{phone-input country=country number=number update=(action update)}}`
+      hbs`<PhoneInput @country={{this.country}} @number={{this.number}} @update={{action this.update}} />`
     );
 
     assert.dom('.iti__flag').hasClass('iti__us');
@@ -89,7 +91,7 @@ module('Integration | Component | phone-input', function(hooks) {
     this.set('update', () => {});
 
     await render(
-      hbs`{{phone-input country=country number=number update=(action update)}}`
+      hbs`<PhoneInput @country={{this.country}} @number={{this.number}} @update={{action this.update}} />`
     );
 
     this.set('update', (number, { isValidNumber, numberFormat }) => {
@@ -114,12 +116,14 @@ module('Integration | Component | phone-input', function(hooks) {
     this.set('number', null);
     this.set('update', () => {});
 
-    await render(hbs`{{phone-input number=number update=(action update)}}`);
+    await render(
+      hbs`<PhoneInput @number={{this.number}} @update={{action this.update}} />`
+    );
 
     assert.notOk(find('input').disabled);
 
     await render(
-      hbs`{{phone-input disabled=true number=number update=(action update)}}`
+      hbs`<PhoneInput @disabled={{true}} @number={{this.number}} @update={{action this.update}} />`
     );
     assert.ok(find('input').disabled);
   });
@@ -127,11 +131,13 @@ module('Integration | Component | phone-input', function(hooks) {
   test('can be required', async function(assert) {
     this.set('number', null);
 
-    await render(hbs`{{phone-input number=number}}`);
+    await render(hbs`<PhoneInput @number={{this.number}} />`);
 
     assert.notOk(find('input').required);
 
-    await render(hbs`{{phone-input required=true number=number}}`);
+    await render(
+      hbs`<PhoneInput @required={{true}} @number={{this.number}} />`
+    );
 
     assert.ok(find('input').required);
   });
@@ -142,15 +148,35 @@ module('Integration | Component | phone-input', function(hooks) {
     this.set('updateAllowDropdownNumber', () => {});
 
     await render(
-      hbs`{{phone-input allowDropdown=false update=(action updateAllowDropdownNumber)}}`
+      hbs`<PhoneInput @allowDropdown={{false}} @update={{action this.updateAllowDropdownNumber}} />`
     );
 
     assert.dom('ul.country-list').doesNotExist();
   });
 
   test('can set autocomplete', async function(assert) {
-    await render(hbs`{{phone-input autocomplete="tel"}}`);
+    await render(hbs`<PhoneInput @autocomplete={{"tel"}} />`);
 
     assert.equal(find('input').autocomplete, 'tel');
+  });
+
+  test('can update the country when the user types in the digits from Brazil code', async function(assert) {
+    assert.expect(1);
+
+    await render(hbs`<PhoneInput />`);
+
+    await typeIn('input', '+55');
+
+    assert.dom('.iti__flag').hasClass('iti__br');
+  });
+
+  test('can update the country when the user types in the digits from Malaysia code', async function(assert) {
+    assert.expect(1);
+
+    await render(hbs`<PhoneInput />`);
+
+    await typeIn('input', '+60');
+
+    assert.dom('.iti__flag').hasClass('iti__my');
   });
 });

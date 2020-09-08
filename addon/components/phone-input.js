@@ -249,7 +249,12 @@ export default Component.extend({
   },
 
   _onCountryChange() {
-    this._iti.setCountry(this._iti.getSelectedCountryData().iso2);
+    const selectedCountry = this._iti.getSelectedCountryData();
+
+    if (selectedCountry.iso2) {
+      this._iti.setCountry(selectedCountry.iso2);
+    }
+
     this.input();
   },
 
