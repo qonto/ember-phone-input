@@ -1,3 +1,11 @@
+## v5.2.1 (2020-09-16)
+
+#### :bug: Bug Fix
+* [#255](https://github.com/qonto/ember-phone-input/pull/255) Add conditions to check if code typed in is valid ([@eliasmelgaco](https://github.com/eliasmelgaco))
+
+#### Committers: 2
+- Elias Melgaço ([@eliasmelgaco](https://github.com/eliasmelgaco))
+
 ## v5.2.0 (2020-08-05)
 
 #### :rocket: Enhancement
