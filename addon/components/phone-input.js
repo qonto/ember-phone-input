@@ -8,6 +8,7 @@ import { isPresent } from '@ember/utils';
   ```hbs
     {{phone-input
     allowDropdown=false
+    allowAutoFormat=false
     autoPlaceholder='aggressive'
     disabled=true
     required=required
@@ -70,6 +71,17 @@ export default Component.extend({
 
     this.allowDropdown = isPresent(this.allowDropdown)
       ? this.allowDropdown
+      : true;
+
+    /**
+      Whether or not to allow auto format phone number. If disabled, phone number will be applied as it is, without any transformations via internalization library.
+
+      @argument allowAutoFormat
+      @type {boolean}
+    */
+
+    this.allowAutoFormat = isPresent(this.allowAutoFormat)
+      ? this.allowAutoFormat
       : true;
 
     /**
@@ -149,10 +161,17 @@ export default Component.extend({
     );
   },
 
-  input() {
-    const internationalPhoneNumber = this._iti.getNumber();
-
+  input(event) {
     var meta = this._metaData(this._iti);
+    let internationalPhoneNumber;
+    
+    if (this.allowAutoFormat) {
+      internationalPhoneNumber = this._iti.getNumber();
+    } else {
+      const countryCode = meta.selectedCountryData;
+      internationalPhoneNumber = `+${countryCode} ${event.target.value}`;
+    }
+
     this.update(internationalPhoneNumber, meta);
 
     return true;
@@ -194,6 +213,7 @@ export default Component.extend({
   _setupLibrary() {
     const {
       allowDropdown,
+      allowAutoFormat,
       autoPlaceholder,
       initialCountry,
       onlyCountries,
@@ -206,6 +226,7 @@ export default Component.extend({
       autoHideDialCode: true,
       nationalMode: true,
       allowDropdown,
+      allowAutoFormat,
       autoPlaceholder,
       initialCountry,
       onlyCountries,
@@ -226,7 +247,7 @@ export default Component.extend({
   },
 
   _formatNumber() {
-    if (!this._iti) {
+    if (!this._iti || !this.allowAutoFormat) {
       return;
     }
 
