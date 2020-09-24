@@ -177,7 +177,7 @@ export default Component.extend({
     if (this.allowAutoFormat) {
       internationalPhoneNumber = this._iti.getNumber();
     } else {
-      const countryCode = meta.selectedCountryData;
+      const countryCode = meta.selectedCountryData.dialCode;
       internationalPhoneNumber = `+${countryCode} ${event.target.value}`;
     }
 
