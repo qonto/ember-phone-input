@@ -89,9 +89,7 @@ export default Component.extend({
       @type {boolean}
     */
 
-    this.allowAutoFormat = isPresent(this.allowAutoFormat)
-      ? this.allowAutoFormat
-      : true;
+    this.allowAutoFormat = this.allowAutoFormat || true;
 
     /**
       Add or remove input placeholder with an example number for the selected
