@@ -161,21 +161,45 @@ module('Integration | Component | phone-input', function(hooks) {
   });
 
   test('can update the country when the user types in the digits from Brazil code', async function(assert) {
-    assert.expect(1);
+    assert.expect(5);
 
-    await render(hbs`<PhoneInput />`);
+    const code = '+55';
 
-    await typeIn('input', '+55');
+    let slicePosition = 1;
+
+    this.set('update', value => {
+      if (value) {
+        assert.equal(code.slice(0, slicePosition), value);
+
+        slicePosition += 1;
+      }
+    });
+
+    await render(hbs`<PhoneInput @update={{action this.update}} />`);
+
+    await typeIn('input', code);
 
     assert.dom('.iti__flag').hasClass('iti__br');
   });
 
   test('can update the country when the user types in the digits from Malaysia code', async function(assert) {
-    assert.expect(1);
+    assert.expect(5);
 
-    await render(hbs`<PhoneInput />`);
+    const code = '+60';
 
-    await typeIn('input', '+60');
+    let slicePosition = 1;
+
+    this.set('update', value => {
+      if (value) {
+        assert.equal(code.slice(0, slicePosition), value);
+
+        slicePosition += 1;
+      }
+    });
+
+    await render(hbs`<PhoneInput @update={{action this.update}} />`);
+
+    await typeIn('input', code);
 
     assert.dom('.iti__flag').hasClass('iti__my');
   });
