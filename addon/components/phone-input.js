@@ -163,7 +163,7 @@ export default Component.extend({
 
   input(event) {
     var meta = this._metaData(this._iti);
-    let internationalPhoneNumber;
+    var internationalPhoneNumber;
     
     if (this.allowAutoFormat) {
       internationalPhoneNumber = this._iti.getNumber();
