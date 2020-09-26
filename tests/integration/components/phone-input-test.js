@@ -41,16 +41,18 @@ module('Integration | Component | phone-input', function(hooks) {
     assert.dom('input').hasValue(newValue);
   });
 
-  test('letters transformation can be disabled', async function (assert) {
+  test('letters transformation can be disabled', async function(assert) {
     const newValue = '222test';
     this.set('number', null);
-    this.set('update', () => { });
+    this.set('update', () => {});
 
-    await render(hbs`{{phone-input allowAutoFormat=false number=number update=(action update)}}`);
+    await render(
+      hbs`{{phone-input allowAutoFormat=false number=number update=(action update)}}`
+    );
 
     assert.dom('input').hasValue('');
 
-    this.set('update', value => {
+    this.set('update', () => {
       this.set('number', newValue);
     });
 

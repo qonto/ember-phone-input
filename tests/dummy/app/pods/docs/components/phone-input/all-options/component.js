@@ -19,7 +19,7 @@ export default Component.extend({
       this.set('separateDialNumber', separateDialNumber);
       this.setProperties(metaData);
     },
-    
+
     updateAllowAutoFormat(allowAutoFormatNumber, metaData) {
       this.set('allowAutoFormatNumber', allowAutoFormatNumber);
       this.setProperties(metaData);
