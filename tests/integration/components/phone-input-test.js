@@ -39,6 +39,24 @@ module('Integration | Component | phone-input', function(hooks) {
     assert.dom('input').hasValue(newValue);
   });
 
+  test('letters transformation can be disabled', async function (assert) {
+    const newValue = '222test';
+    this.set('number', null);
+    this.set('update', () => { });
+
+    await render(hbs`{{phone-input allowAutoFormat=false number=number update=(action update)}}`);
+
+    assert.dom('input').hasValue('');
+
+    this.set('update', value => {
+      this.set('number', newValue);
+    });
+
+    await fillIn('input', newValue);
+
+    assert.dom('input').hasValue(newValue);
+  });
+
   test('renders the value with separate dial code option', async function(assert) {
     assert.expect(3);
 
