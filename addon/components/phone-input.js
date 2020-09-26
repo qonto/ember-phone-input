@@ -12,6 +12,7 @@ import { isPresent } from '@ember/utils';
     autoPlaceholder='aggressive'
     disabled=true
     required=required
+    autocomplete=autocomplete
     initialCountry='fr'
     number='123'
     onlyCountries=europeanCountries
@@ -27,7 +28,7 @@ import { isPresent } from '@ember/utils';
 export default Component.extend({
   tagName: 'input',
 
-  attributeBindings: ['type', 'disabled', 'required'],
+  attributeBindings: ['type', 'disabled', 'required', 'autocomplete'],
   type: 'tel',
 
   phoneInput: service(),
@@ -52,6 +53,14 @@ export default Component.extend({
      * @type {boolean}
      */
     this.required = this.required || false;
+
+    /**
+     * `autocomplete` attribute on input field. Can be used to support browser autocompletion.
+     * Defaults to `null`
+     * @argument autocomplete
+     * @type {string}
+     */
+    this.autocomplete = this.autocomplete || null;
 
     /**
       The international phone number. This is the main data supposed
@@ -259,7 +268,12 @@ export default Component.extend({
   },
 
   _onCountryChange() {
-    this._iti.setCountry(this._iti.getSelectedCountryData().iso2);
+    const selectedCountry = this._iti.getSelectedCountryData();
+
+    if (selectedCountry.iso2) {
+      this._iti.setCountry(selectedCountry.iso2);
+    }
+
     this.input();
   },
 
@@ -267,11 +281,25 @@ export default Component.extend({
     const extension = iti.getExtension();
     const selectedCountryData = iti.getSelectedCountryData();
     const isValidNumber = iti.isValidNumber();
+    const E164 = iti.getNumber(intlTelInputUtils.numberFormat.E164);
+    const INTERNATIONAL = iti.getNumber(
+      intlTelInputUtils.numberFormat.INTERNATIONAL
+    );
+    const NATIONAL = iti.getNumber(intlTelInputUtils.numberFormat.NATIONAL);
+    const RFC3966 = iti.getNumber(intlTelInputUtils.numberFormat.RFC3966);
 
     return {
       extension,
       selectedCountryData,
-      isValidNumber
+      isValidNumber,
+      numberFormat: isValidNumber
+        ? {
+            E164,
+            INTERNATIONAL,
+            NATIONAL,
+            RFC3966
+          }
+        : null
     };
   }
 });

@@ -1,4 +1,51 @@
-## v.4.1.0 (2020-01-16)
+## v5.2.1 (2020-09-16)
+
+#### :bug: Bug Fix
+* [#255](https://github.com/qonto/ember-phone-input/pull/255) Add conditions to check if code typed in is valid ([@eliasmelgaco](https://github.com/eliasmelgaco))
+
+#### Committers: 2
+- Elias Melgaço ([@eliasmelgaco](https://github.com/eliasmelgaco))
+
+## v5.2.0 (2020-08-05)
+
+#### :rocket: Enhancement
+* [#242](https://github.com/qonto/ember-phone-input/pull/242) Add numberFormat meta if number is valid ([@ctjhoa](https://github.com/ctjhoa))
+
+#### Committers: 1
+- Camille TJHOA ([@ctjhoa](https://github.com/ctjhoa))
+
+## v5.1.0 (2020-07-16)
+
+#### :house: Internal
+* [#200](https://github.com/qonto/ember-phone-input/pull/200) Update ignore files ([@Turbo87](https://github.com/Turbo87))
+
+#### :rocket: Enhancement
+* [#240](https://github.com/qonto/ember-phone-input/pull/240) Add binding for autocomplete ([@lan0](https://github.com/lan0))
+
+#### Committers: 3
+- Michael Pitzer ([@lan0](https://github.com/lan0))
+- Tobias Bieniek ([@Turbo87](https://github.com/Turbo87))
+- [@dependabot-preview[bot]](https://github.com/apps/dependabot-preview)
+
+## v5.0.0 (2020-03-12)
+
+#### :boom: Breaking Change
+
+This main change in this release is updating intl-tel-input to a new major
+version, which changes their CSS class names to use BEM. Since this might break
+CSS overrides for a few people we decided to release this as a new major version
+too.
+
+* [#197](https://github.com/qonto/ember-phone-input/pull/197) Update intl-tel-input from 15.0.2 to 16.0.11
+
+#### :house: Internal
+* [#180](https://github.com/qonto/ember-phone-input/pull/180) 🔧 add Dependabot config.yml ([@dbendaou](https://github.com/dbendaou))
+
+#### Committers: 2
+- Djamel B. ([@dbendaou](https://github.com/dbendaou))
+
+
+## v4.1.0 (2020-01-16)
 
 #### :rocket: Enhancement
 * [#178](https://github.com/qonto/ember-phone-input/pull/178) Make input field bind to required HTML attribute ([@samdemaeyer](https://github.com/samdemaeyer))
@@ -7,7 +54,7 @@
 - Sam De Maeyer ([@samdemaeyer](https://github.com/samdemaeyer))
 - [@dependabot-preview[bot]](https://github.com/apps/dependabot-preview)
 
-## v.4.0.0 (2020-01-03)
+## v4.0.0 (2020-01-03)
 
 #### :boom: Breaking Change
 * [#177](https://github.com/qonto/ember-phone-input/pull/177) ð Drop node 8 support  ([@dbendaou](https://github.com/dbendaou))
