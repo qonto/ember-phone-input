@@ -9430,10 +9430,10 @@ inquirer@^7.0.0, inquirer@^7.3.3:
     strip-ansi "^6.0.0"
     through "^2.3.6"
 
-intl-tel-input@^17.0.3:
-  version "17.0.3"
-  resolved "https://registry.yarnpkg.com/intl-tel-input/-/intl-tel-input-17.0.3.tgz#0f1468ac0ea573b4cedddd24db9fd5cb32eb7d86"
-  integrity sha512-vfO5yIddrkNKaJYqGySuT6lyovWZoBLU/vyGA2A4VdKIZasknpd9/emTJYIPqFzjkguFfEDUiERKFih3k9Yj3Q==
+intl-tel-input@^17.0.5:
+  version "17.0.5"
+  resolved "https://registry.yarnpkg.com/intl-tel-input/-/intl-tel-input-17.0.5.tgz#37965e576680cdb52e58c50fde757812ce7066c1"
+  integrity sha512-vgjvnqHTl+9Akzj3yXxdTQ5iRup/PDch+Y0H5DLmsqLamhtb0U7fhSk2bFcdWju7ysXNDApELkOER3ldeb2+2A==
 
 into-stream@^3.1.0:
   version "3.1.0"
