@@ -1,13 +1,13 @@
 import Service from '@ember/service';
-import RSVP from 'rsvp';
+import { all, resolve } from 'rsvp';
 
 export default Service.extend({
   intlTelInput: null,
 
   load() {
-    if (this.intlTelInput) return;
+    if (this.intlTelInput) return resolve();
 
-    return RSVP.all([
+    return all([
       import('intl-tel-input/build/js/intlTelInput.js'),
       import('intl-tel-input/build/js/utils.js')
     ]).then(([intlTelInput]) => {
