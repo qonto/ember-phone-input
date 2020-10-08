@@ -38,6 +38,14 @@ export default Component.extend({
     this._iti = this._iti || null;
 
     /**
+     * Additional classes to add to the parent div.
+     * Defaults to ``
+     * @argument customContainer
+     * @type {string}
+     */
+    this.customContainer = this.customContainer || false;
+
+    /**
      * Setting this to true will disabled the input and the country dropdown.
      * Defaults to `false`
      * @argument disabled
@@ -216,6 +224,7 @@ export default Component.extend({
       nationalMode: true,
       allowDropdown,
       autoPlaceholder,
+      customContainer,
       initialCountry,
       onlyCountries,
       preferredCountries,
