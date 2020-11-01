@@ -122,5 +122,5 @@ s.getCountryData=function(){return i}
 var p=function(t,e,i){var n=document.createElement("script")
 n.onload=function(){h("handleUtils"),e&&e()},n.onerror=function(){h("rejectUtilsScriptPromise"),i&&i()},n.className="iti-load-utils",n.async=!0,n.src=t,document.body.appendChild(n)}
 return s.loadUtils=function(t){if(!window.intlTelInputUtils&&!window.intlTelInputGlobals.startedLoadingUtilsScript){if(window.intlTelInputGlobals.startedLoadingUtilsScript=!0,"undefined"!=typeof Promise)return new Promise((function(e,i){return p(t,e,i)}))
-p(t)}return null},s.defaults=l,s.version="17.0.6",function(t,e){var i=new c(t,e)
+p(t)}return null},s.defaults=l,s.version="17.0.8",function(t,e){var i=new c(t,e)
 return i._init(),t.setAttribute("data-intl-tel-input-id",i.id),window.intlTelInputGlobals.instances[i.id]=i,i}}()},"object"===e(t)&&t.exports?t.exports=i():window.intlTelInput=i()}).call(this,i(9)(t))}}])
