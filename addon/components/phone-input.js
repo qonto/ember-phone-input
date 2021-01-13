@@ -137,6 +137,17 @@ export default Component.extend({
     this.separateDialCode = this.separateDialCode || false;
 
     /**
+       Instead of putting the country dropdown next to the input, append it to the specified node, 
+       and it will then be positioned absolutely next to the input using JavaScript. 
+       This is useful when the input is inside a container with overflow: hidden. 
+       Note that the absolute positioning can be broken by scrolling, so it will automatically close on the window scroll event.
+
+      @argument dropdownContainer
+      @type {Node}
+    */
+    this.dropdownContainer = this.dropdownContainer || null;
+
+    /**
       You have to implement this function to update the `number`.
 
       @argument update
@@ -207,7 +218,8 @@ export default Component.extend({
       initialCountry,
       onlyCountries,
       preferredCountries,
-      separateDialCode
+      separateDialCode,
+      dropdownContainer
     } = this;
 
     var input = document.getElementById(this.elementId);
@@ -219,7 +231,8 @@ export default Component.extend({
       initialCountry,
       onlyCountries,
       preferredCountries,
-      separateDialCode
+      separateDialCode,
+      dropdownContainer
     });
 
     if (this.number) {
