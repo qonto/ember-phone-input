@@ -253,9 +253,9 @@ export default Component.extend({
 
     if (selectedCountry.iso2) {
       this._iti.setCountry(selectedCountry.iso2);
-    }
 
-    this.input();
+      this.input();
+    }
   },
 
   _metaData(iti) {
