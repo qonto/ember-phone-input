@@ -1,0 +1,91 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+      - main
+      - "v*"
+  pull_request:
+
+env:
+  NODE_VERSION: 10
+  FORCE_COLOR: 1
+
+jobs:
+  lint:
+    name: Linting
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - run: yarn
+      - run: yarn lint:js
+
+  floating-dependencies:
+    name: Floating Dependencies
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - run: yarn install --no-lockfile --non-interactive
+      - run: yarn test
+
+  test:
+    name: Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - run: yarn
+      - run: yarn test
+
+  try-scenarios:
+    name: "ember-try: ${{ matrix.ember-try-scenario }}"
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    needs: test
+
+    strategy:
+      matrix:
+        ember-try-scenario:
+          - 'ember-lts-3.4'
+          - 'ember-lts-3.8'
+          - 'ember-release'
+          - 'ember-beta'
+          - 'ember-canary'
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - run: yarn
+      - name: test
+        run: node_modules/.bin/ember try:one ${{ matrix.ember-try-scenario }} --skip-cleanup
+
+  deploy:
+    name: Deploy
+    runs-on: ubunut-latest
+    if: ${{ github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main' }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - run: yarn
+      - run: yarn ember deploy production
