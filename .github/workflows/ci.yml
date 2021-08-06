@@ -37,7 +37,7 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
 
       - run: yarn install --no-lockfile --non-interactive
-      - run: yarn test
+      - run: yarn test:ember
 
   test:
     name: Tests
@@ -50,7 +50,7 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
 
       - run: yarn
-      - run: yarn test
+      - run: yarn test:ember
 
   try-scenarios:
     name: "ember-try: ${{ matrix.ember-try-scenario }}"
@@ -67,6 +67,8 @@ jobs:
           - 'ember-release'
           - 'ember-beta'
           - 'ember-canary'
+          - 'ember-default-with-jquery'
+          - 'ember-classic'
 
     steps:
       - uses: actions/checkout@v2
@@ -80,7 +82,7 @@ jobs:
 
   deploy:
     name: Deploy
-    runs-on: ubunut-latest
+    runs-on: ubuntu-latest
     if: ${{ github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main' }}
     steps:
       - uses: actions/checkout@v2
