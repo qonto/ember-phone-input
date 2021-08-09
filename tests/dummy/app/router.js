@@ -18,5 +18,9 @@ Router.map(function() {
     });
   });
 
+  this.route('bugs', function() {
+    this.route('callstack');
+  });
+
   this.route('not-found', { path: '/*path' });
 });
