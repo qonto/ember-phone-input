@@ -1,7 +1,5 @@
-/* eslint-disable prettier/prettier, no-undef */
-'use strict'
+'use strict';
 
 module.exports = {
-  semi: true,
-  singleQuote: true
-}
+  singleQuote: true,
+};
