@@ -1,4 +1,4 @@
-/* eslint-disable ember/no-classic-components, ember/no-classic-classes, ember/require-tagless-components, ember/no-actions-hash */
+/* eslint-disable prettier/prettier, ember/no-classic-components, ember/no-classic-classes, ember/require-tagless-components, ember/no-actions-hash */
 import Component from '@ember/component';
 
 export default Component.extend({

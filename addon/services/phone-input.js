@@ -1,4 +1,4 @@
-/* eslint-disable ember/no-classic-classes */
+/* eslint-disable prettier/prettier, ember/no-classic-classes */
 import Service from '@ember/service';
 import { all, resolve } from 'rsvp';
 
