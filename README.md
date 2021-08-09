@@ -20,6 +20,10 @@ ember install ember-phone-input
 - Ember.js v3.12 or above
 - Ember CLI v2.13 or above
 
+## Contributing
+
+See the [Contributing](CONTRIBUTING.md) guide for details.
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE.md).

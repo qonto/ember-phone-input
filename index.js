@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  name: 'ember-phone-input',
+  name: require('./package').name,
 
   options: {
     babel: {

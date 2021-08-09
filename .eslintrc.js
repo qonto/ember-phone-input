@@ -1,16 +1,26 @@
+/* eslint-disable prettier/prettier */
+'use strict';
+
 module.exports = {
   root: true,
   parser: 'babel-eslint',
   parserOptions: {
-    ecmaVersion: 2017,
-    ecmaFeatures: { legacyDecorators: true },
-    sourceType: 'module'
+    ecmaVersion: 2018,
+    sourceType: 'module',
+    ecmaFeatures: {
+      legacyDecorators: true
+    }
   },
-  plugins: ['ember', 'prettier'],
-  extends: ['eslint:recommended', 'plugin:ember/recommended'],
+  plugins: [
+    'ember',
+    'prettier'
+  ],
+  extends: [
+    'eslint:recommended',
+    'plugin:ember/recommended'
+  ],
   env: {
-    browser: true,
-    es6: true
+    browser: true
   },
   globals: {
     intlTelInputUtils: true
@@ -22,6 +32,8 @@ module.exports = {
     // node files
     {
       files: [
+        '.eslintrc.js',
+        '.template-lintrc.js',
         'ember-cli-build.js',
         'index.js',
         'testem.js',
@@ -36,22 +48,17 @@ module.exports = {
         'tests/dummy/app/**'
       ],
       parserOptions: {
-        sourceType: 'script',
-        ecmaVersion: 2015
+        sourceType: 'script'
       },
       env: {
         browser: false,
         node: true
       },
       plugins: ['node'],
-      rules: Object.assign(
-        {},
-        require('eslint-plugin-node').configs.recommended.rules,
-        {
-          // add your custom rules and overrides for node files here
-          'node/no-unpublished-require': 0
-        }
-      )
+      extends: ['plugin:node/recommended'],
+      rules: {
+        'node/no-unpublished-require': 0
+      }
     }
   ]
-}
+};
