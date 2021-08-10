@@ -163,7 +163,11 @@ export default Component.extend({
     const internationalPhoneNumber = this._iti.getNumber();
 
     var meta = this._metaData(this._iti);
-    this.update(internationalPhoneNumber, meta);
+
+    // only call update if the number has changed
+    if (this.number !== internationalPhoneNumber) {
+      this.update(internationalPhoneNumber, meta);
+    }
 
     return true;
   },
