@@ -211,8 +211,7 @@ export default Component.extend({
       separateDialCode
     } = this;
 
-    var input = document.getElementById(this.elementId);
-    var _iti = this.phoneInput.intlTelInput(input, {
+    var _iti = this.phoneInput.intlTelInput(this.element, {
       autoHideDialCode: true,
       nationalMode: true,
       allowDropdown,
