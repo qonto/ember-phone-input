@@ -59,6 +59,7 @@ jobs:
     needs: test
 
     strategy:
+      fail-fast: false
       matrix:
         ember-try-scenario:
           - 'ember-lts-3.12'
