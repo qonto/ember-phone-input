@@ -1,3 +1,22 @@
+## v.6.0.0 (2021-09-10)
+
+#### :boom: Breaking Change
+* [#362](https://github.com/qonto/ember-phone-input/pull/362) Drop support for ember@3.12 ([@dcyriller](https://github.com/dcyriller))
+* [#351](https://github.com/qonto/ember-phone-input/pull/351) drop support for node 10 ([@mansona](https://github.com/mansona))
+* [#348](https://github.com/qonto/ember-phone-input/pull/348) move to github ci and drop support for Ember 3.4 and 3.8 ([@mansona](https://github.com/mansona))
+
+#### :memo: Documentation
+* [#367](https://github.com/qonto/ember-phone-input/pull/367) fix(documentation): Set application-template-wrapper to true ([@dcyriller](https://github.com/dcyriller))
+
+#### :bug: Bug Fix
+* [#355](https://github.com/qonto/ember-phone-input/pull/355) updates element targeting to use this.element ([@jfdnc](https://github.com/jfdnc))
+
+#### Committers: 4
+- Chris Manson ([@mansona](https://github.com/mansona))
+- Cyrille David ([@dcyriller](https://github.com/dcyriller))
+- Philip Dudley ([@pdud](https://github.com/pdud))
+- Jacob ([@jfdnc](https://github.com/jfdnc))
+
 ## v5.2.1 (2020-09-16)
 
 #### :bug: Bug Fix
