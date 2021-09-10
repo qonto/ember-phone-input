@@ -59,6 +59,7 @@ jobs:
     needs: test
 
     strategy:
+      fail-fast: false
       matrix:
         ember-try-scenario:
           - 'ember-lts-3.12'
@@ -81,6 +82,7 @@ jobs:
         run: node_modules/.bin/ember try:one ${{ matrix.ember-try-scenario }} --skip-cleanup
 
   deploy:
+    environment: github-pages
     name: Deploy
     runs-on: ubuntu-latest
     if: ${{ github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main' }}
