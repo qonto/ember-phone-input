@@ -80,3 +80,19 @@
 
   {{demo.snippet "phone-input-autocomplete-option.hbs"}}
 {{/docs-demo}}
+
+<h2>`allowAutoFormat` option</h2>
+{{#docs-demo as |demo|}}
+    <p>The auto-format can be disabled (try to enter letters after numbers).</p>
+    <p><i>Example: 222qqqqqq</i></p>
+  {{#demo.example name="phone-input-allow-auto-format-option.hbs"}}
+    <p>{{phone-input allowAutoFormat=false number=disallowAutoFormatNumber initialCountry="us" update=(action "updateDisallowAutoFormat")}}</p>
+
+    <p>The auto-format enabled by default (letters will be transformed to numbers):</p>
+
+    <p>{{phone-input allowAutoFormat=true number=allowAutoFormatNumber initialCountry="us" update=(action "updateAllowAutoFormat")}}</p>
+
+  {{/demo.example}}
+
+  {{demo.snippet "phone-input-allow-auto-format-option.hbs"}}
+{{/docs-demo}}
