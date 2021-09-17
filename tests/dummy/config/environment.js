@@ -23,8 +23,7 @@ module.exports = function(environment) {
       // when it is created
     },
     phoneInput: {
-      lazyLoad: true,
-      hasPrepend: false
+      lazyLoad: true
     }
   };
 
