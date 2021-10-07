@@ -24,4 +24,5 @@ jobs:
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Run Lint
-        run: yarn lint
+        # TODO: replace by yarn lint
+        run: yarn lint:js
