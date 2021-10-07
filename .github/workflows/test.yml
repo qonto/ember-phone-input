@@ -45,6 +45,7 @@ jobs:
           - 'ember-release'
           - 'ember-beta'
           - 'ember-canary'
+          - 'embroider-safe'
           - 'ember-default-with-jquery'
           - 'ember-classic'
 
