@@ -1,8 +1,7 @@
-{{! template-lint-disable no-curly-component-invocation no-implicit-this }}
-<div class="docs-font-sans docs-text-black docs-leading-normal">
-  {{docs-header}}
+<div class='docs-font-sans docs-text-black docs-leading-normal'>
+  <DocsHeader />
 
   {{outlet}}
 
-  {{docs-keyboard-shortcuts}}
+  <DocsKeyboardShortcuts />
 </div>
