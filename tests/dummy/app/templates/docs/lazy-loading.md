@@ -29,15 +29,4 @@ export default Route.extend({
     return this.get('phoneInput').load()
   }
 })
-
-
-OR (with ember-decorators and ember@>3.4)
-
-export default class YourRoute extends Route {
-  @service phoneInput
-
-  async beforeModel() {
-    await this.get('phoneInput').load()
-  }
-}
 ```
