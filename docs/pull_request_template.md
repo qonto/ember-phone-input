@@ -20,4 +20,5 @@
 
 - [ ] Add a test, probably in tests/integration/components/phone-input-test.js
 
-- [ ] Add a playground example in tests/dummy/app/pods/docs/components/phone-input/all-options/template
+- [ ] Add a playground example in `docs/components/phone-input/all-options`
+  component
