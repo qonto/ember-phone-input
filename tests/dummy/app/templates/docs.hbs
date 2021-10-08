@@ -1,21 +1,20 @@
-{{! template-lint-disable no-curly-component-invocation }}
-{{#docs-viewer as |viewer|}}
+<DocsViewer as |viewer|>
 
-  {{#viewer.nav as |nav|}}
+  <viewer.nav as |nav|>
     {{nav.section "Getting started"}}
 
     {{nav.item "Installation" "docs.installation"}}
     {{nav.item "Usage" "docs.usage"}}
     {{nav.item "Action handling" "docs.action-handling"}}
     {{nav.item "Lazy loading the scripts" "docs.lazy-loading"}}
-  {{/viewer.nav}}
+  </viewer.nav>
 
-  {{#viewer.main}}
+  <viewer.main>
     <div class="docs-container">
       <div class="docs-section">
         {{outlet}}
       </div>
     </div>
-  {{/viewer.main}}
+  </viewer.main>
 
-{{/docs-viewer}}
+</DocsViewer>
