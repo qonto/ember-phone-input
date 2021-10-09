@@ -1,7 +1,8 @@
-/* eslint-disable prettier/prettier, no-undef */
-'use strict'
+/* eslint-disable no-undef */
+'use strict';
 
 module.exports = {
   semi: true,
-  singleQuote: true
-}
+  singleQuote: true,
+  trailingComma: 'none'
+};
