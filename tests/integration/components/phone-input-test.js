@@ -3,14 +3,14 @@ import { setupRenderingTest } from 'ember-qunit';
 import { fillIn, render, find, typeIn } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | phone-input', function(hooks) {
+module('Integration | Component | phone-input', function (hooks) {
   setupRenderingTest(hooks);
 
-  hooks.beforeEach(async function() {
+  hooks.beforeEach(async function () {
     await this.owner.lookup('service:phone-input').load();
   });
 
-  test('renders an input of type tel', async function(assert) {
+  test('renders an input of type tel', async function (assert) {
     assert.expect(1);
 
     await render(hbs`{{phone-input number='1111'}}`);
@@ -18,7 +18,7 @@ module('Integration | Component | phone-input', function(hooks) {
     assert.dom('input').hasAttribute('type', 'tel');
   });
 
-  test('renders the value', async function(assert) {
+  test('renders the value', async function (assert) {
     assert.expect(3);
 
     const newValue = '2';
@@ -31,7 +31,7 @@ module('Integration | Component | phone-input', function(hooks) {
 
     assert.dom('input').hasValue('');
 
-    this.set('update', value => {
+    this.set('update', (value) => {
       assert.equal(value, newValue);
       this.set('number', newValue);
     });
@@ -41,12 +41,12 @@ module('Integration | Component | phone-input', function(hooks) {
     assert.dom('input').hasValue(newValue);
   });
 
-  test('renders the value with separate dial code option', async function(assert) {
+  test('renders the value with separate dial code option', async function (assert) {
     assert.expect(3);
 
     const newValue = '2';
     this.set('separateDialNumber', null);
-    this.set('update', value => {
+    this.set('update', (value) => {
       this.set('separateDialNumber', value);
     });
 
@@ -62,7 +62,7 @@ module('Integration | Component | phone-input', function(hooks) {
     assert.dom('input').hasValue(newValue);
   });
 
-  test('can update the country', async function(assert) {
+  test('can update the country', async function (assert) {
     assert.expect(2);
 
     const country = 'us';
@@ -81,7 +81,7 @@ module('Integration | Component | phone-input', function(hooks) {
     assert.dom('.iti__flag').hasClass('iti__nz');
   });
 
-  test('phoneNumber is correctly invalid when country is changed', async function(assert) {
+  test('phoneNumber is correctly invalid when country is changed', async function (assert) {
     assert.expect(7);
 
     const country = 'fr';
@@ -112,7 +112,7 @@ module('Integration | Component | phone-input', function(hooks) {
     this.set('country', 'pt');
   });
 
-  test('can be disabled', async function(assert) {
+  test('can be disabled', async function (assert) {
     this.set('number', null);
     this.set('update', () => {});
 
@@ -128,7 +128,7 @@ module('Integration | Component | phone-input', function(hooks) {
     assert.ok(find('input').disabled);
   });
 
-  test('can be required', async function(assert) {
+  test('can be required', async function (assert) {
     this.set('number', null);
 
     await render(hbs`<PhoneInput @number={{this.number}} />`);
@@ -142,7 +142,7 @@ module('Integration | Component | phone-input', function(hooks) {
     assert.ok(find('input').required);
   });
 
-  test('can prevent the dropdown', async function(assert) {
+  test('can prevent the dropdown', async function (assert) {
     assert.expect(1);
 
     this.set('updateAllowDropdownNumber', () => {});
@@ -154,13 +154,13 @@ module('Integration | Component | phone-input', function(hooks) {
     assert.dom('ul.country-list').doesNotExist();
   });
 
-  test('can set autocomplete', async function(assert) {
+  test('can set autocomplete', async function (assert) {
     await render(hbs`<PhoneInput @autocomplete={{"tel"}} />`);
 
     assert.equal(find('input').autocomplete, 'tel');
   });
 
-  test('can update the country when the user types in the digits from Brazil code', async function(assert) {
+  test('can update the country when the user types in the digits from Brazil code', async function (assert) {
     assert.expect(1);
 
     await render(hbs`<PhoneInput />`);
@@ -170,7 +170,7 @@ module('Integration | Component | phone-input', function(hooks) {
     assert.dom('.iti__flag').hasClass('iti__br');
   });
 
-  test('can update the country when the user types in the digits from Malaysia code', async function(assert) {
+  test('can update the country when the user types in the digits from Malaysia code', async function (assert) {
     assert.expect(1);
 
     await render(hbs`<PhoneInput />`);

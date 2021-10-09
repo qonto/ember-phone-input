@@ -147,7 +147,7 @@ export default Component.extend({
       @param {Object} metadata.selectedCountryData The country data for the currently selected flag.
       @param {boolean} metadata.isValidNumber The validity of the current `phoneNumber`.
     */
-    this.update = this.update || function() {};
+    this.update = this.update || function () {};
 
     const validAutoPlaceholer = ['polite', 'aggressive', 'off'].includes(
       this.autoPlaceholder
