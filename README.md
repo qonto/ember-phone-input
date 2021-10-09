@@ -19,6 +19,8 @@ ember install ember-phone-input
 
 - Ember.js v3.16 or above
 - Ember CLI v2.13 or above
+- ember-auto-import v2 or above (ember-phone-input@6 is compatible with previous
+  versions of ember-auto-import)
 
 ## Contributing
 
