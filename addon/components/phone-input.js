@@ -28,7 +28,13 @@ import { isPresent } from '@ember/utils';
 export default Component.extend({
   tagName: 'input',
 
-  attributeBindings: ['type', 'disabled', 'required', 'autocomplete'],
+  attributeBindings: [
+    'type',
+    'disabled',
+    'required',
+    'autocomplete',
+    'isLoadingIti:data-test-loading-iti'
+  ],
   type: 'tel',
 
   phoneInput: service(),
@@ -160,7 +166,8 @@ export default Component.extend({
   },
 
   input() {
-    const internationalPhoneNumber = this._iti.getNumber();
+    const internationalPhoneNumber =
+      this._iti?.getNumber() ?? this.element.value;
 
     var meta = this._metaData(this._iti);
     this.update(internationalPhoneNumber, meta);
@@ -182,23 +189,37 @@ export default Component.extend({
   },
 
   willDestroyElement() {
-    this._iti.destroy();
+    this._iti?.destroy();
     this.element.removeEventListener('countrychange', this._onCountryChange);
 
     this._super(...arguments);
   },
 
   async _loadAndSetup() {
-    await this.phoneInput.load();
+    try {
+      this.set('isLoadingIti', true);
 
-    this._setupLibrary();
+      await this.phoneInput.load();
 
-    this._formatNumber();
+      // Even if the above promise resolves, it might be at the end of the
+      // component lifecycle
+      if (this.isDestroying || this.isDestroyed) {
+        return;
+      }
 
-    this.element.addEventListener(
-      'countrychange',
-      this._onCountryChange.bind(this)
-    );
+      this._setupLibrary();
+
+      this._formatNumber();
+
+      this.element.addEventListener(
+        'countrychange',
+        this._onCountryChange.bind(this)
+      );
+    } finally {
+      if (!this.isDestroying && !this.isDestroyed) {
+        this.set('isLoadingIti', false);
+      }
+    }
   },
 
   _setupLibrary() {
@@ -259,6 +280,11 @@ export default Component.extend({
   },
 
   _metaData(iti) {
+    if (!iti) {
+      // Libraries may rely on always receiving an object
+      return {};
+    }
+
     const extension = iti.getExtension();
     const selectedCountryData = iti.getSelectedCountryData();
     const isValidNumber = iti.isValidNumber();

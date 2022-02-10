@@ -1,6 +1,6 @@
-import { module, test } from 'qunit';
+import QUnit, { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { fillIn, render, find, typeIn } from '@ember/test-helpers';
+import { fillIn, render, find, typeIn, waitUntil } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | phone-input', function (hooks) {
@@ -178,5 +178,177 @@ module('Integration | Component | phone-input', function (hooks) {
     await typeIn('input', '+60');
 
     assert.dom('.iti__flag').hasClass('iti__my');
+  });
+
+  module('resilience', function (hooks) {
+    let originalOnUncaughtException;
+
+    hooks.before(function () {
+      originalOnUncaughtException = QUnit.onUncaughtException;
+      QUnit.onUncaughtException = () => {};
+    });
+
+    hooks.after(function () {
+      QUnit.onUncaughtException = originalOnUncaughtException;
+    });
+
+    test('intl-tel-input is loaded after user interaction', async function (assert) {
+      let service = this.owner.lookup('service:phone-input');
+      let load = service.load;
+      let resolveLoading;
+
+      service.load = () => new Promise((resolve) => (resolveLoading = resolve));
+
+      this.number = null;
+      this.metaData = null;
+
+      this.set('update', (value, metaData) => {
+        this.set('number', value);
+        this.set('metaData', metaData);
+      });
+
+      await render(
+        hbs`<PhoneInput @number={{this.number}} @update={{this.update}} />`
+      );
+
+      assert.dom('input').doesNotHaveAttribute('data-intl-tel-input-id');
+
+      assert.strictEqual(
+        this.number,
+        null,
+        'number is null when rendered but intl-tel-input is not loaded yet'
+      );
+      assert.strictEqual(
+        this.metaData,
+        null,
+        'metaData is null when rendered but intl-tel-input is not loaded yet'
+      );
+
+      await fillIn('input', '9');
+
+      assert.strictEqual(
+        this.number,
+        '9',
+        'number is correct after input without intl-tel-input'
+      );
+      assert.deepEqual(
+        this.metaData,
+        {},
+        'metaData is an empty object after input without intl-tel-input'
+      );
+
+      resolveLoading(load.call(service));
+
+      await waitUntil(() => find('input:not([data-test-loading-iti])'));
+
+      assert.dom('input').hasAttribute('data-intl-tel-input-id');
+
+      assert.strictEqual(
+        this.number,
+        '9',
+        'number is correct after intl-tel-input is loaded'
+      );
+
+      assert.deepEqual(
+        this.metaData,
+        {
+          extension: '',
+          isValidNumber: false,
+          numberFormat: null,
+          selectedCountryData: {}
+        },
+        'metaData is correct after intl-tel-input is loaded'
+      );
+
+      await fillIn('input', '8');
+
+      assert.strictEqual(
+        this.number,
+        '8',
+        'number is correct after input when the intl-tel-input is loaded'
+      );
+
+      assert.deepEqual(
+        this.metaData,
+        {
+          extension: '',
+          isValidNumber: false,
+          numberFormat: null,
+          selectedCountryData: {}
+        },
+        'metaData is correct after input when the intl-tel-input is loaded'
+      );
+    });
+
+    test('intl-tel-input fails to load', async function (assert) {
+      let tmp = QUnit.onUncaughtException;
+      QUnit.onUncaughtException = () => {};
+
+      let service = this.owner.lookup('service:phone-input');
+      let rejectLoading;
+
+      service.load = () =>
+        new Promise((_resolve, reject) => (rejectLoading = reject));
+
+      this.number = null;
+      this.metaData = null;
+
+      this.set('update', (value, metaData) => {
+        this.set('number', value);
+        this.set('metaData', metaData);
+      });
+
+      await render(
+        hbs`<PhoneInput @number={{this.number}} @update={{this.update}} />`
+      );
+
+      assert.dom('input').doesNotHaveAttribute('data-intl-tel-input-id');
+
+      assert.strictEqual(
+        this.number,
+        null,
+        'number is null when rendered but intl-tel-input is not loaded yet'
+      );
+      assert.strictEqual(
+        this.metaData,
+        null,
+        'metaData is null when rendered but intl-tel-input is not loaded yet'
+      );
+
+      await fillIn('input', '9');
+
+      assert.strictEqual(
+        this.number,
+        '9',
+        'number is correct after input without intl-tel-input'
+      );
+      assert.deepEqual(
+        this.metaData,
+        {},
+        'metaData is an empty object after input without intl-tel-input'
+      );
+
+      rejectLoading();
+
+      await waitUntil(() => find('input:not([data-test-loading-iti])'));
+
+      assert.dom('input').doesNotHaveAttribute('data-intl-tel-input-id');
+
+      await fillIn('input', '8');
+
+      assert.strictEqual(
+        this.number,
+        '8',
+        'number is correct when intl-tel-input is loaded'
+      );
+
+      assert.deepEqual(
+        this.metaData,
+        {},
+        'metaData is correct when intl-tel-input is loaded'
+      );
+
+      QUnit.onUncaughtException = tmp;
+    });
   });
 });
