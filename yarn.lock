@@ -10442,10 +10442,10 @@ lint-to-the-future-eslint@^0.2.1:
     import-cwd "^3.0.0"
     walk-sync "^2.2.0"
 
-lint-to-the-future@^0.6.1:
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/lint-to-the-future/-/lint-to-the-future-0.6.1.tgz#d63b149813da5b97164d54bf3183d3aabd0ba7f6"
-  integrity sha512-O/vaEdHXyhmlE0xkE8UOmOx2PB8aZ2mJwSfkQuQQJ0bX6ks8AROlivCwsmwRn9w80pFUVaY6/RNF7EwGc5f8RA==
+lint-to-the-future@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/lint-to-the-future/-/lint-to-the-future-1.0.0.tgz#dee137127ab26e25a1a7c14050aa0d4c8b7f0c36"
+  integrity sha512-JQsDTSSXvMUITU7UJINJ2rdcLKzWWZW6zAvCQLGFFI7SGSqz5zFFu545P/lc1wIkLQiJlNFw0po0FDE1z1RLDg==
   dependencies:
     fs-extra "^7.0.1"
     import-cwd "^3.0.0"
