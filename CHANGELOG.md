@@ -1,3 +1,6 @@
+## v7.0.1 (2022-02-14)
+* Same as release v7.0.0
+
 ## v7.0.0 (2022-02-14)
 
 #### :boom: Breaking Change
