@@ -1,3 +1,21 @@
+## v7.0.0 (2022-02-14)
+
+#### :boom: Breaking Change
+* [#357](https://github.com/qonto/ember-phone-input/pull/357) Bump ember-auto-import from 1.10.1 to 2.2.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+* [#371](https://github.com/qonto/ember-phone-input/pull/371) Remove Node 10 & 11 from the package.json file ([@dcyriller](https://github.com/dcyriller))
+
+#### :bug: Bug Fix
+* [#415](https://github.com/qonto/ember-phone-input/pull/415) Add resilience for when scripts fail to load ([@zeppelin](https://github.com/zeppelin))
+* [#371](https://github.com/qonto/ember-phone-input/pull/371) Remove Node 10 & 11 from the package.json file ([@dcyriller](https://github.com/dcyriller))
+
+#### :memo: Documentation
+* [#372](https://github.com/qonto/ember-phone-input/pull/372) Remove remaining hasPrepend documentation ([@ctjhoa](https://github.com/ctjhoa))
+
+#### Committers: 3
+- Camille TJHOA ([@ctjhoa](https://github.com/ctjhoa))
+- Cyrille ([@dcyriller](https://github.com/dcyriller))
+- Gabor Babicz ([@zeppelin](https://github.com/zeppelin))
+
 ## v.6.0.0 (2021-09-10)
 
 #### :boom: Breaking Change
