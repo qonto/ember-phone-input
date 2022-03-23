@@ -1,3 +1,14 @@
+
+## v7.1.0 (2022-03-23)
+
+#### :rocket: Enhancement
+* [#427](https://github.com/qonto/ember-phone-input/pull/427) Add `onError` action callback ([@Turbo87](https://github.com/Turbo87))
+* [#416](https://github.com/qonto/ember-phone-input/pull/416) CI: Automate release ([@zeppelin](https://github.com/zeppelin))
+
+#### Committers: 2
+- Gabor Babicz ([@zeppelin](https://github.com/zeppelin))
+- Tobias Bieniek ([@Turbo87](https://github.com/Turbo87))
+
 ## v7.0.1 (2022-02-14)
 * Same as release v7.0.0
 
