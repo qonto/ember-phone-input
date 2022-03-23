@@ -215,6 +215,10 @@ export default Component.extend({
         'countrychange',
         this._onCountryChange.bind(this)
       );
+    } catch (error) {
+      if (this.onError) {
+        this.onError(error);
+      }
     } finally {
       if (!this.isDestroying && !this.isDestroyed) {
         this.set('isLoadingIti', false);
