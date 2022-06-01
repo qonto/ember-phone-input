@@ -11067,10 +11067,10 @@ lint-to-the-future-eslint@^0.2.1:
     import-cwd "^3.0.0"
     walk-sync "^2.2.0"
 
-lint-to-the-future@^0.6.1:
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/lint-to-the-future/-/lint-to-the-future-0.6.1.tgz#d63b149813da5b97164d54bf3183d3aabd0ba7f6"
-  integrity sha512-O/vaEdHXyhmlE0xkE8UOmOx2PB8aZ2mJwSfkQuQQJ0bX6ks8AROlivCwsmwRn9w80pFUVaY6/RNF7EwGc5f8RA==
+lint-to-the-future@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/lint-to-the-future/-/lint-to-the-future-1.1.0.tgz#c18eb131b4495cc43d861f679a6ad370924018e7"
+  integrity sha512-V32iElmJtyWJRjTCfgjIiFodoLGEFfzyI3G3rS6xvnjRLqdHYMCjvhxKA+sJs4PQ6JPQWKm0TYLsjmTKOmK/jg==
   dependencies:
     fs-extra "^7.0.1"
     import-cwd "^3.0.0"
@@ -12380,14 +12380,7 @@ node-emoji@^1.8.1:
   dependencies:
     lodash "^4.17.21"
 
-node-fetch@^2.6.0, node-fetch@^2.6.1:
-  version "2.6.5"
-  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.5.tgz#42735537d7f080a7e5f78b6c549b7146be1742fd"
-  integrity sha512-mmlIVHJEu5rnIxgEgez6b9GgWXbkZj5YZ7fx+2r94a2E+Uirsp6HsPTPlomfdHtpt/B0cdKviwkoaM6pyvUOpQ==
-  dependencies:
-    whatwg-url "^5.0.0"
-
-node-fetch@^2.6.7:
+node-fetch@^2.6.0, node-fetch@^2.6.1, node-fetch@^2.6.7:
   version "2.6.7"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.7.tgz#24de9fba827e3b4ae44dc8b20256a379160052ad"
   integrity sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ==
