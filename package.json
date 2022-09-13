@@ -1,6 +1,6 @@
 {
   "name": "ember-phone-input",
-  "version": "7.1.0",
+  "version": "7.1.1",
   "description": "A component to input / validate / submit phone numbers",
   "keywords": [
     "ember-addon",
@@ -71,7 +71,7 @@
     "ember-maybe-import-regenerator": "^1.0.0",
     "ember-qunit": "^5.1.5",
     "ember-resolver": "^8.0.3",
-    "ember-source": "~3.28.1",
+    "ember-source": "~4.7.0",
     "ember-source-channel-url": "^3.0.0",
     "ember-template-lint": "^3.9.0",
     "ember-try": "^1.4.0",
