@@ -1,4 +1,13 @@
 
+
+## v7.1.1 (2022-09-13)
+
+#### :memo: Documentation
+* [#457](https://github.com/qonto/ember-phone-input/pull/457) Update README to add new illustration ([@dbendaou](https://github.com/dbendaou))
+
+#### Committers: 1
+- Djamel B. ([@dbendaou](https://github.com/dbendaou))
+
 ## v7.1.0 (2022-03-23)
 
 #### :rocket: Enhancement
