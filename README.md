@@ -1,3 +1,5 @@
+![ember-phone-input-illustration](https://user-images.githubusercontent.com/15218861/189689656-b468ab1d-d2b7-4145-a9a6-0f4d6e6d240e.svg)
+
 # ember-phone-input
 
 [![Build Status](https://img.shields.io/travis/qonto/ember-phone-input.svg?style=flat)](https://travis-ci.com/qonto/ember-phone-input)
