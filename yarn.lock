@@ -10912,10 +10912,10 @@ linkify-it@~1.2.0:
   dependencies:
     uc.micro "^1.0.1"
 
-lint-to-the-future-ember-template@0.3.5:
-  version "0.3.5"
-  resolved "https://registry.yarnpkg.com/lint-to-the-future-ember-template/-/lint-to-the-future-ember-template-0.3.5.tgz#364eb73e76ef9e2631857b3f278689e22238b820"
-  integrity sha512-iQKOrARelzd4HiFomPXKnDVwTCcjBaxpN+XO2tXBW4/lu2+mCjUPQq5qj+QJ3GHOlHHybKUo/B6FBw8SZpO2kA==
+lint-to-the-future-ember-template@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/lint-to-the-future-ember-template/-/lint-to-the-future-ember-template-1.1.0.tgz#ff95bcb9d3b2f1abdca01bc2c6b09466c5f365cd"
+  integrity sha512-KsRhGjqMcvF7+TyfDaN+suUcwVbkhbU9FJNYKVYroXnFmO6XZQd91TYMP2RoYlydARmihuHGAm2b+U2QkT3Sfw==
   dependencies:
     esm "^3.2.25"
     import-cwd "^3.0.0"
