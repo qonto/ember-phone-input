@@ -3417,6 +3417,11 @@ babel-helpers@^6.24.1:
     babel-runtime "^6.22.0"
     babel-template "^6.24.1"
 
+babel-import-util@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/babel-import-util/-/babel-import-util-0.2.0.tgz#b468bb679919601a3570f9e317536c54f2862e23"
+  integrity sha512-CtWYYHU/MgK88rxMrLfkD356dApswtR/kWZ/c6JifG1m10e7tBBrs/366dFzWMAoqYmG5/JSh+94tUSpIwh+ag==
+
 babel-import-util@^1.1.0, babel-import-util@^1.2.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/babel-import-util/-/babel-import-util-1.3.0.tgz#dc9251ea39a7747bd586c1c13b8d785a42797f8e"
@@ -7331,8 +7336,9 @@ ember-maybe-import-regenerator@^1.0.0:
     ember-cli-babel "^7.26.6"
     regenerator-runtime "^0.13.2"
 
-"ember-modal-dialog@github:yapplabs/ember-modal-dialog#31ffee4c657ebe96b1f80adbc39c0339b52236e2":
+ember-modal-dialog@yapplabs/ember-modal-dialog#31ffee4c657ebe96b1f80adbc39c0339b52236e2:
   version "4.0.0-alpha.1"
+  uid "31ffee4c657ebe96b1f80adbc39c0339b52236e2"
   resolved "https://codeload.github.com/yapplabs/ember-modal-dialog/tar.gz/31ffee4c657ebe96b1f80adbc39c0339b52236e2"
   dependencies:
     "@embroider/macros" "^0.49.0"
@@ -7492,6 +7498,21 @@ ember-svg-jar@^2.2.3, ember-svg-jar@^2.3.3:
     ember-cli-htmlbars "^5.7.1"
     lodash "^4.17.15"
     safe-stable-stringify "^2.2.0"
+
+ember-template-imports@^3.1.1:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/ember-template-imports/-/ember-template-imports-3.4.0.tgz#c40757e2d41e289ce08c0fe80671000bf216e0ef"
+  integrity sha512-3Cwcj3NXA129g3ZhmrQ/nYOxksFonTmB/qxyaSNTHrLBSoc93UZys47hBz13DlcfoeSCCrNt2Qpq1j890I04PQ==
+  dependencies:
+    babel-import-util "^0.2.0"
+    broccoli-stew "^3.0.0"
+    ember-cli-babel-plugin-helpers "^1.1.1"
+    ember-cli-version-checker "^5.1.2"
+    line-column "^1.0.2"
+    magic-string "^0.25.7"
+    parse-static-imports "^1.1.0"
+    string.prototype.matchall "^4.0.6"
+    validate-peer-dependencies "^1.1.0"
 
 ember-template-lint@^3.16.0:
   version "3.16.0"
@@ -7848,17 +7869,20 @@ escodegen@^2.0.0:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-plugin-ember@^10.5.5:
-  version "10.6.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-ember/-/eslint-plugin-ember-10.6.1.tgz#04ea84cc82307f64a2faa4f2855b30e5ebf9f722"
-  integrity sha512-R+TN3jwhYQ2ytZCA1VkfJDZSGgHFOHjsHU1DrBlRXYRepThe56PpuGxywAyDvQ7inhoAz3e6G6M60PzpvjzmNg==
+eslint-plugin-ember@^11.2.0:
+  version "11.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-ember/-/eslint-plugin-ember-11.2.0.tgz#00f2db5662a298ada645f21d5ae201355f99764e"
+  integrity sha512-stMzVwyP7OpIJG8cTCUEWEn/QrPwVUKXVrxn88WM0eFFJ4V3003hNueYagRY1Sa9Wd/EtrSb7BMV6AC1YFRRqQ==
   dependencies:
     "@ember-data/rfc395-data" "^0.0.4"
+    "@glimmer/syntax" "^0.83.1"
     css-tree "^2.0.4"
     ember-rfc176-data "^0.3.15"
+    ember-template-imports "^3.1.1"
     eslint-utils "^3.0.0"
     estraverse "^5.2.0"
     lodash.kebabcase "^4.1.1"
+    magic-string "^0.25.7"
     requireindex "^1.2.0"
     snake-case "^3.0.3"
 
@@ -15116,7 +15140,7 @@ string-width@^2.1.0, string-width@^2.1.1:
     is-fullwidth-code-point "^2.0.0"
     strip-ansi "^4.0.0"
 
-string.prototype.matchall@^4.0.5:
+string.prototype.matchall@^4.0.5, string.prototype.matchall@^4.0.6:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/string.prototype.matchall/-/string.prototype.matchall-4.0.8.tgz#3bf85722021816dcd1bf38bb714915887ca79fd3"
   integrity sha512-6zOCOcJ+RJAQshcTvXPHoxoQGONa3e/Lqx90wUA+wEzX78sg5Bo+1tQo4N0pohS0erG9qtCqJDjNCQBjeWVxyg==
@@ -16232,7 +16256,7 @@ validate-npm-package-name@^3.0.0:
   dependencies:
     builtins "^1.0.3"
 
-validate-peer-dependencies@^1.2.0:
+validate-peer-dependencies@^1.1.0, validate-peer-dependencies@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/validate-peer-dependencies/-/validate-peer-dependencies-1.2.0.tgz#22aab93c514f4fda457d36c80685e8b1160d2036"
   integrity sha512-nd2HUpKc6RWblPZQ2GDuI65sxJ2n/UqZwSBVtj64xlWjMx0m7ZB2m9b2JS3v1f+n9VWH/dd1CMhkHfP6pIdckA==
