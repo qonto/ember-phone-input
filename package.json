@@ -41,7 +41,7 @@
   "dependencies": {
     "ember-auto-import": "^2.4.3",
     "ember-cli-babel": "^7.23.0",
-    "ember-cli-htmlbars": "^5.7.1",
+    "ember-cli-htmlbars": "^6.0.0",
     "intl-tel-input": "^17.0.13"
   },
   "devDependencies": {
