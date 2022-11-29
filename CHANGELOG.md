@@ -1,5 +1,21 @@
 
 
+
+## v8.0.0 (2022-11-29)
+
+#### :boom: Breaking Change
+* [#492](https://github.com/qonto/ember-phone-input/pull/492) Update dependency ember-cli-htmlbars to v6 ([@renovate[bot]](https://github.com/apps/renovate))
+
+#### :rocket: Enhancement
+* [#506](https://github.com/qonto/ember-phone-input/pull/506) Use `:root` prefix to ensure correct `background-image` paths for embroider builds ([@Turbo87](https://github.com/Turbo87))
+
+#### :house: Internal
+* [#473](https://github.com/qonto/ember-phone-input/pull/473) Configure Renovate ([@renovate[bot]](https://github.com/apps/renovate))
+* [#470](https://github.com/qonto/ember-phone-input/pull/470) Update lockfile ([@Turbo87](https://github.com/Turbo87))
+
+#### Committers: 1
+- Tobias Bieniek ([@Turbo87](https://github.com/Turbo87))
+
 ## v7.1.1 (2022-09-13)
 
 #### :memo: Documentation
