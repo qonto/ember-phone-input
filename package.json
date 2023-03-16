@@ -90,7 +90,7 @@
     "qunit-dom": "2.0.0",
     "release-it": "15.9.0",
     "release-it-lerna-changelog": "5.0.0",
-    "webpack": "5.76.1"
+    "webpack": "5.76.2"
   },
   "resolutions": {
     "ember-cli-addon-docs/ember-svg-jar": "^2.3.3"
