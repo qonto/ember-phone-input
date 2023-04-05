@@ -1,33 +1,37 @@
-![ember-phone-input-illustration](https://user-images.githubusercontent.com/15218861/189689656-b468ab1d-d2b7-4145-a9a6-0f4d6e6d240e.svg)
+ember-phone-input
+==============================================================================
 
-# ember-phone-input
+[Short description of the addon.]
 
-[![Build Status](https://img.shields.io/travis/qonto/ember-phone-input.svg?style=flat)](https://travis-ci.com/qonto/ember-phone-input)
-[![Ember Observer Score](https://emberobserver.com/badges/ember-phone-input.svg)](https://emberobserver.com/addons/ember-phone-input)
 
-Easily create phone input. With internationalization and validation in mind.
+Compatibility
+------------------------------------------------------------------------------
 
-## Documentation & Usage
+* Ember.js v3.28 or above
+* Embroider or ember-auto-import v2
 
-[View the docs here](https://qonto.github.io/ember-phone-input/versions/master).
 
-## Installation
+Installation
+------------------------------------------------------------------------------
 
 ```
 ember install ember-phone-input
 ```
 
-## Compatibility
 
-- Ember.js v3.16 or above
-- Ember CLI v2.13 or above
-- ember-auto-import v2 or above (ember-phone-input@6 is compatible with previous
-  versions of ember-auto-import)
+Usage
+------------------------------------------------------------------------------
 
-## Contributing
+[Longer description of how to use the addon in apps.]
+
+
+Contributing
+------------------------------------------------------------------------------
 
 See the [Contributing](CONTRIBUTING.md) guide for details.
 
-## License
+
+License
+------------------------------------------------------------------------------
 
 This project is licensed under the [MIT License](LICENSE.md).
