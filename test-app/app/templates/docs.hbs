@@ -1,17 +1,21 @@
 <DocsViewer as |viewer|>
 
   <viewer.nav as |nav|>
-    {{nav.section "Getting started"}}
+    {{nav.section 'Getting started'}}
 
-    {{nav.item "Installation" "docs.installation"}}
+    <nav.item @label='Installation' @route='docs.installation' />
+    <nav.item @label='Usage' @route='docs.usage' />
+    <nav.item @label='Action handling' @route='docs.action-handling' />
+    <nav.item @label='Lazy loading the scripts' @route='docs.lazy-loading' />
+    {{!-- {{nav.item "Installation" "docs.installation"}}
     {{nav.item "Usage" "docs.usage"}}
     {{nav.item "Action handling" "docs.action-handling"}}
-    {{nav.item "Lazy loading the scripts" "docs.lazy-loading"}}
+    {{nav.item "Lazy loading the scripts" "docs.lazy-loading"}} --}}
   </viewer.nav>
 
   <viewer.main>
-    <div class="docs-container">
-      <div class="docs-section">
+    <div class='docs-container'>
+      <div class='docs-section'>
         {{outlet}}
       </div>
     </div>
