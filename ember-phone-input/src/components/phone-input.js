@@ -13,6 +13,7 @@ import '../styles/styles.css';
     {{phone-input
     allowDropdown=false
     autoPlaceholder='aggressive'
+    customPlaceholder='Enter phone number'
     disabled=true
     required=required
     autocomplete=autocomplete
@@ -102,6 +103,15 @@ export default Component.extend({
     this.autoPlaceholder = this.autoPlaceholder || 'polite';
 
     /**
+      Replace the auto placeholder with a custom placeholder.
+      If defined, must return a string. Defaults to null.
+
+      @argument customPlaceholder
+      @type {string}
+    */
+    this.customPlaceholder = this.customPlaceholder || null;
+
+    /**
       It will just be the first country in the list. Set the initial country by
       it's country code. Defaults to ''.
 
@@ -157,6 +167,13 @@ export default Component.extend({
       @param {boolean} metadata.isValidNumber The validity of the current `phoneNumber`.
     */
     this.update = this.update || function () {};
+
+    if (this.customPlaceholder) {
+      assert(
+        '`customPlaceholder` must be of type string',
+        typeof this.customPlaceholder === 'string'
+      );
+    }
 
     const validAutoPlaceholer = ['polite', 'aggressive', 'off'].includes(
       this.autoPlaceholder
@@ -233,6 +250,7 @@ export default Component.extend({
     const {
       allowDropdown,
       autoPlaceholder,
+      customPlaceholder,
       initialCountry,
       onlyCountries,
       preferredCountries,
@@ -244,6 +262,7 @@ export default Component.extend({
       nationalMode: true,
       allowDropdown,
       autoPlaceholder,
+      customPlaceholder: () => customPlaceholder,
       initialCountry,
       onlyCountries,
       preferredCountries,
