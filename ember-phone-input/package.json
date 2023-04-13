@@ -3,8 +3,19 @@
   "version": "8.0.0",
   "description": "A component to input / validate / submit phone numbers",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "intl-tel-input",
+    "international",
+    "i18n",
+    "country",
+    "dial",
+    "code",
+    "phone",
+    "telephone",
+    "mobile",
+    "input"
   ],
+  "homepage": "https://qonto.github.io/ember-phone-input",
   "repository": {
     "type": "git",
     "url": "https://github.com/qonto/ember-phone-input.git"
@@ -66,7 +77,8 @@
       "./components/phone-input.js": "./dist/_app_/components/phone-input.js",
       "./instance-initializers/phone-input.js": "./dist/_app_/instance-initializers/phone-input.js",
       "./services/phone-input.js": "./dist/_app_/services/phone-input.js"
-    }
+    },
+    "demoURL": "http://qonto.github.io/ember-phone-input/"
   },
   "exports": {
     ".": "./dist/index.js",
