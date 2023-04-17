@@ -4,6 +4,9 @@ import { assert } from '@ember/debug';
 import { inject as service } from '@ember/service';
 import { isPresent } from '@ember/utils';
 
+import 'intl-tel-input/build/css/intlTelInput.css';
+import '../styles/styles.css';
+
 /**
   A phone-input component. Usage:
   ```hbs
