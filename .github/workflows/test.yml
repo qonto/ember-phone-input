@@ -48,7 +48,6 @@ jobs:
           - 'ember-canary'
           - 'embroider-safe'
           - 'embroider-optimized'
-          - 'ember-default-with-jquery'
           - 'ember-classic'
 
     steps:
