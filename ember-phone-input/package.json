@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@embroider/addon-shim": "^1.0.0",
-    "intl-tel-input": "^17.0.13",
+    "intl-tel-input": "^18.0.0",
     "rsvp": "^4.8.5"
   },
   "devDependencies": {

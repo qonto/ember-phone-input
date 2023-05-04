@@ -10681,10 +10681,10 @@ interpret@^1.0.0:
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.4.0.tgz#665ab8bc4da27a774a40584e812e3e0fa45b1a1e"
   integrity sha512-agE4QfB2Lkp9uICn7BAqoscw4SZP9kTE2hxiFI3jBPmXJfdqiahTbUuKGsMoN2GtqL9AxhYioAcVvgsb1HvRbA==
 
-intl-tel-input@^17.0.13:
-  version "17.0.21"
-  resolved "https://registry.yarnpkg.com/intl-tel-input/-/intl-tel-input-17.0.21.tgz#2d69777ecf5fd188d545f7e482cefe4d3523645b"
-  integrity sha512-TfyPxLe41QZPOf6RqBxRE2dpQ0FThB/PBD/gRbxVhGW7IuYg30QD90x/vjmEo4vkZw7j8etxpVcjIZVRcG+Otw==
+intl-tel-input@^18.0.0:
+  version "18.1.5"
+  resolved "https://registry.yarnpkg.com/intl-tel-input/-/intl-tel-input-18.1.5.tgz#d9d7d6bbc249df228f741829cc0a56424b18cf8c"
+  integrity sha512-uIMy8bvQdInnQhde4dWy0RMP8EzjgFPn+qGO8A6CSwSlBtQSLqzmemGN6dbtxyNnPXgGkmNRIZsxtTIY3iXEAg==
 
 invariant@^2.2.2:
   version "2.2.4"
