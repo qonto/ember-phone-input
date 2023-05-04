@@ -1,0 +1,82 @@
+{{! template-lint-disable no-action no-curly-component-invocation no-implicit-this }}
+<h2>Basic Options</h2>
+<DocsDemo as |demo|>
+  <demo.example @name="phone-input-all-options.hbs">
+
+    <p>{{phone-input initialCountry="us" number=number update=(action "handleUpdate")}}</p>
+
+    <p>The internal phone number you'll want to persist on your backend is <em>\{{number}}: </em><strong>{{number}}</strong>.</p>
+
+    <p>In some cases, you may want to persist some additional metadata. Are available:</p>
+    <ul>
+      <li>the selected country name <em>\{{selectedCountryData.name}}: </em><strong> {{selectedCountryData.name}}</strong></li>
+      <li>the selected country ios2 code <em>\{{selectedCountryData.iso2}}: </em><strong>{{selectedCountryData.iso2}}</strong></li>
+      <li>the selected country ios2 code <em>\{{selectedCountryData.dialCode}}: </em><strong>{{selectedCountryData.dialCode}}</strong></li>
+      <li>the phone number validity <em>\{{isValidNumber}}: </em><strong>{{isValidNumber}}</strong></li>
+      <li>the phone number extension <em>\{{extension}}</em>: <strong>{{extension}}</strong></li>
+    </ul>
+    <p><b>If the number is valid</b>, you also get different formats:</p>
+    <ul>
+      <li>E164 format <em>\{{numberFormat.E164}}</em>: <strong>{{numberFormat.E164}}</strong></li>
+      <li>INTERNATIONAL format <em>\{{numberFormat.INTERNATIONAL}}</em>: <strong>{{numberFormat.INTERNATIONAL}}</strong></li>
+      <li>NATIONAL format <em>\{{numberFormat.NATIONAL}}</em>: <strong>{{numberFormat.NATIONAL}}</strong></li>
+      <li>RFC3966 format <em>\{{numberFormat.RFC3966}}</em>: <strong>{{numberFormat.RFC3966}}</strong></li>
+    </ul>
+  </demo.example>
+
+  <demo.snippet @name="phone-input-all-options.hbs"/>
+</DocsDemo>
+
+<h2>`separateDialCode` option</h2>
+<DocsDemo as |demo|>
+  <demo.example @name="phone-input-separate-dial-option.hbs">
+
+    <p>{{phone-input separateDialCode=true initialCountry="us" number=separateDialNumber update=(action "updateSeparateDialOption")}}</p>
+
+    <p>The internal phone number you'll want to persist on your backend is <em>\{{separateDialNumber}}: </em><strong>{{separateDialNumber}}</strong>.</p>
+
+  </demo.example>
+
+  <demo.snippet @name="phone-input-separate-dial-option.hbs"/>
+</DocsDemo>
+
+<h2>`allowDropdown` option</h2>
+<DocsDemo as |demo|>
+  <demo.example @name="phone-input-allow-dropdown-option.hbs">
+
+    <p>{{phone-input allowDropdown=false number=allowDropdownNumber initialCountry="fr" update=(action "updateAllowDropdownNumber")}}</p>
+
+    <p>The dropdown can be disabled.</p>
+
+    <p>The internal phone number you'll want to persist on your backend is <em>\{{allowDropdownNumber}}: </em><strong>{{allowDropdownNumber}}</strong></p>
+
+  </demo.example>
+
+  <demo.snippet @name="phone-input-allow-dropdown-option.hbs" />
+</DocsDemo>
+
+<h2>`required` option</h2>
+<DocsDemo as |demo|>
+  <demo.example @name="phone-input-required-option.hbs">
+    <form {{action "submitForm" on="submit"}}>
+      <p>{{phone-input required=true initialCountry="us" number=number}}</p>
+
+      <p>The input is required.</p>
+
+      <p>The input is required and you will not be able to submit the form when the field is empty as the clients-side HTML5 form validation will prevent it.</p>
+
+      <button name="button" type="submit" class="docs-bg-grey-darkest docs-text-white docs-no-underline docs-rounded docs-py-2 docs-px-4">submit</button>
+    </form>
+  </demo.example>
+
+  <demo.snippet @name="phone-input-required-option.hbs" />
+</DocsDemo>
+
+<h2>`autocomplete` option</h2>
+<DocsDemo as |demo|>
+  <demo.example @name="phone-input-autocomplete-option.hbs">
+    <p>{{phone-input autocomplete="tel" number=number}}</p>
+  </demo.example>
+
+  <demo.snippet @name="phone-input-autocomplete-option.hbs" />
+</DocsDemo>
