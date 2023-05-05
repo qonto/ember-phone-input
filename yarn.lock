@@ -8488,10 +8488,10 @@ eslint-plugin-ember@10.6.1:
     requireindex "^1.2.0"
     snake-case "^3.0.3"
 
-eslint-plugin-ember@11.5.0:
-  version "11.5.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-ember/-/eslint-plugin-ember-11.5.0.tgz#93ae84878b587756d6baf39a838eeff6d0a88744"
-  integrity sha512-qcU4HtVeu8kzggvT4+asj3ouOtyPvQdc4o6KZ2MYABf632Z4VFja7aVLtgJreZ39CE6Y9p5Rz/3jGLi4iXIIJw==
+eslint-plugin-ember@11.5.2:
+  version "11.5.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-ember/-/eslint-plugin-ember-11.5.2.tgz#0e30ce343c94f67c6366ff99f3dc4e2f717bb351"
+  integrity sha512-OFlBkV0VSemGtq3cZDWOm/kwOipiswvPIVL6VDJjpEv85BDtbGdqoyvaF9d6/MY7u5aDCh62oOgKQFw9JQGadA==
   dependencies:
     "@ember-data/rfc395-data" "^0.0.4"
     "@glimmer/syntax" "^0.84.2"
