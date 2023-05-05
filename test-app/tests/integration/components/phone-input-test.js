@@ -41,6 +41,20 @@ module('Integration | Component | phone-input', function (hooks) {
     assert.dom('input').hasValue(newValue);
   });
 
+  test('renders the custom placeholder', async function (assert) {
+    assert.expect(1);
+
+    this.set('number', null);
+    this.set('update', () => {});
+    this.set('customPlaceholder', 'A custom placeholder');
+
+    await render(
+      hbs`<PhoneInput @number={{this.number}} @update={{this.update}} @customPlaceholder={{this.customPlaceholder}} />`
+    );
+
+    assert.dom('input').hasAttribute('placeholder', this.customPlaceholder);
+  });
+
   test('renders the value with separate dial code option', async function (assert) {
     assert.expect(3);
 
