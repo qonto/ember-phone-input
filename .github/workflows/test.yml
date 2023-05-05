@@ -23,7 +23,7 @@ jobs:
       - name: Setup Volta
         uses: volta-cli/action@v4
         with:
-          node-version: 14
+          node-version: 16
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Test
@@ -56,7 +56,7 @@ jobs:
       - name: Setup Volta
         uses: volta-cli/action@v4
         with:
-          node-version: 14
+          node-version: 16
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Test
@@ -76,7 +76,7 @@ jobs:
       - name: Setup Volta
         uses: volta-cli/action@v4
         with:
-          node-version: 14
+          node-version: 16
       - name: Install Dependencies
         run: yarn install --no-lockfile
       - name: Test
