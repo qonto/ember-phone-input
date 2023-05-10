@@ -1,5 +1,41 @@
 # Changelog
 
+## v9.0.0 (2023-05-10)
+
+#### :boom: Breaking Change
+
+- [#602](https://github.com/qonto/ember-phone-input/pull/602) Drop node v14 support ([@anas7asia](https://github.com/anas7asia))
+
+- [#590](https://github.com/qonto/ember-phone-input/pull/590) Update dependency intl-tel-input to v18 ([@renovate[bot]](https://github.com/apps/renovate))
+
+- [#588](https://github.com/qonto/ember-phone-input/pull/602) Remove support for Ember 3.16 and 3.20 ([@anas7asia](https://github.com/anas7asia))
+
+#### :rocket: Enhancement
+
+- [#589](https://github.com/qonto/ember-phone-input/pull/589) Add ability to pass a custom placeholder argument ([@vscav](https://github.com/vscav))
+
+- [#586](https://github.com/qonto/ember-phone-input/pull/586) Convert to v2 addon format ([@anas7asia](https://github.com/anas7asia))
+
+#### Release notes
+
+In the v1 addon flags image and CSS file were loaded globally in `index.js` thanks to `app.import`. After converting to the v2 addon format, it is not the case anymore: images and styles are loaded only on demand when the `<PhoneInput>` is used.
+
+
+#### Committers: 2
+
+- Vincent Scavinner ([@vscav](https://github.com/vscav))
+- Anastasia ([@anas7asia](https://github.com/anas7asia))
+
+
+## v9.0.0-alpha.2 (2023-05-10)
+
+#### :bug: Bug Fix
+* [#604](https://github.com/qonto/ember-phone-input/pull/604) Display autoPlaceholder when customPlaceholder is not provided ([@anas7asia](https://github.com/anas7asia))
+
+#### Committers: 2
+- Anastasia ([@anas7asia](https://github.com/anas7asia))
+- Vincent Scavinner ([@vscav](https://github.com/vscav))
+
 ## v8.0.0 (2022-11-29)
 
 #### :boom: Breaking Change
