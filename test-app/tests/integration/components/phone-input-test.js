@@ -55,6 +55,17 @@ module('Integration | Component | phone-input', function (hooks) {
     assert.dom('input').hasAttribute('placeholder', this.customPlaceholder);
   });
 
+  test('renders auto placeholder if custom placeholder is not provided', async function (assert) {
+    this.set('number', null);
+    this.set('update', () => {});
+
+    await render(
+      hbs`<PhoneInput @number={{this.number}} @update={{this.update}} />`
+    );
+
+    assert.dom('input').hasAttribute('placeholder', '(201) 555-0123');
+  });
+
   test('renders the value with separate dial code option', async function (assert) {
     assert.expect(3);
 

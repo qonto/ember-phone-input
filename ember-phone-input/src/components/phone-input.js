@@ -257,17 +257,22 @@ export default Component.extend({
       separateDialCode
     } = this;
 
-    var _iti = this.phoneInput.intlTelInput(this.element, {
+    let options = {
       autoHideDialCode: true,
       nationalMode: true,
       allowDropdown,
       autoPlaceholder,
-      customPlaceholder: () => customPlaceholder,
       initialCountry,
       onlyCountries,
       preferredCountries,
       separateDialCode
-    });
+    };
+
+    if (customPlaceholder) {
+      options.customPlaceholder = () => customPlaceholder;
+    }
+
+    var _iti = this.phoneInput.intlTelInput(this.element, options);
 
     if (this.number) {
       _iti.setNumber(this.number);
