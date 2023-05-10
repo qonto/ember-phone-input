@@ -258,7 +258,7 @@ export default Component.extend({
     } = this;
 
     let options = {
-      autoHideDialCode: true,
+      autoInsertDialCode: false,
       nationalMode: true,
       allowDropdown,
       autoPlaceholder,

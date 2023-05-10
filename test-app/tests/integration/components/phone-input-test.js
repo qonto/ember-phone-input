@@ -87,6 +87,12 @@ module('Integration | Component | phone-input', function (hooks) {
     assert.dom('input').hasValue(newValue);
   });
 
+  test('should not insert the dial code by default', async function (assert) {
+    await render(hbs`<PhoneInput />`);
+
+    assert.dom('input').hasValue('');
+  });
+
   test('can update the country', async function (assert) {
     assert.expect(2);
 
