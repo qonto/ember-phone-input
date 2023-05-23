@@ -8,7 +8,7 @@ on:
     branches:
       - master
     tags:
-      - '*'
+      - "*"
   pull_request:
 
 jobs:
@@ -20,14 +20,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Setup Volta
-        uses: volta-cli/action@v4
+      - name: Install Node
+        uses: actions/setup-node@v3
         with:
-          node-version: 16
-      - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+          node-version: 16.x
+      - name: Install pnpm
+        uses: NullVoxPopuli/action-setup-pnpm@v1
+        with:
+          pnpm-version: 8.5.1
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
       - name: Test
-        run: yarn test:ember
+        run: pnpm test:ember
         working-directory: test-app
 
   try-scenarios:
@@ -43,28 +47,32 @@ jobs:
         ember-try-scenario:
           - ember-lts-3.28
           - ember-lts-4.4
-          - 'ember-release'
-          - 'ember-beta'
-          - 'ember-canary'
-          - 'embroider-safe'
-          - 'embroider-optimized'
-          - 'ember-classic'
+          - "ember-release"
+          - "ember-beta"
+          - "ember-canary"
+          - "embroider-safe"
+          - "embroider-optimized"
+          - "ember-classic"
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Setup Volta
-        uses: volta-cli/action@v4
+      - name: Install Node
+        uses: actions/setup-node@v3
         with:
-          node-version: 16
-      - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+          node-version: 16.x
+      - name: Install pnpm
+        uses: NullVoxPopuli/action-setup-pnpm@v1
+        with:
+          pnpm-version: 8.5.1
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
       - name: Test
-        run: yarn ember try:one ${{ matrix.ember-try-scenario }} --skip-cleanup
+        run: pnpm ember try:one ${{ matrix.ember-try-scenario }} --skip-cleanup
         working-directory: test-app
 
   floating-dependencies:
-    name: Floating Dependencies
+    name: Floating dependencies
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
@@ -73,12 +81,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Setup Volta
-        uses: volta-cli/action@v4
+      - name: Install Node
+        uses: actions/setup-node@v3
         with:
-          node-version: 16
-      - name: Install Dependencies
-        run: yarn install --no-lockfile
+          node-version: 16.x
+      - name: Install pnpm
+        uses: NullVoxPopuli/action-setup-pnpm@v1
+        with:
+          pnpm-version: 8.5.1
+          no-lockfile: true
+      - name: Install dependencies
+        run: pnpm install --no-lockfile
       - name: Test
-        run: yarn test:ember
+        run: pnpm test:ember
         working-directory: test-app
