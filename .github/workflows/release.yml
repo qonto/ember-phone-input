@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
 
 jobs:
   release:
@@ -11,19 +11,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install Node
+        uses: actions/setup-node@v3
         with:
           node-version: 16
-          registry-url: 'https://registry.npmjs.org'
-
-      - run: yarn install
-      - run: yarn build
-
+          registry-url: "https://registry.npmjs.org"
+      - name: Install pnpm
+        uses: NullVoxPopuli/action-setup-pnpm@v1
+        with:
+          pnpm-version: 8.5.1
+      - name: Install dependencies
+        run: pnpm install
+      - name: Build addon
+        run: pnpm build
       - name: auto-dist-tag
         run: npx auto-dist-tag@1 --write
-
-      - run: npm publish
+      - name: Publish
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         working-directory: ember-phone-input
