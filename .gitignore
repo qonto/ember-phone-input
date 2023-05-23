@@ -2,6 +2,7 @@
 
 # compiled output
 dist/
+.pnpm-store/
 
 # dependencies
 node_modules/
@@ -19,6 +20,8 @@ node_modules/
 /npm-debug.log*
 /testem.log
 /yarn-error.log
+package-lock.json
+yarn.lock
 
 # ember-try
 /.node_modules.ember-try/
