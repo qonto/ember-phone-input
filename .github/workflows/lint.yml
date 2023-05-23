@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: 16.x
       - name: Install pnpm
-        uses: NullVoxPopuli/action-setup-pnpm@v1
+        uses: NullVoxPopuli/action-setup-pnpm@v2
         with:
           pnpm-version: 8.5.1
       - name: Install dependencies

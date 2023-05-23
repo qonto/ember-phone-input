@@ -19,7 +19,7 @@ jobs:
           node-version: 16
           registry-url: "https://registry.npmjs.org"
       - name: Install pnpm
-        uses: NullVoxPopuli/action-setup-pnpm@v1
+        uses: NullVoxPopuli/action-setup-pnpm@v2
         with:
           pnpm-version: 8.5.1
       - name: Install dependencies
