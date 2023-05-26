@@ -57,8 +57,8 @@ importers:
         specifier: 8.0.1
         version: 8.0.1
       ember-template-lint:
-        specifier: 5.9.0
-        version: 5.9.0
+        specifier: 5.10.0
+        version: 5.10.0
       eslint:
         specifier: 7.32.0
         version: 7.32.0
@@ -193,8 +193,8 @@ importers:
         specifier: 3.0.0
         version: 3.0.0
       ember-template-lint:
-        specifier: 5.9.0
-        version: 5.9.0
+        specifier: 5.10.0
+        version: 5.10.0
       ember-try:
         specifier: 2.0.0
         version: 2.0.0
@@ -230,7 +230,7 @@ importers:
         version: 2.0.0
       lint-to-the-future-ember-template:
         specifier: 1.2.0
-        version: 1.2.0(ember-template-lint@5.9.0)
+        version: 1.2.0(ember-template-lint@5.10.0)
       lint-to-the-future-eslint:
         specifier: 2.0.1
         version: 2.0.1(eslint@7.32.0)
@@ -9137,8 +9137,8 @@ packages:
       - supports-color
     dev: true
 
-  /ember-template-lint@5.9.0:
-    resolution: {integrity: sha512-nEiuZZm+x1sJ/Occ1i5ykyxxgmTN7SSrEuuhu2yr6bnKpM1UFLuV/rD8lDicqUFBYJesjGCbPMujpI+m2nZ/Pw==}
+  /ember-template-lint@5.10.0:
+    resolution: {integrity: sha512-LK+ZBXuqflI8KYXgzS5HcgkxSMAEOqilQVBMrwmWyfY7otDOL17mlPjMeB0OFUMXYKIq/qzz72HbM+J7WsBE6A==}
     engines: {node: ^14.18.0 || ^16.0.0 || >= 18.0.0}
     hasBin: true
     dependencies:
@@ -12812,13 +12812,13 @@ packages:
       uc.micro: 1.0.6
     dev: true
 
-  /lint-to-the-future-ember-template@1.2.0(ember-template-lint@5.9.0):
+  /lint-to-the-future-ember-template@1.2.0(ember-template-lint@5.10.0):
     resolution: {integrity: sha512-MtbF3OITW2fh900RU08TQsrGt5ljvzYklvV3SEli4o1RqQ5oM4+yTsU4irvO3usmuO4C1lpXUAGZ6az7kqeXxw==}
     engines: {node: 10.* || >= 12.*}
     peerDependencies:
       ember-template-lint: ^2.0.0 || ^3.0.0 || ^4.0.0 || ^5.0.0
     dependencies:
-      ember-template-lint: 5.9.0
+      ember-template-lint: 5.10.0
       esm: 3.2.25
       import-cwd: 3.0.0
       walk-sync: 2.2.0
