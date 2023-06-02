@@ -4,7 +4,7 @@
 
 #### :house: Internal
 
-- [#625] Migrate from yarn to pnpm ([@vscav](https://github.com/vscav))
+- [#625](https://github.com/qonto/ember-phone-input/pull/625) Migrate from yarn to pnpm ([@vscav](https://github.com/vscav))
 
 #### Committers: 1
 
