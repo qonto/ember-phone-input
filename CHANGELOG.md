@@ -1,5 +1,15 @@
 # Changelog
 
+## v9.0.1 (2023-06-02)
+
+#### :house: Internal
+
+- [#625] Migrate from yarn to pnpm ([@vscav](https://github.com/vscav))
+
+#### Committers: 1
+
+- Vincent Scavinner ([@vscav](https://github.com/vscav))
+
 ## v9.0.0 (2023-05-10)
 
 #### :boom: Breaking Change
@@ -20,19 +30,19 @@
 
 In the v1 addon flags image and CSS file were loaded globally in `index.js` thanks to `app.import`. After converting to the v2 addon format, it is not the case anymore: images and styles are loaded only on demand when the `<PhoneInput>` is used.
 
-
 #### Committers: 2
 
 - Vincent Scavinner ([@vscav](https://github.com/vscav))
 - Anastasia ([@anas7asia](https://github.com/anas7asia))
 
-
 ## v9.0.0-alpha.2 (2023-05-10)
 
 #### :bug: Bug Fix
-* [#604](https://github.com/qonto/ember-phone-input/pull/604) Display autoPlaceholder when customPlaceholder is not provided ([@anas7asia](https://github.com/anas7asia))
+
+- [#604](https://github.com/qonto/ember-phone-input/pull/604) Display autoPlaceholder when customPlaceholder is not provided ([@anas7asia](https://github.com/anas7asia))
 
 #### Committers: 2
+
 - Anastasia ([@anas7asia](https://github.com/anas7asia))
 - Vincent Scavinner ([@vscav](https://github.com/vscav))
 
