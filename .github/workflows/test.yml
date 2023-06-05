@@ -20,14 +20,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Install Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
       - name: Install pnpm
         uses: NullVoxPopuli/action-setup-pnpm@v2
         with:
           pnpm-version: 8.5.1
+          node-version: 16.x
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Test
@@ -57,14 +54,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Install Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
       - name: Install pnpm
         uses: NullVoxPopuli/action-setup-pnpm@v2
         with:
           pnpm-version: 8.5.1
+          node-version: 16.x
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Test
@@ -81,14 +75,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Install Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
       - name: Install pnpm
         uses: NullVoxPopuli/action-setup-pnpm@v2
         with:
           pnpm-version: 8.5.1
+          node-version: 16.x
           no-lockfile: true
       - name: Install dependencies
         run: pnpm install --no-lockfile
