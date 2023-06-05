@@ -25,8 +25,7 @@ jobs:
         with:
           pnpm-version: 8.5.1
           node-version: 16.x
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+          args: "--frozen-lockfile"
       - name: Test
         run: pnpm test:ember
         working-directory: test-app
@@ -59,8 +58,7 @@ jobs:
         with:
           pnpm-version: 8.5.1
           node-version: 16.x
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+          args: "--frozen-lockfile"
       - name: Test
         run: pnpm ember try:one ${{ matrix.ember-try-scenario }} --skip-cleanup
         working-directory: test-app
@@ -81,8 +79,6 @@ jobs:
           pnpm-version: 8.5.1
           node-version: 16.x
           args: "--no-lockfile"
-      - name: Install dependencies
-        run: pnpm install --no-lockfile
       - name: Test
         run: pnpm test:ember
         working-directory: test-app
