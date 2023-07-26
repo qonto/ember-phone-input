@@ -297,6 +297,8 @@ export default Component.extend({
 
     if (this.number) {
       this._iti.setNumber(this.number);
+    } else {
+      this._iti.setNumber('');
     }
   },
 
