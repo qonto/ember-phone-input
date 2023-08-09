@@ -158,8 +158,8 @@ importers:
         specifier: 3.0.0
         version: 3.0.0
       ember-cli-htmlbars:
-        specifier: 6.2.0
-        version: 6.2.0
+        specifier: 6.3.0
+        version: 6.3.0
       ember-cli-inject-live-reload:
         specifier: 2.1.0
         version: 2.1.0
@@ -2173,7 +2173,7 @@ packages:
       broccoli-debug: 0.6.5
       broccoli-funnel: 3.0.8
       ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 6.2.0
+      ember-cli-htmlbars: 6.3.0
       ember-destroyable-polyfill: 2.0.3(@babel/core@7.22.10)
       ember-source: 4.12.3(@babel/core@7.22.10)(@glimmer/component@1.1.2)(webpack@5.88.2)
     transitivePeerDependencies:
@@ -8284,7 +8284,7 @@ packages:
       ember-cli-autoprefixer: 2.0.0
       ember-cli-babel: 7.26.11
       ember-cli-clipboard: 1.0.0(@babel/core@7.22.10)(webpack@5.88.2)
-      ember-cli-htmlbars: 6.2.0
+      ember-cli-htmlbars: 6.3.0
       ember-cli-postcss: 8.2.0
       ember-cli-string-helpers: 6.1.0
       ember-cli-string-utils: 1.1.0
@@ -8441,7 +8441,7 @@ packages:
       ember-arg-types: 1.0.0(webpack@5.88.2)
       ember-auto-import: 2.6.3(webpack@5.88.2)
       ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 6.2.0
+      ember-cli-htmlbars: 6.3.0
       ember-modifier: 3.2.7(@babel/core@7.22.10)
       prop-types: 15.8.1
     transitivePeerDependencies:
@@ -8581,8 +8581,8 @@ packages:
       - supports-color
     dev: true
 
-  /ember-cli-htmlbars@6.2.0:
-    resolution: {integrity: sha512-j5EGixjGau23HrqRiW/JjoAovg5UBHfjbyN7wX5ekE90knIEqUUj1z/Mo/cTx/J2VepQ2lE6HdXW9LWQ/WdMtw==}
+  /ember-cli-htmlbars@6.3.0:
+    resolution: {integrity: sha512-N9Y80oZfcfWLsqickMfRd9YByVcTGyhYRnYQ2XVPVrp6jyUyOeRWmEAPh7ERSXpp8Ws4hr/JB9QVQrn/yZa+Ag==}
     engines: {node: 12.* || 14.* || >= 16}
     dependencies:
       '@ember/edition-utils': 1.2.0
@@ -8745,7 +8745,7 @@ packages:
       ember-cli-babel-plugin-helpers: 1.1.1
       execa: 2.1.0
       fs-extra: 8.1.0
-      resolve: 1.22.2
+      resolve: 1.22.3
       rsvp: 4.8.5
       semver: 6.3.1
       stagehand: 1.0.1
@@ -9187,7 +9187,7 @@ packages:
       '@embroider/macros': 1.11.1
       '@embroider/util': 1.11.1(ember-source@4.12.3)
       ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 6.2.0
+      ember-cli-htmlbars: 6.3.0
       ember-cli-version-checker: 2.2.0
       ember-decorators: 6.1.1
       ember-tether: 2.0.1
