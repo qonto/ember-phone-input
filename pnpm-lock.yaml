@@ -61,8 +61,8 @@ importers:
         specifier: 8.2.0
         version: 8.2.0
       ember-template-lint:
-        specifier: 5.11.1
-        version: 5.11.1
+        specifier: 5.11.2
+        version: 5.11.2
       eslint:
         specifier: 7.32.0
         version: 7.32.0
@@ -197,8 +197,8 @@ importers:
         specifier: 3.0.0
         version: 3.0.0
       ember-template-lint:
-        specifier: 5.11.1
-        version: 5.11.1
+        specifier: 5.11.2
+        version: 5.11.2
       ember-try:
         specifier: 2.0.0
         version: 2.0.0
@@ -234,7 +234,7 @@ importers:
         version: 2.0.0
       lint-to-the-future-ember-template:
         specifier: 1.2.0
-        version: 1.2.0(ember-template-lint@5.11.1)
+        version: 1.2.0(ember-template-lint@5.11.2)
       lint-to-the-future-eslint:
         specifier: 2.0.1
         version: 2.0.1(eslint@7.32.0)
@@ -2951,11 +2951,11 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
-  /@lint-todo/utils@13.1.0:
-    resolution: {integrity: sha512-uzcZPIPH7hcs+hKMiHfp58MosJpI9sTTgl1pGYau4zq34q1ppswJ6nLeohv/cDhqEBrHjtvldt8zDnVJXRvBlA==}
+  /@lint-todo/utils@13.1.1:
+    resolution: {integrity: sha512-F5z53uvRIF4dYfFfJP3a2Cqg+4P1dgJchJsFnsZE0eZp0LK8X7g2J0CsJHRgns+skpXOlM7n5vFGwkWCWj8qJg==}
     engines: {node: 12.* || >= 14}
     dependencies:
-      '@types/eslint': 7.29.0
+      '@types/eslint': 8.40.2
       find-up: 5.0.0
       fs-extra: 9.1.0
       proper-lockfile: 4.1.2
@@ -3455,13 +3455,6 @@ packages:
     dependencies:
       '@types/eslint': 8.40.2
       '@types/estree': 1.0.1
-    dev: true
-
-  /@types/eslint@7.29.0:
-    resolution: {integrity: sha512-VNcvioYDH8/FxaeTKkM4/TiTwt6pBV9E3OfGmvaw8tPl0rrHCJ4Ll15HRT+pMiFAf/MLQvAzC+6RzUMEL9Ceng==}
-    dependencies:
-      '@types/estree': 1.0.1
-      '@types/json-schema': 7.0.12
     dev: true
 
   /@types/eslint@8.40.2:
@@ -9427,12 +9420,12 @@ packages:
       - supports-color
     dev: true
 
-  /ember-template-lint@5.11.1:
-    resolution: {integrity: sha512-PucOG+Wx96h8NNjgD4kTjBzg6qTGOCqvo3agubuHJ3/T9ucO0P88FzEPxWRPWgn4b/PqIyDXj8HhkM7QUccBIQ==}
+  /ember-template-lint@5.11.2:
+    resolution: {integrity: sha512-G8KXmFCYLKM9ifMb+rluL8CNIawUl45i4z4VrK+Nn5ciWSo+Vx2jUp+sS6wKCdBqGYoiqjUgn/hmGnCVOId+yQ==}
     engines: {node: ^14.18.0 || ^16.0.0 || >= 18.0.0}
     hasBin: true
     dependencies:
-      '@lint-todo/utils': 13.1.0
+      '@lint-todo/utils': 13.1.1
       aria-query: 5.3.0
       chalk: 5.3.0
       ci-info: 3.8.0
@@ -11373,7 +11366,7 @@ packages:
       '@types/glob': 7.2.0
       array-union: 2.1.0
       dir-glob: 3.0.1
-      fast-glob: 3.2.12
+      fast-glob: 3.3.0
       glob: 7.2.3
       ignore: 5.2.4
       merge2: 1.4.1
@@ -13148,13 +13141,13 @@ packages:
       uc.micro: 1.0.6
     dev: true
 
-  /lint-to-the-future-ember-template@1.2.0(ember-template-lint@5.11.1):
+  /lint-to-the-future-ember-template@1.2.0(ember-template-lint@5.11.2):
     resolution: {integrity: sha512-MtbF3OITW2fh900RU08TQsrGt5ljvzYklvV3SEli4o1RqQ5oM4+yTsU4irvO3usmuO4C1lpXUAGZ6az7kqeXxw==}
     engines: {node: 10.* || >= 12.*}
     peerDependencies:
       ember-template-lint: ^2.0.0 || ^3.0.0 || ^4.0.0 || ^5.0.0
     dependencies:
-      ember-template-lint: 5.11.1
+      ember-template-lint: 5.11.2
       esm: 3.2.25
       import-cwd: 3.0.0
       walk-sync: 2.2.0
@@ -14564,7 +14557,7 @@ packages:
     resolution: {integrity: sha512-/5CMN3T0R4XTj4DcGaexo+roZSdSFW/0AOOTROrjxzCG1wrWXEsGbRKevjlIL+ZDE4sZlJr5ED4YW0yqmkK+eA==}
     dependencies:
       hosted-git-info: 2.8.9
-      resolve: 1.22.2
+      resolve: 1.22.3
       semver: 5.7.1
       validate-npm-package-license: 3.0.4
     dev: true
