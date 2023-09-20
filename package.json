@@ -29,7 +29,7 @@
     "node": "16.* || >= 18"
   },
   "volta": {
-    "node": "18.17.1"
+    "node": "18.18.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
