@@ -212,8 +212,8 @@ importers:
         specifier: 11.11.1
         version: 11.11.1(eslint@7.32.0)
       eslint-plugin-n:
-        specifier: 16.0.2
-        version: 16.0.2(eslint@7.32.0)
+        specifier: 16.1.0
+        version: 16.1.0(eslint@7.32.0)
       eslint-plugin-node:
         specifier: 11.1.0
         version: 11.1.0(eslint@7.32.0)
@@ -9948,8 +9948,8 @@ packages:
       regexpp: 3.2.0
     dev: true
 
-  /eslint-plugin-n@16.0.2(eslint@7.32.0):
-    resolution: {integrity: sha512-Y66uDfUNbBzypsr0kELWrIz+5skicECrLUqlWuXawNSLUq3ltGlCwu6phboYYOTSnoTdHgTLrc+5Ydo6KjzZog==}
+  /eslint-plugin-n@16.1.0(eslint@7.32.0):
+    resolution: {integrity: sha512-3wv/TooBst0N4ND+pnvffHuz9gNPmk/NkLwAxOt2JykTl/hcuECe6yhTtLJcZjIxtZwN+GX92ACp/QTLpHA3Hg==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       eslint: '>=7.0.0'
@@ -9958,6 +9958,7 @@ packages:
       builtins: 5.0.1
       eslint: 7.32.0
       eslint-plugin-es-x: 7.1.0(eslint@7.32.0)
+      get-tsconfig: 4.7.0
       ignore: 5.2.4
       is-core-module: 2.12.1
       minimatch: 3.1.2
@@ -11218,6 +11219,12 @@ packages:
     dependencies:
       call-bind: 1.0.2
       get-intrinsic: 1.2.1
+    dev: true
+
+  /get-tsconfig@4.7.0:
+    resolution: {integrity: sha512-pmjiZ7xtB8URYm74PlGJozDNyhvsVLUcpBa8DZBG3bWHwaHa9bPiRpiSfovw+fjhwONSCWKRyk+JQHEGZmMrzw==}
+    dependencies:
+      resolve-pkg-maps: 1.0.0
     dev: true
 
   /get-uri@6.0.1:
@@ -16573,6 +16580,10 @@ packages:
     dependencies:
       http-errors: 1.6.3
       path-is-absolute: 1.0.1
+    dev: true
+
+  /resolve-pkg-maps@1.0.0:
+    resolution: {integrity: sha512-seS2Tj26TBVOC2NIc2rOe2y2ZO7efxITtLZcGSOnHHNOQ7CkiUBfw0Iw2ck6xkIhPwLhKNLS8BO+hEpngQlqzw==}
     dev: true
 
   /resolve-url@0.2.1:
