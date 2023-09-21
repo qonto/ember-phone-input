@@ -19,9 +19,9 @@ module('Integration | Component | phone-input', function (hooks) {
   });
 
   test('renders the value', async function (assert) {
-    assert.expect(3);
+    assert.expect(4);
 
-    const newValue = '2';
+    let newValue = '2';
     this.set('number', null);
     this.set('update', () => {});
 
@@ -39,6 +39,11 @@ module('Integration | Component | phone-input', function (hooks) {
     await fillIn('input', newValue);
 
     assert.dom('input').hasValue(newValue);
+
+    this.set('number', null);
+    newValue = null;
+
+    assert.dom('input').hasValue('');
   });
 
   test('renders the custom placeholder', async function (assert) {
