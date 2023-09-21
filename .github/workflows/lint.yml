@@ -24,7 +24,6 @@ jobs:
         with:
           pnpm-version: 8.5.1
           node-version: 16.x
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+          args: "--frozen-lockfile"
       - name: Run Lint
         run: pnpm lint

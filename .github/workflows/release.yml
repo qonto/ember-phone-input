@@ -19,8 +19,6 @@ jobs:
           pnpm-version: 8.5.1
           node-version: 16
           node-registry-url: "https://registry.npmjs.org"
-      - name: Install dependencies
-        run: pnpm install
       - name: Build addon
         run: pnpm build
       - name: auto-dist-tag
