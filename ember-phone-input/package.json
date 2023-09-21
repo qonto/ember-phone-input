@@ -60,7 +60,7 @@
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-prettier": "4.2.1",
     "prettier": "2.8.8",
-    "rollup": "3.28.1",
+    "rollup": "3.29.2",
     "rollup-plugin-copy": "3.4.0"
   },
   "publishConfig": {
