@@ -66,7 +66,7 @@
     "prettier": "2.8.8",
     "qunit": "2.19.4",
     "qunit-dom": "2.0.0",
-    "tracked-built-ins": "3.2.0",
+    "tracked-built-ins": "3.3.0",
     "webpack": "5.88.2",
     "ember-cli-deploy": "2.0.0",
     "ember-cli-deploy-build": "3.0.0",
