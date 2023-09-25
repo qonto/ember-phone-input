@@ -6,7 +6,6 @@ module('Unit | Service | phone-input', function (hooks) {
 
   test('load is thenable on first and subsequent renders', function (assert) {
     assert.expect(2);
-
     let service = this.owner.lookup('service:phone-input');
 
     service.load().then(() => {

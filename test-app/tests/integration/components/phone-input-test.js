@@ -11,8 +11,6 @@ module('Integration | Component | phone-input', function (hooks) {
   });
 
   test('renders an input of type tel', async function (assert) {
-    assert.expect(1);
-
     await render(hbs`{{phone-input number='1111'}}`);
 
     assert.dom('input').hasAttribute('type', 'tel');
@@ -20,7 +18,6 @@ module('Integration | Component | phone-input', function (hooks) {
 
   test('renders the value', async function (assert) {
     assert.expect(3);
-
     const newValue = '2';
     this.set('number', null);
     this.set('update', () => {});
@@ -42,8 +39,6 @@ module('Integration | Component | phone-input', function (hooks) {
   });
 
   test('renders the custom placeholder', async function (assert) {
-    assert.expect(1);
-
     this.set('number', null);
     this.set('update', () => {});
     this.set('customPlaceholder', 'A custom placeholder');
@@ -67,8 +62,6 @@ module('Integration | Component | phone-input', function (hooks) {
   });
 
   test('renders the value with separate dial code option', async function (assert) {
-    assert.expect(3);
-
     const newValue = '2';
     this.set('separateDialNumber', null);
     this.set('update', (value) => {
@@ -94,8 +87,6 @@ module('Integration | Component | phone-input', function (hooks) {
   });
 
   test('can update the country', async function (assert) {
-    assert.expect(2);
-
     const country = 'us';
     this.set('number', null);
     this.set('update', () => {});
@@ -114,7 +105,6 @@ module('Integration | Component | phone-input', function (hooks) {
 
   test('phoneNumber is correctly invalid when country is changed', async function (assert) {
     assert.expect(7);
-
     const country = 'fr';
     const validFrenchNumber = '0622334455';
     this.set('number', null);
@@ -174,8 +164,6 @@ module('Integration | Component | phone-input', function (hooks) {
   });
 
   test('can prevent the dropdown', async function (assert) {
-    assert.expect(1);
-
     this.set('updateAllowDropdownNumber', () => {});
 
     await render(
@@ -192,8 +180,6 @@ module('Integration | Component | phone-input', function (hooks) {
   });
 
   test('can update the country when the user types in the digits from Brazil code', async function (assert) {
-    assert.expect(1);
-
     await render(hbs`<PhoneInput />`);
 
     await typeIn('input', '+55');
@@ -202,8 +188,6 @@ module('Integration | Component | phone-input', function (hooks) {
   });
 
   test('can update the country when the user types in the digits from Malaysia code', async function (assert) {
-    assert.expect(1);
-
     await render(hbs`<PhoneInput />`);
 
     await typeIn('input', '+60');
