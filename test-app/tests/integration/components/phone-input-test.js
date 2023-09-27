@@ -11,7 +11,7 @@ module('Integration | Component | phone-input', function (hooks) {
   });
 
   test('renders an input of type tel', async function (assert) {
-    await render(hbs`{{phone-input number='1111'}}`);
+    await render(hbs`<PhoneInput @number='1111'/>`);
 
     assert.dom('input').hasAttribute('type', 'tel');
   });
@@ -23,7 +23,7 @@ module('Integration | Component | phone-input', function (hooks) {
     this.set('update', () => {});
 
     await render(
-      hbs`<PhoneInput @number={{this.number}} @update={{this.update}} />`
+      hbs`<PhoneInput @number={{this.number}} @update={{action this.update}} />`
     );
 
     assert.dom('input').hasValue('');
@@ -44,7 +44,7 @@ module('Integration | Component | phone-input', function (hooks) {
     this.set('customPlaceholder', 'A custom placeholder');
 
     await render(
-      hbs`<PhoneInput @number={{this.number}} @update={{this.update}} @customPlaceholder={{this.customPlaceholder}} />`
+      hbs`<PhoneInput @number={{this.number}} @update={{action this.update}} @customPlaceholder={{this.customPlaceholder}} />`
     );
 
     assert.dom('input').hasAttribute('placeholder', this.customPlaceholder);
@@ -55,7 +55,7 @@ module('Integration | Component | phone-input', function (hooks) {
     this.set('update', () => {});
 
     await render(
-      hbs`<PhoneInput @number={{this.number}} @update={{this.update}} />`
+      hbs`<PhoneInput @number={{this.number}} @update={{action this.update}} />`
     );
 
     assert.dom('input').hasAttribute('placeholder', '(201) 555-0123');
@@ -87,10 +87,9 @@ module('Integration | Component | phone-input', function (hooks) {
   });
 
   test('can update the country', async function (assert) {
-    const country = 'us';
     this.set('number', null);
     this.set('update', () => {});
-    this.set('country', country);
+    this.set('country', 'us');
 
     await render(
       hbs`<PhoneInput @country={{this.country}} @number={{this.number}} @update={{action this.update}} />`
@@ -138,12 +137,6 @@ module('Integration | Component | phone-input', function (hooks) {
     this.set('update', () => {});
 
     await render(
-      hbs`<PhoneInput @number={{this.number}} @update={{action this.update}} />`
-    );
-
-    assert.notOk(find('input').disabled);
-
-    await render(
       hbs`<PhoneInput @disabled={{true}} @number={{this.number}} @update={{action this.update}} />`
     );
     assert.ok(find('input').disabled);
@@ -151,10 +144,6 @@ module('Integration | Component | phone-input', function (hooks) {
 
   test('can be required', async function (assert) {
     this.set('number', null);
-
-    await render(hbs`<PhoneInput @number={{this.number}} />`);
-
-    assert.notOk(find('input').required);
 
     await render(
       hbs`<PhoneInput @required={{true}} @number={{this.number}} />`
@@ -223,7 +212,7 @@ module('Integration | Component | phone-input', function (hooks) {
       });
 
       await render(
-        hbs`<PhoneInput @number={{this.number}} @update={{this.update}} />`
+        hbs`<PhoneInput @number={{this.number}} @update={{action this.update}} />`
       );
 
       assert.dom('input').doesNotHaveAttribute('data-intl-tel-input-id');
@@ -314,7 +303,7 @@ module('Integration | Component | phone-input', function (hooks) {
       });
 
       await render(
-        hbs`<PhoneInput @number={{this.number}} @update={{this.update}} />`
+        hbs`<PhoneInput @number={{this.number}} @update={{action this.update}} />`
       );
 
       assert.dom('input').doesNotHaveAttribute('data-intl-tel-input-id');

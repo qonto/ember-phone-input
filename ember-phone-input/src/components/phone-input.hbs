@@ -1,0 +1,12 @@
+<input
+  disabled={{this.disabled}}
+  required={{this.required}}
+  autocomplete={{this.autocomplete}}
+  ...attributes
+  {{on 'input' this.onInput}}
+  {{did-insert this.onDidInsert}}
+  {{did-update this.onDidUpdate @country @number}}
+  {{will-destroy this.onDestroy}}
+  data-test-loading-iti={{this.loadingIti}}
+  type={{this.type}}
+/>
