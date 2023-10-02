@@ -2,7 +2,7 @@
 
 # ember-phone-input
 
-[![Build Status](https://img.shields.io/travis/qonto/ember-phone-input.svg?style=flat)](https://travis-ci.com/qonto/ember-phone-input)
+![CI](https://github.com/qonto/ember-phone-input/workflows/CI/badge.svg)
 [![Ember Observer Score](https://emberobserver.com/badges/ember-phone-input.svg)](https://emberobserver.com/addons/ember-phone-input)
 
 Easily create phone input. With internationalization and validation in mind.
