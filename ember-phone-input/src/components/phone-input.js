@@ -239,9 +239,7 @@ export default class PhoneInputComponent extends Component {
         this._onCountryChange.bind(this)
       );
     } catch (error) {
-      if (this.onError) {
-        this.onError(error);
-      }
+      this.args.onError?.(error);
     } finally {
       if (!this.isDestroying && !this.isDestroyed) {
         this.isLoadingIti = false;
