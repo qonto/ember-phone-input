@@ -78,6 +78,12 @@ importers:
       '@tsconfig/ember':
         specifier: 3.0.2
         version: 3.0.2
+      '@types/intl-tel-input':
+        specifier: ^18.1.2
+        version: 18.1.2
+      '@types/rsvp':
+        specifier: ^4.0.5
+        version: 4.0.6
       '@typescript-eslint/eslint-plugin':
         specifier: 6.9.1
         version: 6.9.1(@typescript-eslint/parser@6.9.1)(eslint@8.52.0)(typescript@5.2.2)
@@ -3437,6 +3443,12 @@ packages:
 
   /@types/http-errors@2.0.3:
     resolution: {integrity: sha512-pP0P/9BnCj1OVvQR2lF41EkDG/lWWnDyA203b/4Fmi2eTyORnBtcDoKDwjWQthELrBvWkMOrvSOnZ8OVlW6tXA==}
+    dev: true
+
+  /@types/intl-tel-input@18.1.2:
+    resolution: {integrity: sha512-URzid7q/ogQmGHu3h45HWJkyFNBPA/Fz1KHysOfZ2fwPNk0WXFmVZKMr4JA9WsKgmssBkhN4SuzPKJhNH2kAXA==}
+    dependencies:
+      '@types/jquery': 3.5.25
     dev: true
 
   /@types/jquery@3.5.25:
