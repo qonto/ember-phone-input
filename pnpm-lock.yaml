@@ -55,7 +55,7 @@ importers:
         specifier: 7.22.10
         version: 7.22.10(@babel/core@7.23.0)
       '@babel/preset-typescript':
-        specifier: ^7.23.0
+        specifier: 7.23.0
         version: 7.23.0(@babel/core@7.23.0)
       '@embroider/addon-dev':
         specifier: 4.1.0
@@ -64,25 +64,25 @@ importers:
         specifier: 1.1.2
         version: 1.1.2(@babel/core@7.23.0)
       '@glint/core':
-        specifier: ^1.2.0
+        specifier: 1.2.0
         version: 1.2.0(typescript@5.2.2)
       '@glint/environment-ember-loose':
-        specifier: ^1.2.0
+        specifier: 1.2.0
         version: 1.2.0(@glimmer/component@1.1.2)(@glint/template@1.2.0)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.1.0)
       '@glint/template':
-        specifier: ^1.2.0
+        specifier: 1.2.0
         version: 1.2.0
       '@rollup/plugin-babel':
         specifier: 6.0.3
         version: 6.0.3(@babel/core@7.23.0)(rollup@3.29.4)
       '@tsconfig/ember':
-        specifier: ^3.0.1
+        specifier: 3.0.1
         version: 3.0.1
       '@typescript-eslint/eslint-plugin':
-        specifier: ^6.5.0
+        specifier: 6.7.3
         version: 6.7.3(@typescript-eslint/parser@6.7.3)(eslint@7.32.0)(typescript@5.2.2)
       '@typescript-eslint/parser':
-        specifier: ^6.5.0
+        specifier: 6.7.3
         version: 6.7.3(eslint@7.32.0)(typescript@5.2.2)
       concurrently:
         specifier: 8.2.1
@@ -118,7 +118,7 @@ importers:
         specifier: 3.5.0
         version: 3.5.0
       typescript:
-        specifier: ^5.2.2
+        specifier: 5.2.2
         version: 5.2.2
 
   test-app:
@@ -149,25 +149,25 @@ importers:
         specifier: 1.1.2
         version: 1.1.2
       '@glint/core':
-        specifier: ^1.2.0
+        specifier: 1.2.0
         version: 1.2.0(typescript@5.2.2)
       '@glint/environment-ember-loose':
-        specifier: ^1.2.0
+        specifier: 1.2.0
         version: 1.2.0(@glimmer/component@1.1.2)(@glint/template@1.2.0)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.1.0)
       '@glint/template':
-        specifier: ^1.2.0
+        specifier: 1.2.0
         version: 1.2.0
       '@tsconfig/ember':
-        specifier: ^3.0.1
+        specifier: 3.0.1
         version: 3.0.1
       '@types/qunit':
-        specifier: ^2.19.6
+        specifier: 2.19.6
         version: 2.19.6
       '@typescript-eslint/eslint-plugin':
-        specifier: ^6.5.0
+        specifier: 6.7.3
         version: 6.7.3(@typescript-eslint/parser@6.7.3)(eslint@7.32.0)(typescript@5.2.2)
       '@typescript-eslint/parser':
-        specifier: ^6.5.0
+        specifier: 6.7.3
         version: 6.7.3(eslint@7.32.0)(typescript@5.2.2)
       broccoli-asset-rev:
         specifier: 3.0.0
@@ -224,7 +224,7 @@ importers:
         specifier: 4.0.2
         version: 4.0.2
       ember-cli-typescript:
-        specifier: ^5.2.1
+        specifier: 5.2.1
         version: 5.2.1
       ember-data:
         specifier: 5.3.0
@@ -320,7 +320,7 @@ importers:
         specifier: 3.3.0
         version: 3.3.0
       typescript:
-        specifier: ^5.2.2
+        specifier: 5.2.2
         version: 5.2.2
       webpack:
         specifier: 5.88.2
@@ -524,7 +524,7 @@ packages:
     resolution: {integrity: sha512-0pYVBnDKZO2fnSPCrgM/6WMc7eS20Fbok+0r88fp+YtWVLZrp4CkafFGIp+W0VKw4a22sgebPT99y+FDNMdP4w==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/types': 7.22.19
+      '@babel/types': 7.23.0
 
   /@babel/helper-module-transforms@7.23.0(@babel/core@7.23.0):
     resolution: {integrity: sha512-WhDWw1tdrlT0gMgUJSlX0IQvoO1eN279zrAUbVB+KpV2c3Tylz8+GnKOLllCS6Z/iZQEyVYxhZVUdPTqs2YYPw==}
@@ -1121,17 +1121,6 @@ packages:
       '@babel/helper-module-transforms': 7.23.0(@babel/core@7.23.0)
       '@babel/helper-plugin-utils': 7.22.5
 
-  /@babel/plugin-transform-modules-commonjs@7.22.15(@babel/core@7.23.0):
-    resolution: {integrity: sha512-jWL4eh90w0HQOTKP2MoXXUpVxilxsB2Vl4ji69rSjS3EcZ/v4sBmn+A3NpepuJzBhOaEBbR7udonlHHn5DWidg==}
-    engines: {node: '>=6.9.0'}
-    peerDependencies:
-      '@babel/core': ^7.0.0-0
-    dependencies:
-      '@babel/core': 7.23.0
-      '@babel/helper-module-transforms': 7.23.0(@babel/core@7.23.0)
-      '@babel/helper-plugin-utils': 7.22.5
-      '@babel/helper-simple-access': 7.22.5
-
   /@babel/plugin-transform-modules-commonjs@7.23.0(@babel/core@7.23.0):
     resolution: {integrity: sha512-32Xzss14/UVc7k9g775yMIvkVK8xwKE0DPdP5JTapr3+Z9w4tzeOuLNY6BXDQR6BdnzIlXnCGAzsk/ICHBLVWQ==}
     engines: {node: '>=6.9.0'}
@@ -1142,7 +1131,6 @@ packages:
       '@babel/helper-module-transforms': 7.23.0(@babel/core@7.23.0)
       '@babel/helper-plugin-utils': 7.22.5
       '@babel/helper-simple-access': 7.22.5
-    dev: true
 
   /@babel/plugin-transform-modules-systemjs@7.22.11(@babel/core@7.23.0):
     resolution: {integrity: sha512-rIqHmHoMEOhI3VkVf5jQ15l539KrwhzqcBO6wdCNWPWc/JWt9ILNYNUssbRpeq0qWns8svuw8LnMNCvWBIJ8wA==}
@@ -1502,7 +1490,7 @@ packages:
       '@babel/plugin-transform-logical-assignment-operators': 7.22.11(@babel/core@7.23.0)
       '@babel/plugin-transform-member-expression-literals': 7.22.5(@babel/core@7.23.0)
       '@babel/plugin-transform-modules-amd': 7.22.5(@babel/core@7.23.0)
-      '@babel/plugin-transform-modules-commonjs': 7.22.15(@babel/core@7.23.0)
+      '@babel/plugin-transform-modules-commonjs': 7.23.0(@babel/core@7.23.0)
       '@babel/plugin-transform-modules-systemjs': 7.22.11(@babel/core@7.23.0)
       '@babel/plugin-transform-modules-umd': 7.22.5(@babel/core@7.23.0)
       '@babel/plugin-transform-named-capturing-groups-regex': 7.22.5(@babel/core@7.23.0)
