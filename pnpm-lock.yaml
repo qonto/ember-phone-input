@@ -128,8 +128,8 @@ importers:
         version: link:../ember-phone-input
     devDependencies:
       '@babel/eslint-parser':
-        specifier: 7.11.0
-        version: 7.11.0(@babel/core@7.23.0)(eslint@7.32.0)
+        specifier: 7.11.5
+        version: 7.11.5(@babel/core@7.23.0)(eslint@7.32.0)
       '@ember/optional-features':
         specifier: 2.0.0
         version: 2.0.0
@@ -379,8 +379,8 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /@babel/eslint-parser@7.11.0(@babel/core@7.23.0)(eslint@7.32.0):
-    resolution: {integrity: sha512-dJDM2Pc01D9TwKL3Mmz2xgVF9X953RBHq9H4gywbN1q8MrfvXmNHfsCt06vvByBVQqm+9WxMs+doEH/R09TwWQ==}
+  /@babel/eslint-parser@7.11.5(@babel/core@7.23.0)(eslint@7.32.0):
+    resolution: {integrity: sha512-DZ3maD3ciwRg1pOzEpJ1outlV1DA/A8XHDQoyL69fC3RIJMlMq1UPudgfRkW0YFqmQPR6OPvu8chaT7Yq2Mm8A==}
     engines: {node: ^10.13.0 || ^12.13.0 || >=14.0.0}
     peerDependencies:
       '@babel/core': '>=7.11.0'
