@@ -4,19 +4,21 @@ import { inject as service } from '@ember/service';
 import { isPresent } from '@ember/utils';
 import Component from '@glimmer/component';
 import type Owner from '@ember/owner';
+import type PhoneInputService from '../services/phone-input';
 
 import 'intl-tel-input/build/css/intlTelInput.css';
 import '../styles/styles.css';
 
-declare global {
-  const intlTelInputUtils: {
-    numberFormat: {
-      E164: number;
-      INTERNATIONAL: number;
-      NATIONAL: number;
-      RFC3966: number;
-    };
-  };
+interface MetaData {
+  extension: string;
+  selectedCountryData: intlTelInput.CountryData;
+  isValidNumber: boolean;
+  numberFormat: {
+    E164: string;
+    INTERNATIONAL: string;
+    NATIONAL: string;
+    RFC3966: string;
+  } | null;
 }
 
 export interface PhoneInputArgs {
@@ -26,13 +28,13 @@ export interface PhoneInputArgs {
   required: boolean;
   autocomplete: string | null;
   allowDropdown: boolean;
-  autoPlaceholder: string;
+  autoPlaceholder: 'aggressive' | 'off' | 'polite' | undefined;
   customPlaceholder: string | null;
   initialCountry: string;
   onlyCountries: string[];
   preferredCountries: string[];
   separateDialCode: boolean;
-  update: (number: string | null, meta: any) => void;
+  update: (number: string | null, meta: MetaData) => void;
   onError: (error: unknown) => void;
 }
 
@@ -63,13 +65,12 @@ export interface PhoneInputSignature {
   @public
 */
 export default class PhoneInputComponent extends Component<PhoneInputSignature> {
-  @service phoneInput: any;
+  @service declare phoneInput: PhoneInputService;
 
   isLoadingIti = false;
   type = 'tel';
-  _iti: any = null;
-  inputElement: HTMLInputElement | null = null;
-  update: (number: string | null, meta: any) => void;
+  _iti: intlTelInput.Plugin | null = null;
+  update: (number: string | null, meta: MetaData) => void;
 
   constructor(owner: Owner, args: PhoneInputArgs) {
     super(owner, args);
@@ -93,9 +94,12 @@ export default class PhoneInputComponent extends Component<PhoneInputSignature> 
       );
     }
 
-    const validAutoPlaceholder = ['polite', 'aggressive', 'off'].includes(
-      this.autoPlaceholder
-    );
+    const validAutoPlaceholder = [
+      'polite',
+      'aggressive',
+      'off',
+      undefined
+    ].includes(this.autoPlaceholder);
 
     assert(
       "`autoPlaceholder` possible values are 'polite', 'aggressive' and 'off'",
@@ -169,10 +173,10 @@ export default class PhoneInputComponent extends Component<PhoneInputSignature> 
    * country. Possible values are 'polite', 'aggressive' and 'off'. Defaults to
    * 'polite'.
    * @argument autoPlaceholder
-   * @type {string}
+   * @type {'aggressive' | 'off' | 'polite' | undefined}
    */
 
-  get autoPlaceholder(): string {
+  get autoPlaceholder(): 'aggressive' | 'off' | 'polite' | undefined {
     return this.args.autoPlaceholder || 'polite';
   }
 
@@ -296,6 +300,10 @@ export default class PhoneInputComponent extends Component<PhoneInputSignature> 
   }
 
   _setupLibrary(element: HTMLInputElement): void {
+    if (!this.phoneInput.intlTelInput) {
+      return;
+    }
+
     const {
       allowDropdown,
       autoPlaceholder,
@@ -306,7 +314,7 @@ export default class PhoneInputComponent extends Component<PhoneInputSignature> 
       separateDialCode
     } = this;
 
-    let options: any = {
+    const options: intlTelInput.Options = {
       autoInsertDialCode: false,
       nationalMode: true,
       allowDropdown,
@@ -321,11 +329,12 @@ export default class PhoneInputComponent extends Component<PhoneInputSignature> 
       options.customPlaceholder = (): string => customPlaceholder;
     }
 
-    let _iti = this.phoneInput.intlTelInput(element, options);
+    const _iti = this.phoneInput.intlTelInput(element, options);
 
     if (this.number) {
       _iti.setNumber(this.number);
     }
+
     this._iti = _iti;
 
     if (this.initialCountry) {
@@ -335,10 +344,10 @@ export default class PhoneInputComponent extends Component<PhoneInputSignature> 
     this.update(this.number, this._metaData(_iti));
   }
 
-  _metaData(iti: any) {
+  _metaData(iti: intlTelInput.Plugin | null): MetaData {
     if (!iti) {
       // Libraries may rely on always receiving an object
-      return {};
+      return {} as MetaData;
     }
 
     const extension = iti.getExtension();
@@ -367,10 +376,10 @@ export default class PhoneInputComponent extends Component<PhoneInputSignature> 
   }
 
   _onCountryChange(): void {
-    const selectedCountry = this._iti.getSelectedCountryData();
+    const selectedCountry = this._iti?.getSelectedCountryData();
 
-    if (selectedCountry.iso2) {
-      this._iti.setCountry(selectedCountry.iso2);
+    if (selectedCountry?.iso2) {
+      this._iti?.setCountry(selectedCountry.iso2);
     }
 
     this.onInput();
