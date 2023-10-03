@@ -1,7 +1,10 @@
 import Route from '@ember/routing/route';
+import { inject as service } from '@ember/service';
 
 export default class DocsIndexRoute extends Route {
+  @service router;
+
   beforeModel() {
-    this.replaceWith('docs.installation');
+    this.router.replaceWith('docs.installation');
   }
 }
