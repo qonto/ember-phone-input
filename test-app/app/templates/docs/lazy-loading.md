@@ -22,11 +22,11 @@ module.exports = function(environment) {
 - Load the scripts when needed:
 
 ```js
-export default Route.extend({
-  phoneInput: service(),
+export default class Route extends Route {
+  @service phoneInput;
 
-  beforeModel() {
-    return this.get('phoneInput').load()
+  async beforeModel() {
+    await this.phoneInput.load();
   }
-})
+}
 ```
