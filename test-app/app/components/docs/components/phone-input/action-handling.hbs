@@ -1,7 +1,6 @@
-{{! template-lint-disable no-action no-curly-component-invocation no-implicit-this }}
 <DocsDemo as |demo|>
   <demo.example @name='phone-input-action-handling.hbs'>
-    {{phone-input number=number update=(action 'handleUpdate')}}
+    <PhoneInput @number={{this.number}} @update={{this.handleUpdate}} />
   </demo.example>
 
   <demo.snippet @name='phone-input-action-handling.hbs' />
