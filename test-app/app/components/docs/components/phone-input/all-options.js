@@ -1,28 +1,48 @@
-/* eslint-disable ember/no-classic-components, ember/no-classic-classes, ember/require-tagless-components, ember/no-actions-hash */
-import Component from '@ember/component';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
 
-export default Component.extend({
-  allowDropdownNumber: null,
-  number: null,
-  separateDialNumber: null,
+export default class AllOptionsComponent extends Component {
+  @tracked allowDropdownNumber;
+  @tracked number;
+  @tracked separateDialNumber;
+  metaData = {};
 
-  actions: {
-    handleUpdate(number, metaData) {
-      this.set('number', number);
-      this.setProperties(metaData);
-    },
-
-    updateAllowDropdownNumber(allowDropdownNumber) {
-      this.set('allowDropdownNumber', allowDropdownNumber);
-    },
-
-    updateSeparateDialOption(separateDialNumber, metaData) {
-      this.set('separateDialNumber', separateDialNumber);
-      this.setProperties(metaData);
-    },
-
-    submitForm() {
-      alert('The form has been submitted');
-    }
+  get selectedCountryData() {
+    return this.metaData.selectedCountryData;
   }
-});
+
+  get isValidNumber() {
+    return this.metaData.isValidNumber;
+  }
+
+  get extension() {
+    return this.metaData.extension;
+  }
+
+  get numberFormat() {
+    return this.metaData.numberFormat;
+  }
+
+  @action
+  handleUpdate(number, metaData) {
+    this.number = number;
+    this.metaData = metaData;
+  }
+
+  @action
+  updateAllowDropdownNumber(allowDropdownNumber) {
+    this.allowDropdownNumber = allowDropdownNumber;
+  }
+
+  @action
+  updateSeparateDialOption(separateDialNumber, metaData) {
+    this.separateDialNumber = separateDialNumber;
+    this.metaData = metaData;
+  }
+
+  @action
+  submitForm() {
+    alert('The form has been submitted');
+  }
+}

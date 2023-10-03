@@ -1,0 +1,129 @@
+<h2>Basic Options</h2>
+<DocsDemo as |demo|>
+  <demo.example @name='phone-input-all-options.hbs'>
+
+    <p><PhoneInput
+        @initialCountry='us'
+        @number={{this.number}}
+        @update={{this.handleUpdate}}
+      /></p>
+
+    <p>The internal phone number you'll want to persist on your backend is
+      <em>\{{this.number}}: </em><strong>{{this.number}}</strong>.</p>
+
+    <p>In some cases, you may want to persist some additional metadata. Are
+      available:</p>
+    <ul>
+      <li>the selected country name
+        <em>\{{this.selectedCountryData.name}}: </em><strong>
+          {{this.selectedCountryData.name}}</strong></li>
+      <li>the selected country ios2 code
+        <em>\{{this.selectedCountryData.iso2}}: </em><strong
+        >{{this.selectedCountryData.iso2}}</strong></li>
+      <li>the selected country ios2 code
+        <em>\{{this.selectedCountryData.dialCode}}: </em><strong
+        >{{this.selectedCountryData.dialCode}}</strong></li>
+      <li>the phone number validity
+        <em>\{{this.isValidNumber}}: </em><strong
+        >{{this.isValidNumber}}</strong></li>
+      <li>the phone number extension
+        <em>\{{this.extension}}</em>:
+        <strong>{{this.extension}}</strong></li>
+    </ul>
+    <p><b>If the number is valid</b>, you also get different formats:</p>
+    <ul>
+      <li>E164 format
+        <em>\{{this.numberFormat.E164}}</em>:
+        <strong>{{this.numberFormat.E164}}</strong></li>
+      <li>INTERNATIONAL format
+        <em>\{{this.numberFormat.INTERNATIONAL}}</em>:
+        <strong>{{this.numberFormat.INTERNATIONAL}}</strong></li>
+      <li>NATIONAL format
+        <em>\{{this.numberFormat.NATIONAL}}</em>:
+        <strong>{{this.numberFormat.NATIONAL}}</strong></li>
+      <li>RFC3966 format
+        <em>\{{this.numberFormat.RFC3966}}</em>:
+        <strong>{{this.numberFormat.RFC3966}}</strong></li>
+    </ul>
+  </demo.example>
+
+  <demo.snippet @name='phone-input-all-options.hbs' />
+</DocsDemo>
+
+<h2>`separateDialCode` option</h2>
+<DocsDemo as |demo|>
+  <demo.example @name='phone-input-separate-dial-option.hbs'>
+
+    <p><PhoneInput
+        @separateDialCode={{true}}
+        @initialCountry='us'
+        @number={{this.separateDialNumber}}
+        @update={{this.updateSeparateDialOption}}
+      /></p>
+
+    <p>The internal phone number you'll want to persist on your backend is
+      <em>\{{this.separateDialNumber}}: </em><strong
+      >{{this.separateDialNumber}}</strong>.</p>
+
+  </demo.example>
+
+  <demo.snippet @name='phone-input-separate-dial-option.hbs' />
+</DocsDemo>
+
+<h2>`allowDropdown` option</h2>
+<DocsDemo as |demo|>
+  <demo.example @name='phone-input-allow-dropdown-option.hbs'>
+
+    <p><PhoneInput
+        @allowDropdown={{false}}
+        @number={{this.allowDropdownNumber}}
+        @initialCountry='fr'
+        @update={{this.updateAllowDropdownNumber}}
+      /></p>
+
+    <p>The dropdown can be disabled.</p>
+
+    <p>The internal phone number you'll want to persist on your backend is
+      <em>\{{this.allowDropdownNumber}}: </em><strong
+      >{{this.allowDropdownNumber}}</strong></p>
+
+  </demo.example>
+
+  <demo.snippet @name='phone-input-allow-dropdown-option.hbs' />
+</DocsDemo>
+
+<h2>`required` option</h2>
+<DocsDemo as |demo|>
+  <demo.example @name='phone-input-required-option.hbs'>
+    <form {{on 'submit' this.submitForm}}>
+      <p><PhoneInput
+          @required='true'
+          @initialCountry='us'
+          @number='number'
+        /></p>
+
+      <p>The input is required.</p>
+
+      <p>The input is required and you will not be able to submit the form when
+        the field is empty as the clients-side HTML5 form validation will
+        prevent it.</p>
+
+      <button
+        name='button'
+        type='submit'
+        class='docs-bg-grey-darkest docs-text-white docs-no-underline docs-rounded docs-py-2 docs-px-4'
+      >submit</button>
+    </form>
+  </demo.example>
+
+  <demo.snippet @name='phone-input-required-option.hbs' />
+</DocsDemo>
+
+<h2>`autocomplete` option</h2>
+<DocsDemo as |demo|>
+  <demo.example @name='phone-input-autocomplete-option.hbs'>
+    <p><PhoneInput @autocomplete='tel' @number='number' /></p>
+  </demo.example>
+
+  <demo.snippet @name='phone-input-autocomplete-option.hbs' />
+</DocsDemo>
