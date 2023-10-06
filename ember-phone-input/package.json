@@ -60,7 +60,7 @@
     "@babel/preset-typescript": "7.23.0",
     "@embroider/addon-dev": "4.1.0",
     "@glint/core": "1.2.1",
-    "@glint/environment-ember-loose": "1.2.0",
+    "@glint/environment-ember-loose": "1.2.1",
     "@glint/template": "1.2.0",
     "@glimmer/component": "1.1.2",
     "@rollup/plugin-babel": "6.0.4",
