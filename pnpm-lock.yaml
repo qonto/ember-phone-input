@@ -58,8 +58,8 @@ importers:
         specifier: 7.23.2
         version: 7.23.2(@babel/core@7.23.2)
       '@embroider/addon-dev':
-        specifier: 4.1.0
-        version: 4.1.0(@glint/template@1.2.1)(rollup@3.29.4)
+        specifier: 4.1.1
+        version: 4.1.1(@glint/template@1.2.1)(rollup@3.29.4)
       '@glimmer/component':
         specifier: 1.1.2
         version: 1.1.2(@babel/core@7.23.2)
@@ -140,8 +140,8 @@ importers:
         specifier: 3.2.0
         version: 3.2.0(@glint/template@1.2.1)(ember-source@5.3.0)(webpack@5.89.0)
       '@embroider/test-setup':
-        specifier: 3.0.1
-        version: 3.0.1
+        specifier: 3.0.2
+        version: 3.0.2
       '@glimmer/component':
         specifier: 1.1.2
         version: 1.1.2(@babel/core@7.23.2)
@@ -1959,8 +1959,8 @@ packages:
       - supports-color
     dev: true
 
-  /@embroider/addon-dev@4.1.0(@glint/template@1.2.1)(rollup@3.29.4):
-    resolution: {integrity: sha512-DR9mGlFxcXFIP9jmVbYhy0CwxIzVqMppiIg8at9C+qayr3Wj3SdS7jM95p0kxv3mMgOYs+Z6FsAaj2em6aRs4w==}
+  /@embroider/addon-dev@4.1.1(@glint/template@1.2.1)(rollup@3.29.4):
+    resolution: {integrity: sha512-6AIU+GobgsozQJZtG6ys/8TumtnJkrW8LKggjajCwX8QP++eAN9vUL00AZdgh5wZAyLAiv+jNi5knGrPdMFPMA==}
     engines: {node: 12.* || 14.* || >= 16}
     hasBin: true
     dependencies:
@@ -2079,13 +2079,13 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /@embroider/test-setup@3.0.1:
-    resolution: {integrity: sha512-t7R2f10iZDSNw3ovWAPM63GRQTu63uihpVh6CvHev5XkLt8B7tdxcxGyO6RbdF5Hu+pbsUu8sD0kAlR1gopmxg==}
+  /@embroider/test-setup@3.0.2:
+    resolution: {integrity: sha512-cq/xp06CAB8rAGnObeJux7qALnAX2MatMVLjWyGDr3ogS5lHTNXZVCv4ltTM3pJ8EsZWpPM32dtUZqSJFkGibQ==}
     engines: {node: 12.* || 14.* || >= 16}
     peerDependencies:
-      '@embroider/compat': ^3.0.0
-      '@embroider/core': ^3.0.0
-      '@embroider/webpack': ^3.0.0
+      '@embroider/compat': ^3.2.2
+      '@embroider/core': ^3.3.0
+      '@embroider/webpack': ^3.2.0
     peerDependenciesMeta:
       '@embroider/compat':
         optional: true
