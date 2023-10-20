@@ -15,8 +15,8 @@ importers:
         specifier: 4.0.0
         version: 4.0.0(release-it@16.2.1)
       concurrently:
-        specifier: 8.2.1
-        version: 8.2.1
+        specifier: 8.2.2
+        version: 8.2.2
       prettier:
         specifier: 3.0.3
         version: 3.0.3
@@ -85,8 +85,8 @@ importers:
         specifier: 6.8.0
         version: 6.8.0(eslint@8.51.0)(typescript@5.2.2)
       concurrently:
-        specifier: 8.2.1
-        version: 8.2.1
+        specifier: 8.2.2
+        version: 8.2.2
       ember-source:
         specifier: 5.3.0
         version: 5.3.0(@babel/core@7.23.2)(@glimmer/component@1.1.2)(@glint/template@1.2.1)(rsvp@4.8.5)(webpack@5.89.0)
@@ -173,8 +173,8 @@ importers:
         specifier: 3.0.0
         version: 3.0.0
       concurrently:
-        specifier: 8.2.1
-        version: 8.2.1
+        specifier: 8.2.2
+        version: 8.2.2
       ember-auto-import:
         specifier: 2.6.3
         version: 2.6.3(@glint/template@1.2.1)(webpack@5.89.0)
@@ -1518,7 +1518,6 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.14.0
-    dev: true
 
   /@babel/template@7.22.15:
     resolution: {integrity: sha512-QPErUVm4uyJa60rkI73qneDacvdvzxshT3kksGqlGWYdOTIUOwJ7RDUL8sGqslY1uXWSL6xMFKEXDS3ox2uF0w==}
@@ -7025,8 +7024,8 @@ packages:
       typedarray: 0.0.6
     dev: true
 
-  /concurrently@8.2.1:
-    resolution: {integrity: sha512-nVraf3aXOpIcNud5pB9M82p1tynmZkrSGQ1p6X/VY8cJ+2LMVqAgXsJxYYefACSHbTYlm92O1xuhdGTjwoEvbQ==}
+  /concurrently@8.2.2:
+    resolution: {integrity: sha512-1dP4gpXFhei8IOtlXRE/T/4H88ElHgTiUzh71YUmtjTEHMSRS2Z/fgOxHSxxusGHogsRfxNq1vyAwxSC+EVyDg==}
     engines: {node: ^14.13.0 || >=16.0.0}
     hasBin: true
     dependencies:
@@ -15778,6 +15777,7 @@ packages:
 
   /querystringify@2.2.0:
     resolution: {integrity: sha512-FIqgj2EUvTa7R50u0rGsyTftzjYmv/a3hO345bZNrqabNqjtgiDMgmo4mkUjd+nzU5oF3dClKqFIPUKybUyqoQ==}
+    requiresBuild: true
     dev: true
 
   /queue-microtask@1.2.3:
@@ -15992,7 +15992,6 @@ packages:
 
   /regenerator-runtime@0.14.0:
     resolution: {integrity: sha512-srw17NI0TUWHuGa5CFGGmhfNIeja30WMBfbslPNhf6JrqQlLN5gcrvig1oqPxiVaXb0oW0XRKtH6Nngs5lKCIA==}
-    dev: true
 
   /regenerator-transform@0.10.1:
     resolution: {integrity: sha512-PJepbvDbuK1xgIgnau7Y90cwaAmO/LCLMI2mPvaXq2heGMR3aWW5/BQvYrhJ8jgmQjXewXvBjzfqKcVOmhjZ6Q==}
@@ -16005,7 +16004,7 @@ packages:
   /regenerator-transform@0.15.2:
     resolution: {integrity: sha512-hfMp2BoF0qOk3uc5V20ALGDS2ddjQaLrdl7xrGXvAIow7qeWRM2VA2HuCHkUKk9slq3VwEwLNK3DFBqDfPGYtg==}
     dependencies:
-      '@babel/runtime': 7.12.18
+      '@babel/runtime': 7.23.2
 
   /regex-not@1.0.2:
     resolution: {integrity: sha512-J6SDjUgDxQj5NusnOtdFxDwN/+HWykR8GELwctJ7mdqhcyy1xEc4SRFHUXvxTp661YaVKAjfRLZ9cCqS6tn32A==}
@@ -18403,6 +18402,7 @@ packages:
   /universalify@0.2.0:
     resolution: {integrity: sha512-CJ1QgKmNg3CwvAv/kOFmtnEN05f0D/cn9QntgNOQlQF9dgvVTHj3t+8JPdjqawCHk7V/KA+fbUqzZ9XWhcqPUg==}
     engines: {node: '>= 4.0.0'}
+    requiresBuild: true
     dev: true
 
   /universalify@2.0.0:
@@ -18508,6 +18508,7 @@ packages:
 
   /url-parse@1.5.10:
     resolution: {integrity: sha512-WypcfiRhfeUP9vvF0j6rw0J3hrWrw6iZv3+22h6iRMJ/8z1Tj6XfLP4DsUix5MhMPnXpiHDoKyoZ/bdCkwBCiQ==}
+    requiresBuild: true
     dependencies:
       querystringify: 2.2.0
       requires-port: 1.0.0
