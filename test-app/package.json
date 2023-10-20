@@ -39,7 +39,7 @@
     "@typescript-eslint/parser": "6.8.0",
     "@babel/eslint-parser": "7.22.15",
     "broccoli-asset-rev": "3.0.0",
-    "concurrently": "8.2.1",
+    "concurrently": "8.2.2",
     "ember-auto-import": "2.6.3",
     "ember-cli": "4.12.2",
     "ember-cli-addon-docs": "5.2.0",
