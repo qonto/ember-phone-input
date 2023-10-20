@@ -34,7 +34,7 @@
     "@glint/environment-ember-loose": "1.2.1",
     "@glint/template": "1.2.1",
     "@tsconfig/ember": "3.0.1",
-    "@types/qunit": "2.19.6",
+    "@types/qunit": "2.19.7",
     "@typescript-eslint/eslint-plugin": "6.8.0",
     "@typescript-eslint/parser": "6.8.0",
     "@babel/eslint-parser": "7.22.15",
