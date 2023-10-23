@@ -5,7 +5,7 @@ module.exports = function (environment) {
     modulePrefix: 'test-app',
     environment,
     rootURL: '/',
-    locationType: 'auto',
+    locationType: 'history',
     EmberENV: {
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.

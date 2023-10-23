@@ -1,13 +1,16 @@
-/* eslint-disable ember/no-classic-components, ember/no-classic-classes, ember/require-tagless-components, ember/no-actions-hash */
-import Component from '@ember/component';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
 
-export default Component.extend({
-  actions: {
-    // BEGIN-SNIPPET phone-input-action-handling.js
-    handleUpdate(number, metaData) {
-      this.set('number', number);
-      this.setProperties(metaData);
-    }
-    // END-SNIPPET
+export default class ActionHandlingComponent extends Component {
+  @tracked number;
+  @tracked metaData;
+
+  @action
+  // BEGIN-SNIPPET phone-input-action-handling.js
+  handleUpdate(number, metaData) {
+    this.number = number;
+    this.metaData = metaData;
   }
-});
+  // END-SNIPPET
+}

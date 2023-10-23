@@ -1,5 +1,5 @@
 import AddonDocsRouter, { docsRoute } from 'ember-cli-addon-docs/router';
-import config from 'test-app/config/environment';
+import config from './config/environment';
 
 export default class Router extends AddonDocsRouter {
   location = config.locationType;
