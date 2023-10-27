@@ -22,20 +22,20 @@ interface MetaData {
 }
 
 export interface PhoneInputArgs {
-  country: string;
   number: string | null;
-  disabled: boolean;
-  required: boolean;
-  autocomplete: string | null;
-  allowDropdown: boolean;
-  autoPlaceholder: 'aggressive' | 'off' | 'polite' | undefined;
-  customPlaceholder: string | null;
-  initialCountry: string;
-  onlyCountries: string[];
-  preferredCountries: string[];
-  separateDialCode: boolean;
   update: (number: string | null, meta: MetaData) => void;
-  onError: (error: unknown) => void;
+  country?: string;
+  disabled?: boolean;
+  required?: boolean;
+  autocomplete?: string | null;
+  allowDropdown?: boolean;
+  autoPlaceholder?: 'aggressive' | 'off' | 'polite' | undefined;
+  customPlaceholder?: string | null;
+  initialCountry?: string;
+  onlyCountries?: string[];
+  preferredCountries?: string[];
+  separateDialCode?: boolean;
+  onError?: (error: unknown) => void;
 }
 
 export interface PhoneInputSignature {
