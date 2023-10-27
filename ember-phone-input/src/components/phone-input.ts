@@ -67,10 +67,10 @@ export interface PhoneInputSignature {
 export default class PhoneInputComponent extends Component<PhoneInputSignature> {
   @service declare phoneInput: PhoneInputService;
 
-  isLoadingIti = false;
+  isLoadingIntlTelInput = false;
   type = 'tel';
-  _iti: intlTelInput.Plugin | null = null;
   update: (number: string | null, meta: MetaData) => void;
+  private intlTelInputInstance: intlTelInput.Plugin | null = null;
 
   constructor(owner: Owner, args: PhoneInputArgs) {
     super(owner, args);
@@ -232,9 +232,10 @@ export default class PhoneInputComponent extends Component<PhoneInputSignature> 
   @action
   onInput(event?: Event): boolean {
     const internationalPhoneNumber =
-      this._iti?.getNumber() ?? (event?.target as HTMLInputElement).value;
+      this.intlTelInputInstance?.getNumber() ??
+      (event?.target as HTMLInputElement).value;
 
-    const meta = this._metaData(this._iti);
+    const meta = this._metaData(this.intlTelInputInstance);
     this.update(internationalPhoneNumber, meta);
 
     return true;
@@ -252,13 +253,13 @@ export default class PhoneInputComponent extends Component<PhoneInputSignature> 
 
   @action
   onDestroy(element: HTMLInputElement): void {
-    this._iti?.destroy();
+    this.intlTelInputInstance?.destroy();
     element.removeEventListener('countrychange', this._onCountryChange);
   }
 
   async _loadAndSetup(element: HTMLInputElement): Promise<void> {
     try {
-      this.isLoadingIti = true;
+      this.isLoadingIntlTelInput = true;
 
       await this.phoneInput.load();
 
@@ -280,22 +281,22 @@ export default class PhoneInputComponent extends Component<PhoneInputSignature> 
       this.args.onError?.(error);
     } finally {
       if (!this.isDestroying && !this.isDestroyed) {
-        this.isLoadingIti = false;
+        this.isLoadingIntlTelInput = false;
       }
     }
   }
 
   _formatNumber(): void {
-    if (!this._iti) {
+    if (!this.intlTelInputInstance) {
       return;
     }
 
     if (this.country) {
-      this._iti.setCountry(this.country);
+      this.intlTelInputInstance.setCountry(this.country);
     }
 
     if (this.number) {
-      this._iti.setNumber(this.number);
+      this.intlTelInputInstance.setNumber(this.number);
     }
   }
 
@@ -329,36 +330,42 @@ export default class PhoneInputComponent extends Component<PhoneInputSignature> 
       options.customPlaceholder = (): string => customPlaceholder;
     }
 
-    const _iti = this.phoneInput.intlTelInput(element, options);
+    const intlTelInputInstance = this.phoneInput.intlTelInput(element, options);
 
     if (this.number) {
-      _iti.setNumber(this.number);
+      intlTelInputInstance.setNumber(this.number);
     }
 
-    this._iti = _iti;
+    this.intlTelInputInstance = intlTelInputInstance;
 
     if (this.initialCountry) {
-      this._iti.setCountry(this.initialCountry);
+      this.intlTelInputInstance.setCountry(this.initialCountry);
     }
 
-    this.update(this.number, this._metaData(_iti));
+    this.update(this.number, this._metaData(intlTelInputInstance));
   }
 
-  _metaData(iti: intlTelInput.Plugin | null): MetaData {
-    if (!iti) {
+  _metaData(intlTelInputPlugin: intlTelInput.Plugin | null): MetaData {
+    if (!intlTelInputPlugin) {
       // Libraries may rely on always receiving an object
       return {} as MetaData;
     }
 
-    const extension = iti.getExtension();
-    const selectedCountryData = iti.getSelectedCountryData();
-    const isValidNumber = iti.isValidNumber();
-    const E164 = iti.getNumber(intlTelInputUtils.numberFormat.E164);
-    const INTERNATIONAL = iti.getNumber(
+    const extension = intlTelInputPlugin.getExtension();
+    const selectedCountryData = intlTelInputPlugin.getSelectedCountryData();
+    const isValidNumber = intlTelInputPlugin.isValidNumber();
+    const E164 = intlTelInputPlugin.getNumber(
+      intlTelInputUtils.numberFormat.E164
+    );
+    const INTERNATIONAL = intlTelInputPlugin.getNumber(
       intlTelInputUtils.numberFormat.INTERNATIONAL
     );
-    const NATIONAL = iti.getNumber(intlTelInputUtils.numberFormat.NATIONAL);
-    const RFC3966 = iti.getNumber(intlTelInputUtils.numberFormat.RFC3966);
+    const NATIONAL = intlTelInputPlugin.getNumber(
+      intlTelInputUtils.numberFormat.NATIONAL
+    );
+    const RFC3966 = intlTelInputPlugin.getNumber(
+      intlTelInputUtils.numberFormat.RFC3966
+    );
 
     return {
       extension,
@@ -376,10 +383,10 @@ export default class PhoneInputComponent extends Component<PhoneInputSignature> 
   }
 
   _onCountryChange(): void {
-    const selectedCountry = this._iti?.getSelectedCountryData();
+    const selectedCountry = this.intlTelInputInstance?.getSelectedCountryData();
 
     if (selectedCountry?.iso2) {
-      this._iti?.setCountry(selectedCountry.iso2);
+      this.intlTelInputInstance?.setCountry(selectedCountry.iso2);
     }
 
     this.onInput();
