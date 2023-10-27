@@ -235,7 +235,7 @@ export default class PhoneInputComponent extends Component<PhoneInputSignature> 
       this.intlTelInputInstance?.getNumber() ??
       (event?.target as HTMLInputElement).value;
 
-    const meta = this._metaData(this.intlTelInputInstance);
+    const meta = this.metaData(this.intlTelInputInstance);
     this.update(internationalPhoneNumber, meta);
 
     return true;
@@ -243,21 +243,21 @@ export default class PhoneInputComponent extends Component<PhoneInputSignature> 
 
   @action
   onDidUpdate(): void {
-    this._formatNumber();
+    this.formatNumber();
   }
 
   @action
   onDidInsert(element: HTMLInputElement): void {
-    this._loadAndSetup(element);
+    this.loadAndSetup(element);
   }
 
   @action
   onDestroy(element: HTMLInputElement): void {
     this.intlTelInputInstance?.destroy();
-    element.removeEventListener('countrychange', this._onCountryChange);
+    element.removeEventListener('countrychange', this.onCountryChange);
   }
 
-  async _loadAndSetup(element: HTMLInputElement): Promise<void> {
+  private async loadAndSetup(element: HTMLInputElement): Promise<void> {
     try {
       this.isLoadingIntlTelInput = true;
 
@@ -269,13 +269,13 @@ export default class PhoneInputComponent extends Component<PhoneInputSignature> 
         return;
       }
 
-      this._setupLibrary(element);
+      this.setupLibrary(element);
 
-      this._formatNumber();
+      this.formatNumber();
 
       element.addEventListener(
         'countrychange',
-        this._onCountryChange.bind(this)
+        this.onCountryChange.bind(this)
       );
     } catch (error) {
       this.args.onError?.(error);
@@ -286,7 +286,7 @@ export default class PhoneInputComponent extends Component<PhoneInputSignature> 
     }
   }
 
-  _formatNumber(): void {
+  private formatNumber(): void {
     if (!this.intlTelInputInstance) {
       return;
     }
@@ -300,7 +300,7 @@ export default class PhoneInputComponent extends Component<PhoneInputSignature> 
     }
   }
 
-  _setupLibrary(element: HTMLInputElement): void {
+  private setupLibrary(element: HTMLInputElement): void {
     if (!this.phoneInput.intlTelInput) {
       return;
     }
@@ -342,10 +342,10 @@ export default class PhoneInputComponent extends Component<PhoneInputSignature> 
       this.intlTelInputInstance.setCountry(this.initialCountry);
     }
 
-    this.update(this.number, this._metaData(intlTelInputInstance));
+    this.update(this.number, this.metaData(intlTelInputInstance));
   }
 
-  _metaData(intlTelInputPlugin: intlTelInput.Plugin | null): MetaData {
+  private metaData(intlTelInputPlugin: intlTelInput.Plugin | null): MetaData {
     if (!intlTelInputPlugin) {
       // Libraries may rely on always receiving an object
       return {} as MetaData;
@@ -382,7 +382,7 @@ export default class PhoneInputComponent extends Component<PhoneInputSignature> 
     };
   }
 
-  _onCountryChange(): void {
+  private onCountryChange(): void {
     const selectedCountry = this.intlTelInputInstance?.getSelectedCountryData();
 
     if (selectedCountry?.iso2) {
