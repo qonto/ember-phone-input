@@ -9,7 +9,7 @@ Easily create phone input. With internationalization and validation in mind.
 
 ## Documentation & Usage
 
-[View the docs here](https://qonto.github.io/ember-phone-input/versions/master).
+See the [documentation](DOCS.md) for details.
 
 ## Installation
 
