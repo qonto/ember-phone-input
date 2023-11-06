@@ -21,7 +21,8 @@ export default {
     addon.publicEntrypoints([
       'components/**/*.js',
       'services/**/*.js',
-      'instance-initializers/**/*.js'
+      'instance-initializers/**/*.js',
+      'template-registry.js'
     ]),
 
     // These are the modules that should get reexported into the traditional
