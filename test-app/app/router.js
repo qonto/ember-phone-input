@@ -1,21 +1,9 @@
-import AddonDocsRouter, { docsRoute } from 'ember-cli-addon-docs/router';
-import config from './config/environment';
+import EmberRouter from '@ember/routing/router';
+import config from 'test-app/config/environment';
 
-export default class Router extends AddonDocsRouter {
+export default class Router extends EmberRouter {
   location = config.locationType;
   rootURL = config.rootURL;
 }
 
-Router.map(function () {
-  docsRoute(this, function () {
-    this.route('installation');
-    this.route('usage');
-    this.route('action-handling');
-    this.route('lazy-loading');
-    this.route('components', function () {
-      this.route('phone-input');
-    });
-  });
-
-  this.route('not-found', { path: '/*path' });
-});
+Router.map(function () {});
