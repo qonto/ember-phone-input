@@ -9,7 +9,7 @@ import type PhoneInputService from '../services/phone-input';
 import 'intl-tel-input/build/css/intlTelInput.css';
 import '../styles/styles.css';
 
-interface MetaData {
+export interface MetaData {
   extension: string;
   selectedCountryData: intlTelInput.CountryData;
   isValidNumber: boolean;
