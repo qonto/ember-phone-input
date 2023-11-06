@@ -20,10 +20,6 @@ module.exports = function (defaults) {
           rules: [fileLoaderConfig]
         }
       }
-    },
-    'ember-cli-addon-docs': {
-      documentingAddonAt: '../ember-phone-input',
-      addonSrcFolder: 'app'
     }
   });
 
