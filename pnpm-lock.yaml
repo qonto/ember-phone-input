@@ -72,6 +72,9 @@ importers:
       '@glint/template':
         specifier: 1.2.1
         version: 1.2.1
+      '@qonto/eslint-config-typescript':
+        specifier: 1.0.0-rc.0
+        version: 1.0.0-rc.0(eslint@8.53.0)(typescript@5.2.2)
       '@rollup/plugin-babel':
         specifier: 6.0.4
         version: 6.0.4(@babel/core@7.23.2)(rollup@3.29.4)
@@ -163,6 +166,9 @@ importers:
       '@glint/template':
         specifier: 1.2.1
         version: 1.2.1
+      '@qonto/eslint-config-typescript':
+        specifier: 1.0.0-rc.0
+        version: 1.0.0-rc.0(eslint@8.53.0)(typescript@5.2.2)
       '@tsconfig/ember':
         specifier: 3.0.2
         version: 3.0.2
@@ -2998,6 +3004,21 @@ packages:
       '@pnpm/config.env-replace': 1.1.0
       '@pnpm/network.ca-file': 1.0.2
       config-chain: 1.1.13
+    dev: true
+
+  /@qonto/eslint-config-typescript@1.0.0-rc.0(eslint@8.53.0)(typescript@5.2.2):
+    resolution: {integrity: sha512-laAtWhbOEaJH/Rq649bDM4gUW1OfVMNOgKe1Fg1R0/pCCmQgQ6AP0dz97Yj390HvHC4EDwiaPh8c7+agL/KY8A==}
+    engines: {node: '>= 18.*'}
+    peerDependencies:
+      eslint: ^7.0.0 || ^8.0.0
+      typescript: '*'
+    dependencies:
+      '@typescript-eslint/eslint-plugin': 6.9.1(@typescript-eslint/parser@6.9.1)(eslint@8.53.0)(typescript@5.2.2)
+      '@typescript-eslint/parser': 6.9.1(eslint@8.53.0)(typescript@5.2.2)
+      eslint: 8.53.0
+      typescript: 5.2.2
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /@release-it-plugins/lerna-changelog@6.0.0(release-it@16.2.1):
