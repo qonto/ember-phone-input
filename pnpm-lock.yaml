@@ -82,8 +82,8 @@ importers:
         specifier: 3.0.2
         version: 3.0.2
       '@types/intl-tel-input':
-        specifier: 18.1.3
-        version: 18.1.3
+        specifier: 18.1.4
+        version: 18.1.4
       '@types/rsvp':
         specifier: 4.0.7
         version: 4.0.7
@@ -3261,8 +3261,8 @@ packages:
     resolution: {integrity: sha512-pP0P/9BnCj1OVvQR2lF41EkDG/lWWnDyA203b/4Fmi2eTyORnBtcDoKDwjWQthELrBvWkMOrvSOnZ8OVlW6tXA==}
     dev: true
 
-  /@types/intl-tel-input@18.1.3:
-    resolution: {integrity: sha512-XsbGwInl11SPF2vwK1yTFcMsyjgTz9jAnP2LjRogrxVe6WxdxqXSGoaEXy+ENmIKOg0UJ1P47G/0+RUNDnWDiw==}
+  /@types/intl-tel-input@18.1.4:
+    resolution: {integrity: sha512-UT4dQ4dQA0w0uxU161aPROEEwMOQj5Qedm3ImdDNfkxi3JXzBX2FhcUS72pTyZ8ypaUr2e9ruJBiK6bwSGfbew==}
     dependencies:
       '@types/jquery': 3.5.25
     dev: true
