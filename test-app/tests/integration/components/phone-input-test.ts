@@ -104,7 +104,7 @@ module('Integration | Component | phone-input', function (hooks) {
     assert.dom('input').hasValue(newValue);
   });
 
-  test('should not insert the dial code by default', async function (this: TestContext, assert) {
+  test('does not insert the dial code by default', async function (this: TestContext, assert) {
     this.number = null;
     this.update = NOOP;
 
@@ -115,7 +115,7 @@ module('Integration | Component | phone-input', function (hooks) {
     assert.dom('input').hasValue('');
   });
 
-  test('can update the country', async function (this: TestContext, assert) {
+  test('updates the country', async function (this: TestContext, assert) {
     this.country = 'us';
     this.number = null;
     this.update = NOOP;
@@ -131,7 +131,7 @@ module('Integration | Component | phone-input', function (hooks) {
     assert.dom('.iti__flag').hasClass('iti__nz');
   });
 
-  test('phoneNumber is correctly invalid when country is changed', async function (this: TestContext, assert) {
+  test('invalidates phone number when country is changed', async function (this: TestContext, assert) {
     assert.expect(7);
 
     const country = 'fr';
@@ -188,10 +188,10 @@ module('Integration | Component | phone-input', function (hooks) {
     await render<TestContext>(
       hbs`<PhoneInput @disabled={{true}} @number={{this.number}} @update={{this.update}} />`
     );
-    assert.ok(find('input').disabled);
+    assert.ok(find('input')?.disabled);
   });
 
-  test('can be required', async function (this: TestContext, assert) {
+  test('is required', async function (this: TestContext, assert) {
     this.number = null;
     this.update = NOOP;
 
@@ -199,10 +199,10 @@ module('Integration | Component | phone-input', function (hooks) {
       hbs`<PhoneInput @required={{true}} @number={{this.number}} @update={{this.update}} />`
     );
 
-    assert.ok(find('input').required);
+    assert.ok(find('input')?.required);
   });
 
-  test('can prevent the dropdown', async function (this: TestContext, assert) {
+  test('prevents the dropdown', async function (this: TestContext, assert) {
     this.number = null;
     this.updateAllowDropdownNumber = NOOP;
 
@@ -213,7 +213,7 @@ module('Integration | Component | phone-input', function (hooks) {
     assert.dom('ul.country-list').doesNotExist();
   });
 
-  test('can set autocomplete', async function (this: TestContext, assert) {
+  test('sets autocomplete', async function (this: TestContext, assert) {
     this.number = null;
     this.update = NOOP;
 
@@ -221,10 +221,10 @@ module('Integration | Component | phone-input', function (hooks) {
       hbs`<PhoneInput @autocomplete={{"tel"}} @number={{this.number}} @update={{this.update}} />`
     );
 
-    assert.strictEqual(find('input').autocomplete, 'tel');
+    assert.strictEqual(find('input')?.autocomplete, 'tel');
   });
 
-  test('can update the country when the user types in the digits from Brazil code', async function (this: TestContext, assert) {
+  test('updates the country when the user types in the digits from Brazil code', async function (this: TestContext, assert) {
     this.number = null;
     this.update = NOOP;
 
@@ -237,7 +237,7 @@ module('Integration | Component | phone-input', function (hooks) {
     assert.dom('.iti__flag').hasClass('iti__br');
   });
 
-  test('can update the country when the user types in the digits from Malaysia code', async function (this: TestContext, assert) {
+  test('updates the country when the user types in the digits from Malaysia code', async function (this: TestContext, assert) {
     this.number = null;
     this.update = NOOP;
 
