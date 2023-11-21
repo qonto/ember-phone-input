@@ -1,5 +1,35 @@
 # Changelog
 
+
+## v10.0.0-beta.0 (2023-11-21)
+
+#### :boom: Breaking Change
+* [#810](https://github.com/qonto/ember-phone-input/pull/810) feat: drop node v16 ([@vscav](https://github.com/vscav))
+
+#### :rocket: Enhancement
+* [#818](https://github.com/qonto/ember-phone-input/pull/818) feat: use `Sinon.JS` in integration tests ([@vscav](https://github.com/vscav))
+* [#789](https://github.com/qonto/ember-phone-input/pull/789) refactor: migrate test-app package to TypeScript ([@vscav](https://github.com/vscav))
+* [#749](https://github.com/qonto/ember-phone-input/pull/749) refactor: migrate addon package to TypeScript ([@m-jovan](https://github.com/m-jovan))
+* [#745](https://github.com/qonto/ember-phone-input/pull/745) feat: migrate phone-input component to glimmer ([@m-jovan](https://github.com/m-jovan))
+
+#### :memo: Documentation
+* [#791](https://github.com/qonto/ember-phone-input/pull/791) chore: replace documentation application by markdown file ([@vscav](https://github.com/vscav))
+* [#754](https://github.com/qonto/ember-phone-input/pull/754) chore: replace broken Travis CI badge ([@nicolasgasco](https://github.com/nicolasgasco))
+* [#640](https://github.com/qonto/ember-phone-input/pull/640) fix: resolve PR link in changelog ([@vscav](https://github.com/vscav))
+
+#### :house: Internal
+* [#813](https://github.com/qonto/ember-phone-input/pull/813) chore(ci): remove unnecessary release script ([@vscav](https://github.com/vscav))
+* [#796](https://github.com/qonto/ember-phone-input/pull/796) chore: install and use @qonto/eslint-config-typescript@1.0.0-rc.0 ([@vscav](https://github.com/vscav))
+* [#777](https://github.com/qonto/ember-phone-input/pull/777) feat(ts-lint): allow use of private and protected syntax for classes in .ts files ([@vscav](https://github.com/vscav))
+* [#747](https://github.com/qonto/ember-phone-input/pull/747) feat: setup typescript configuration ([@m-jovan](https://github.com/m-jovan))
+* [#645](https://github.com/qonto/ember-phone-input/pull/645) fix: remove double pnpm installation ([@vscav](https://github.com/vscav))
+* [#644](https://github.com/qonto/ember-phone-input/pull/644) fix: remove double node installation on CI ([@vscav](https://github.com/vscav))
+
+#### Committers: 3
+- Jovan Milosevic ([@m-jovan](https://github.com/m-jovan))
+- Nicolas Gasco ([@nicolasgasco](https://github.com/nicolasgasco))
+- Vincent Scavinner ([@vscav](https://github.com/vscav))
+
 ## v9.0.1 (2023-06-02)
 
 #### :house: Internal
