@@ -8,10 +8,12 @@ import type {
 } from 'ember-phone-input/components/phone-input';
 import { setupRenderingTest } from 'ember-qunit';
 import QUnit, { module, test } from 'qunit';
+import sinon from 'sinon';
 
 interface TestContext extends PhoneInputArgs, TestContextBase {
   metaData: MetaData | null;
   separateDialNumber: PhoneInputArgs['number'];
+  spiedUpdate: sinon.SinonSpy;
   updateAllowDropdownNumber: () => void;
 }
 
@@ -38,26 +40,21 @@ module('Integration | Component | phone-input', function (hooks) {
   });
 
   test('renders the value', async function (this: TestContext, assert) {
-    assert.expect(3);
-
     const newValue = '2';
 
     this.number = null;
-    this.update = NOOP;
+    this.spiedUpdate = sinon.spy();
 
     await render<TestContext>(
-      hbs`<PhoneInput @number={{this.number}} @update={{action this.update}} />`
+      hbs`<PhoneInput @number={{this.number}} @update={{this.spiedUpdate}} />`
     );
 
     assert.dom('input').hasValue('');
 
-    this.set('update', (number: PhoneInputArgs['number']): void => {
-      assert.strictEqual(number, newValue);
-      this.set('number', newValue);
-    });
-
     await fillIn('input', newValue);
 
+    const [inputValue] = this.spiedUpdate.lastCall.args;
+    assert.strictEqual(inputValue, newValue);
     assert.dom('input').hasValue(newValue);
   });
 
@@ -104,7 +101,7 @@ module('Integration | Component | phone-input', function (hooks) {
     assert.dom('input').hasValue(newValue);
   });
 
-  test('should not insert the dial code by default', async function (this: TestContext, assert) {
+  test('does not insert the dial code by default', async function (this: TestContext, assert) {
     this.number = null;
     this.update = NOOP;
 
@@ -115,7 +112,7 @@ module('Integration | Component | phone-input', function (hooks) {
     assert.dom('input').hasValue('');
   });
 
-  test('can update the country', async function (this: TestContext, assert) {
+  test('updates the country', async function (this: TestContext, assert) {
     this.country = 'us';
     this.number = null;
     this.update = NOOP;
@@ -131,67 +128,67 @@ module('Integration | Component | phone-input', function (hooks) {
     assert.dom('.iti__flag').hasClass('iti__nz');
   });
 
-  test('phoneNumber is correctly invalid when country is changed', async function (this: TestContext, assert) {
-    assert.expect(7);
-
+  test('invalidates the phone number when country is changed', async function (this: TestContext, assert) {
     const country = 'fr';
     const validFrenchNumber = '0622334455';
 
     this.country = country;
     this.number = null;
-    this.update = NOOP;
+    this.spiedUpdate = sinon.spy();
 
     await render<TestContext>(
-      hbs`<PhoneInput @country={{this.country}} @number={{this.number}} @update={{action this.update}} />`
-    );
-
-    this.set(
-      'update',
-      (
-        _number: PhoneInputArgs['number'],
-        {
-          isValidNumber,
-          numberFormat
-        }: Pick<MetaData, 'isValidNumber' | 'numberFormat'>
-      ): void => {
-        assert.ok(isValidNumber);
-        assert.strictEqual(numberFormat?.E164, '+33622334455');
-        assert.strictEqual(numberFormat?.INTERNATIONAL, '+33 6 22 33 44 55');
-        assert.strictEqual(numberFormat?.NATIONAL, '06 22 33 44 55');
-        assert.strictEqual(numberFormat?.RFC3966, 'tel:+33-6-22-33-44-55');
-      }
+      hbs`<PhoneInput @country={{this.country}} @number={{this.number}} @update={{this.spiedUpdate}} />`
     );
 
     await fillIn('input', validFrenchNumber);
 
-    this.set(
-      'update',
-      (
-        _number: PhoneInputArgs['number'],
-        {
-          isValidNumber,
-          numberFormat
-        }: Pick<MetaData, 'isValidNumber' | 'numberFormat'>
-      ): void => {
-        assert.notOk(isValidNumber);
-        assert.strictEqual(numberFormat, null);
+    const [, onPhoneInputCallMetaData] = this.spiedUpdate.lastCall.args;
+    assert.deepEqual(onPhoneInputCallMetaData, {
+      extension: null,
+      selectedCountryData: {
+        name: 'France',
+        iso2: 'fr',
+        dialCode: '33',
+        priority: 0,
+        areaCodes: null
+      },
+      isValidNumber: true,
+      numberFormat: {
+        E164: '+33622334455',
+        INTERNATIONAL: '+33 6 22 33 44 55',
+        NATIONAL: '06 22 33 44 55',
+        RFC3966: 'tel:+33-6-22-33-44-55'
       }
-    );
+    });
 
     this.set('country', 'pt');
+
+    const [, onCountryUpdatedCallMetaData] = this.spiedUpdate.lastCall.args;
+    assert.deepEqual(onCountryUpdatedCallMetaData, {
+      extension: null,
+      selectedCountryData: {
+        name: 'Portugal',
+        iso2: 'pt',
+        dialCode: '351',
+        priority: 0,
+        areaCodes: null
+      },
+      isValidNumber: false,
+      numberFormat: null
+    });
   });
 
-  test('can be disabled', async function (this: TestContext, assert) {
+  test('is disabled', async function (this: TestContext, assert) {
     this.number = null;
     this.update = NOOP;
 
     await render<TestContext>(
       hbs`<PhoneInput @disabled={{true}} @number={{this.number}} @update={{this.update}} />`
     );
-    assert.ok(find('input').disabled);
+    assert.ok(find('input')?.disabled);
   });
 
-  test('can be required', async function (this: TestContext, assert) {
+  test('is required', async function (this: TestContext, assert) {
     this.number = null;
     this.update = NOOP;
 
@@ -199,10 +196,10 @@ module('Integration | Component | phone-input', function (hooks) {
       hbs`<PhoneInput @required={{true}} @number={{this.number}} @update={{this.update}} />`
     );
 
-    assert.ok(find('input').required);
+    assert.ok(find('input')?.required);
   });
 
-  test('can prevent the dropdown', async function (this: TestContext, assert) {
+  test('prevents the dropdown', async function (this: TestContext, assert) {
     this.number = null;
     this.updateAllowDropdownNumber = NOOP;
 
@@ -213,7 +210,7 @@ module('Integration | Component | phone-input', function (hooks) {
     assert.dom('ul.country-list').doesNotExist();
   });
 
-  test('can set autocomplete', async function (this: TestContext, assert) {
+  test('sets autocomplete', async function (this: TestContext, assert) {
     this.number = null;
     this.update = NOOP;
 
@@ -221,10 +218,10 @@ module('Integration | Component | phone-input', function (hooks) {
       hbs`<PhoneInput @autocomplete={{"tel"}} @number={{this.number}} @update={{this.update}} />`
     );
 
-    assert.strictEqual(find('input').autocomplete, 'tel');
+    assert.strictEqual(find('input')?.autocomplete, 'tel');
   });
 
-  test('can update the country when the user types in the digits from Brazil code', async function (this: TestContext, assert) {
+  test('updates the country when the user types in the digits from Brazil code', async function (this: TestContext, assert) {
     this.number = null;
     this.update = NOOP;
 
@@ -237,7 +234,7 @@ module('Integration | Component | phone-input', function (hooks) {
     assert.dom('.iti__flag').hasClass('iti__br');
   });
 
-  test('can update the country when the user types in the digits from Malaysia code', async function (this: TestContext, assert) {
+  test('updates the country when the user types in the digits from Malaysia code', async function (this: TestContext, assert) {
     this.number = null;
     this.update = NOOP;
 
@@ -276,16 +273,16 @@ module('Integration | Component | phone-input', function (hooks) {
 
       this.metaData = null;
       this.number = null;
-      this.set(
-        'update',
-        (number: PhoneInputArgs['number'], metaData: MetaData): void => {
-          this.set('metaData', metaData);
-          this.set('number', number);
-        }
-      );
+      this.update = (
+        number: PhoneInputArgs['number'],
+        metaData: MetaData
+      ): void => {
+        this.set('metaData', metaData);
+        this.set('number', number);
+      };
 
       await render<TestContext>(
-        hbs`<PhoneInput @number={{this.number}} @update={{action this.update}} />`
+        hbs`<PhoneInput @number={{this.number}} @update={{this.update}} />`
       );
 
       assert.dom('input').doesNotHaveAttribute('data-intl-tel-input-id');
