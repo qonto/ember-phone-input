@@ -176,7 +176,7 @@ importers:
         specifier: 2.19.8
         version: 2.19.8
       '@types/sinon':
-        specifier: ^17.0.2
+        specifier: 17.0.2
         version: 17.0.2
       '@typescript-eslint/eslint-plugin':
         specifier: 6.11.0
@@ -257,7 +257,7 @@ importers:
         specifier: 11.0.1
         version: 11.0.1(ember-source@5.4.0)
       ember-sinon-qunit:
-        specifier: ^7.4.0
+        specifier: 7.4.0
         version: 7.4.0(ember-source@5.4.0)(qunit@2.20.0)(sinon@17.0.1)
       ember-source:
         specifier: 5.4.0
@@ -329,7 +329,7 @@ importers:
         specifier: 5.0.0
         version: 5.0.0(release-it@16.2.1)
       sinon:
-        specifier: ^17.0.1
+        specifier: 17.0.1
         version: 17.0.1
       tracked-built-ins:
         specifier: 3.3.0
