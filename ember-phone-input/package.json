@@ -67,7 +67,7 @@
     "@rollup/plugin-babel": "6.0.4",
     "@tsconfig/ember": "3.0.2",
     "@types/intl-tel-input": "18.1.4",
-    "@types/rsvp": "4.0.7",
+    "@types/rsvp": "4.0.8",
     "@typescript-eslint/eslint-plugin": "6.12.0",
     "@typescript-eslint/parser": "6.12.0",
     "concurrently": "8.2.2",
