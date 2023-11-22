@@ -85,8 +85,8 @@ importers:
         specifier: 18.1.4
         version: 18.1.4
       '@types/rsvp':
-        specifier: 4.0.7
-        version: 4.0.7
+        specifier: 4.0.8
+        version: 4.0.8
       '@typescript-eslint/eslint-plugin':
         specifier: 6.12.0
         version: 6.12.0(@typescript-eslint/parser@6.12.0)(eslint@8.53.0)(typescript@5.2.2)
@@ -3461,8 +3461,8 @@ packages:
       '@types/glob': 8.1.0
       '@types/node': 20.8.10
 
-  /@types/rsvp@4.0.7:
-    resolution: {integrity: sha512-TOsoofOK1MNrZvsoq9op8Qc8r+pYJ6zwH4YCvDXNcsgjtFgS6IP/uGfLW0JH4zJgXGEC1TxJuKe0EBUPIAIA0A==}
+  /@types/rsvp@4.0.8:
+    resolution: {integrity: sha512-OraQXMlBrD3nll0VuEKENY3IoR4N3eDIqElVWo5dSheMveYYMDSIUMbtcI7wOGWyUilLwfaOx9VF8U8LdrHXkg==}
     dev: true
 
   /@types/semver@7.5.4:
