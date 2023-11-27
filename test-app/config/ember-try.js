@@ -6,6 +6,7 @@ const { embroiderSafe, embroiderOptimized } = require('@embroider/test-setup');
 // Needed for ember-source < 4.8, when preview types were first shipped
 const emberTypesPackages = {
   '@types/ember__application': '^4.0.8',
+  '@types/ember__owner': '^4.0.8',
   '@types/ember__routing': '^4.0.17'
 };
 
