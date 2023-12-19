@@ -79,8 +79,8 @@ importers:
         specifier: 6.0.4
         version: 6.0.4(@babel/core@7.23.5)(rollup@4.6.1)
       '@tsconfig/ember':
-        specifier: 3.0.2
-        version: 3.0.2
+        specifier: 3.0.3
+        version: 3.0.3
       '@types/intl-tel-input':
         specifier: 18.1.4
         version: 18.1.4
@@ -170,8 +170,8 @@ importers:
         specifier: 1.0.0-rc.0
         version: 1.0.0-rc.0(eslint@8.55.0)(typescript@5.2.2)
       '@tsconfig/ember':
-        specifier: 3.0.2
-        version: 3.0.2
+        specifier: 3.0.3
+        version: 3.0.3
       '@types/qunit':
         specifier: 2.19.9
         version: 2.19.9
@@ -3382,8 +3382,8 @@ packages:
     resolution: {integrity: sha512-C5Mc6rdnsaJDjO3UpGW/CQTHtCKaYlScZTly4JIu97Jxo/odCiH0ITnDXSJPTOrEKk/ycSZ0AOgTmkDtkOsvIA==}
     dev: true
 
-  /@tsconfig/ember@3.0.2:
-    resolution: {integrity: sha512-Whab2JuEA9r1RLke13tKWO7F95C7l3ivwVhxC37v98vOtFOmDA2BisY/6Fnhclmyydc5vOuVPwN3hi8UTboahw==}
+  /@tsconfig/ember@3.0.3:
+    resolution: {integrity: sha512-StVVkcg/VxA+eDzBcTQAcnmmcmg1OxaV41OqFYluqVHpUX28TOD91DGg58n2AMU9ia27zeBBeVQiLsfmzuIV7w==}
     dev: true
 
   /@types/acorn@4.0.6:

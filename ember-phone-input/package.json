@@ -65,7 +65,7 @@
     "@glint/template": "1.2.1",
     "@qonto/eslint-config-typescript": "1.0.0-rc.0",
     "@rollup/plugin-babel": "6.0.4",
-    "@tsconfig/ember": "3.0.2",
+    "@tsconfig/ember": "3.0.3",
     "@types/intl-tel-input": "18.1.4",
     "@types/rsvp": "4.0.8",
     "@typescript-eslint/eslint-plugin": "6.13.2",
