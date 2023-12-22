@@ -290,8 +290,8 @@ importers:
         specifier: 5.1.1
         version: 5.1.1(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.1.1)
       eslint-plugin-qunit:
-        specifier: 7.3.4
-        version: 7.3.4(eslint@8.56.0)
+        specifier: 8.0.1
+        version: 8.0.1(eslint@8.56.0)
       file-loader:
         specifier: 6.2.0
         version: 6.2.0(webpack@5.89.0)
@@ -8688,9 +8688,9 @@ packages:
       synckit: 0.8.5
     dev: true
 
-  /eslint-plugin-qunit@7.3.4(eslint@8.56.0):
-    resolution: {integrity: sha512-EbDM0zJerH9zVdUswMJpcFF7wrrpvsGuYfNexUpa5hZkkdFhaFcX+yD+RSK4Nrauw4psMGlcqeWUMhaVo+Manw==}
-    engines: {node: 12.x || 14.x || >=16.0.0}
+  /eslint-plugin-qunit@8.0.1(eslint@8.56.0):
+    resolution: {integrity: sha512-3bFOPryXoQOez95oP/JfWTxHBc/bgDQQZqTuv9uYTwH5sdIvSM2TES1iHDcy/F/LvqiqIpscDAOPAjlqSCnNPg==}
+    engines: {node: ^16.0.0 || ^18.0.0 || >=20.0.0}
     dependencies:
       eslint-utils: 3.0.0(eslint@8.56.0)
       requireindex: 1.2.0
