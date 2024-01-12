@@ -14,6 +14,7 @@
     "lint:fix": "pnpm --filter '*' lint:fix",
     "lint:types": "pnpm --filter '*' lint:types",
     "prepare": "pnpm build",
+    "postinstall": "lefthook install",
     "start": "concurrently 'npm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
     "start:addon": "pnpm --filter ember-phone-input start",
     "start:test-app": "pnpm --filter test-app start",
@@ -25,6 +26,7 @@
     "@release-it-plugins/lerna-changelog": "6.0.0",
     "@release-it-plugins/workspaces": "4.0.0",
     "concurrently": "8.2.2",
+    "lefthook": "^1.5.6",
     "prettier": "3.1.1",
     "release-it": "16.3.0"
   },
