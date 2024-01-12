@@ -6,6 +6,10 @@
 - `cd ember-phone-input`
 - `pnpm install`
 
+## Conventional Commits
+
+This repository enforces conventional commits through Git hooks and `commitlint`. Thus, your commits must follow the [Conventional Commits spec](https://www.conventionalcommits.org/en/v1.0.0/) and `@commitlint/config-conventional` [rules](https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional#rules).
+
 ## Linting
 
 - `pnpm lint`
