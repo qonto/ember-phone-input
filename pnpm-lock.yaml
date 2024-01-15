@@ -39,8 +39,8 @@ importers:
         specifier: ^2.1.0
         version: 2.1.0(@babel/core@7.23.6)(@glint/template@1.2.1)(ember-source@5.5.0)
       '@embroider/addon-shim':
-        specifier: ^1.0.0
-        version: 1.8.6
+        specifier: ^1.8.7
+        version: 1.8.7
       intl-tel-input:
         specifier: ^18.0.0
         version: 18.2.1
@@ -2242,16 +2242,6 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@embroider/addon-shim@1.8.6:
-    resolution: {integrity: sha512-siC9kP78uucEbpDcVyxjkwa76pcs5rVzDVpWO4PDc9EAXRX+pzmUuSTLAK3GztUwx7/PWhz1BenAivqdSvSgfg==}
-    engines: {node: 12.* || 14.* || >= 16}
-    dependencies:
-      '@embroider/shared-internals': 2.5.0
-      broccoli-funnel: 3.0.8
-      semver: 7.5.4
-    transitivePeerDependencies:
-      - supports-color
-
   /@embroider/addon-shim@1.8.7:
     resolution: {integrity: sha512-JGOQNRj3UR0NdWEg8MsM2eqPLncEwSB1IX+rwntIj22TEKj8biqx7GDgSbeH+ZedijmCh354Hf2c5rthrdzUAw==}
     engines: {node: 12.* || 14.* || >= 16}
@@ -2261,7 +2251,6 @@ packages:
       semver: 7.5.4
     transitivePeerDependencies:
       - supports-color
-    dev: true
 
   /@embroider/core@3.3.0(@glint/template@1.2.1):
     resolution: {integrity: sha512-QkOLFB3DUuDg6DU7qNAKFNJUyzgmjWNiRLcyrhThYgWeN5h8ilatG3sl5atBN6Jh3wCIJmhjXagafkA82a0abQ==}
@@ -8382,7 +8371,7 @@ packages:
       ember-source:
         optional: true
     dependencies:
-      '@embroider/addon-shim': 1.8.6
+      '@embroider/addon-shim': 1.8.7
       ember-cli-normalize-entity-name: 1.0.0
       ember-cli-string-utils: 1.1.0
       ember-source: 5.5.0(@babel/core@7.23.6)(@glimmer/component@1.1.2)(@glint/template@1.2.1)(rsvp@4.8.5)(webpack@5.89.0)
@@ -8411,7 +8400,7 @@ packages:
       qunit: ^2.13.0
     dependencies:
       '@ember/test-helpers': 3.2.1(@glint/template@1.2.1)(ember-source@5.5.0)(webpack@5.89.0)
-      '@embroider/addon-shim': 1.8.6
+      '@embroider/addon-shim': 1.8.7
       '@embroider/macros': 1.13.2(@glint/template@1.2.1)
       ember-cli-test-loader: 3.1.0
       ember-source: 5.5.0(@babel/core@7.23.6)(@glimmer/component@1.1.2)(@glint/template@1.2.1)(rsvp@4.8.5)(webpack@5.89.0)
@@ -8456,7 +8445,7 @@ packages:
       qunit: ^2.0.0
       sinon: ^15.0.3 || ^16.0.0 || ^17.0.0
     dependencies:
-      '@embroider/addon-shim': 1.8.6
+      '@embroider/addon-shim': 1.8.7
       '@types/sinon': 10.0.20
       ember-source: 5.5.0(@babel/core@7.23.6)(@glimmer/component@1.1.2)(@glint/template@1.2.1)(rsvp@4.8.5)(webpack@5.89.0)
       qunit: 2.20.0
@@ -16313,7 +16302,7 @@ packages:
   /tracked-built-ins@3.3.0:
     resolution: {integrity: sha512-ewKFrW/AQs05oLPM5isOUb/1aOwBRfHfmF408CCzTk21FLAhKrKVOP5Q5ebX+zCT4kvg81PGBGwrBiEGND1nWA==}
     dependencies:
-      '@embroider/addon-shim': 1.8.6
+      '@embroider/addon-shim': 1.8.7
       ember-tracked-storage-polyfill: 1.0.0
     transitivePeerDependencies:
       - supports-color
