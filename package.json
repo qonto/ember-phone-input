@@ -15,6 +15,7 @@
     "lint:types": "pnpm --filter '*' lint:types",
     "prepare": "pnpm build",
     "postinstall": "lefthook install",
+    "release": "release-it",
     "start": "concurrently 'npm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
     "start:addon": "pnpm --filter ember-phone-input start",
     "start:test-app": "pnpm --filter test-app start",
