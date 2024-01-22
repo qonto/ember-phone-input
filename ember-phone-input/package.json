@@ -68,7 +68,7 @@
     "@tsconfig/ember": "3.0.3",
     "@types/intl-tel-input": "18.1.4",
     "@types/rsvp": "4.0.9",
-    "@typescript-eslint/eslint-plugin": "6.15.0",
+    "@typescript-eslint/eslint-plugin": "6.19.0",
     "@typescript-eslint/parser": "6.18.1",
     "concurrently": "8.2.2",
     "ember-source": "5.5.0",
