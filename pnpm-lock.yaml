@@ -1,9 +1,5 @@
 lockfileVersion: '6.0'
 
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
-
 importers:
 
   .:
@@ -142,7 +138,7 @@ importers:
   test-app:
     dependencies:
       ember-phone-input:
-        specifier: 10.0.0-beta.0
+        specifier: 10.0.0
         version: link:../ember-phone-input
     devDependencies:
       '@babel/eslint-parser':
@@ -17527,3 +17523,7 @@ packages:
     resolution: {integrity: sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==}
     engines: {node: '>=12.20'}
     dev: true
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false

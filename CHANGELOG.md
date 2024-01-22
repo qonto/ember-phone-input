@@ -1,3 +1,12 @@
+
+
+# [10.0.0](https://github.com/qonto/ember-phone-input/compare/v10.0.0-beta.0...v10.0.0) (2024-01-22)
+
+
+### Features
+
+* **ci:** add manual release workflow ([5498630](https://github.com/qonto/ember-phone-input/commit/5498630e91452d39a0e700130ab6be7e4c88fe16))
+
 # Changelog
 
 

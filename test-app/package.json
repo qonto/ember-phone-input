@@ -1,6 +1,6 @@
 {
   "name": "test-app",
-  "version": "10.0.0-beta.0",
+  "version": "10.0.0",
   "private": true,
   "description": "Test app for ember-phone-input addon",
   "repository": "",
@@ -101,7 +101,7 @@
     "edition": "octane"
   },
   "dependencies": {
-    "ember-phone-input": "10.0.0-beta.0"
+    "ember-phone-input": "10.0.0"
   },
   "volta": {
     "extends": "../package.json"
