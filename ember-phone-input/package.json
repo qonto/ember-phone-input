@@ -48,7 +48,7 @@
   "dependencies": {
     "@ember/render-modifiers": "^2.1.0",
     "@embroider/addon-shim": "^1.8.7",
-    "intl-tel-input": "^18.0.0",
+    "intl-tel-input": "^19.5.5",
     "rsvp": "^4.8.5"
   },
   "devDependencies": {
