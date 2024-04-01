@@ -42,8 +42,8 @@ importers:
         specifier: ^1.8.7
         version: 1.8.7
       intl-tel-input:
-        specifier: ^18.0.0
-        version: 18.2.1
+        specifier: ^20.3.0
+        version: 20.3.0
       rsvp:
         specifier: ^4.8.5
         version: 4.8.5
@@ -11160,8 +11160,8 @@ packages:
     engines: {node: '>= 0.10'}
     dev: true
 
-  /intl-tel-input@18.2.1:
-    resolution: {integrity: sha512-wOm0/61kTtpYjOOW1bhHzC4G8Om+atTxHmg31FS0KD0LQ8k8BpgO925npyi4jlT/EK4+joABABZzz0/XeSgupQ==}
+  /intl-tel-input@20.3.0:
+    resolution: {integrity: sha512-oGerL5PgF+ETNwTbWNIebCErewKooGH/4tnPwdeh5Qhdb/ZsIAvEA2RozpYbkw+kTsnujEaAlcRDdQUyz5xlvQ==}
     dev: false
 
   /invariant@2.2.4:
