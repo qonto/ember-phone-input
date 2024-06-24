@@ -40,7 +40,7 @@
     "@types/qunit": "2.19.9",
     "@types/sinon": "17.0.3",
     "@typescript-eslint/eslint-plugin": "6.19.1",
-    "@typescript-eslint/parser": "6.18.1",
+    "@typescript-eslint/parser": "7.13.1",
     "broccoli-asset-rev": "3.0.0",
     "concurrently": "8.2.2",
     "ember-auto-import": "2.7.2",
